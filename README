@@ -1,3 +1,6 @@
+Welcome to the Karel and Python Textbook Project
+================================================
+
 The main file is karel_en.tex. To compile it, type
 
 pdflatex karel_en
