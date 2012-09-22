@@ -1,0 +1,322 @@
+\documentclass[article,A4,12pt]{llncs}
+
+% Conditional compilation.
+% NOTE: If you set fullversionfalse, just compile ONCE so that TOC stays unchanged.
+\newif\iffullversion
+\fullversiontrue
+%\fullversionfalse
+
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{amsfonts}
+\usepackage{mathrsfs, bm}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{subfig}
+\usepackage{epsf,times}
+\usepackage{color}
+\usepackage{wrapfig}
+\usepackage{cases}
+\usepackage{multicol}
+
+\usepackage{palatino}
+
+\usepackage[T1]{fontenc}
+%\newcommand{\tmname}[1]{\textsc{#1}}
+%\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+%\newcommand{\tmsamp}[1]{\textsf{#1}}
+%\newcommand{\tmtextsc}[1]{{\scshape{#1}}}
+%\newcommand{\tmtextsl}[1]{{\slshape{#1}}}
+%\newcommand{\tmtexttt}[1]{{\ttfamily{#1}}}
+
+\leftmargin=0.0cm
+\oddsidemargin=0.5cm
+\evensidemargin=0.5cm
+\topmargin=0cm
+\textwidth=16.0cm
+%\textheight=21.5cm
+\textheight=20.0cm
+\pagestyle{plain}
+\setlength{\columnsep}{20pt}
+
+\def\m{\mathbf{m}}
+\def\H{\mathbf{H}}
+\def\E{\mathbf{E}}
+\newcommand{\vepsi}{{\varepsilon}}
+\def\hnorm#1#2{\vert\,#1\,\vert_{#2}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\Sph}{{\mathbb S}}
+\def\x{\mathbf{x}}
+\def\hvec{\overline{\mathbf{h}}}
+\def\evec{\overline{\mathbf{e}}}
+
+\newcommand{ \etal}{\mbox{\emph{et al. }}}
+
+\newcommand\vect[1]{\mbf{#1}}
+\newcommand{\mbf}[1]{\mbox{\boldmath$#1$}} 
+\newcommand{\RC}[1]{#1 $\times$ #1 $\times$ #1}
+\def\um{$\mu$m}
+\def\C{$^{\circ}\mathrm{C}$}
+
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+
+% DEFINITION OF CUSTOM FONT SIZE
+\newcommand{\customfontA}{\fontsize{50}{55}\selectfont}
+\newcommand{\customfontB}{\fontsize{14.4}{20}\selectfont}
+\newcommand{\customfontC}{\fontsize{30}{35}\selectfont}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\def\clovek#1{\noindent\bgroup\vbox{\noindent#1}\egroup\vskip1em}
+
+% TO INPUT BACKGROUND IMAGE
+%\usepackage{eso-pic}
+%\newcommand\BackgroundPic{
+%\put(0,0){
+%\parbox[b][\paperheight]{\paperwidth}{
+%\vfill
+%\centering
+%\includegraphics[width=\paperwidth,height=\paperheight]{img/karel-frontpage.png}
+%%\includegraphics[width=\paperwidth,height=\paperheight]{img/background.jpg}
+%\vfill
+%}}}
+
+\usepackage{fancyvrb}
+
+\newenvironment{bluecode}{\VerbatimEnvironment \color{blue} \begin{Verbatim}}
+{\end{Verbatim}}
+
+
+\begin{document}
+
+% INPUTTING BACKGROUND IMAGE
+%\AddToShipoutPicture{\BackgroundPic}
+%\vbox{}
+%\pagestyle{empty}
+%\newpage
+%\textwidth=15.5cm
+%\ClearShipoutPicture
+%\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+\vbox{}
+\begin{figure}[!ht]
+%\hspace{-4mm}
+\includegraphics[width=8cm]{imgp/logo.png}
+\vspace{10mm}
+\end{figure}
+\vbox{}
+\vspace{1.5cm}
+
+\begin{center}
+{\huge \bf First Course in Programming}
+\end{center}
+
+\begin{figure}[!ht]
+\begin{center}
+\vspace{-6mm}
+\includegraphics[width=0.26\textheight]{imgk/karel-logo.png}\ \ \ \ \ \ 
+\includegraphics[width=0.2\textheight]{imgp/python-logo.png}
+\vbox{}
+\vspace{-9mm}
+\end{center}
+\end{figure}
+\begin{center}
+{\huge \bf with Karel the Robot and Python}
+\end{center}
+\vbox{}
+\vspace{5mm}
+\begin{center}
+\iffullversion
+\else
+\centerline{\huge \color{red}{PREVIEW}}
+\fi
+\vfill
+%{\large
+%{\bf Pavel Solin \& Salih Dede}
+%Contribute and become a co-author!
+%}
+\end{center}
+\vfill
+\vfill
+\begin{center}
+Revision Sept-22-2012. Copyright 2012 FEMhub Inc. All rights reserved.
+\end{center}
+\newpage
+\vbox{}
+\vfill
+{
+\noindent
+{\bf About this Textbook}\\[4mm]
+This free textbook is provided as a courtesy to NCLab users. 
+It will help you discover the elegance and power of procedural and 
+object-oriented programming with Karel the Robot and Python. The former 
+is a famous educational language created and still used at the Stanford University, 
+the latter is a modern high-level dynamical programming language that is used
+in many areas of business, engineering, and science today. After taking 
+this course, you will have solid theoretical knowledge and vast
+practical experience with computer programming. \\[4mm]
+
+\noindent
+{\bf About the Authors}\\[4mm]
+Pavel Solin is Professor of Computational Science at the University of Nevada, Reno. 
+Computer programming has been his deep personal passion since childhood, and later it 
+became part of his profession. He has been developing advanced computer programs in many
+different languages, supervising large software projects, and teaching programming to 
+college-level students. Salih Dede is Instructor of Computer
+Programming at the Coral Academy of Science High School in Reno. He has vast experience 
+with teaching programming to high school students, and outstanding instructional
+achievements. \\[4mm]
+
+\noindent
+{\bf Become a Co-Author}\\[4mm]
+This book is meant to become a community project. All contributors become automatically
+co-authors. The book needs more illustrations, as well as more advanced exercises 
+for Karel and Python. If you are interested in contributing, let know Pavel at 
+{\tt pavel@femhub.com}.\\[4mm]
+
+
+\noindent
+{\bf For Instructors}\\[4mm]
+Review Book and Exercise Book containing 
+hundreds of review questions with answers and programming exercises with
+solutions, respectively, are part of the NCLab-powered course 
+{\em Intro to Programming with Karel the Robot and Python} that is 
+available at \\
+
+{\color{blue}
+\centerline{\tt http://introtoprogramming.net}
+}
+\vspace{5mm}
+
+\noindent
+for a small subscription fee.  In addition to 
+standard cloud benefits such as anytime-anywhere accessibility through 
+the web browser interface and working from mobile devices, the course comes with 
+additional attractive features including 
+automated grading and student progress tracking. 
+The course will be opened in January 2013.
+}
+\vfill
+
+
+
+\newpage
+%{\ }
+\setcounter{tocdepth}{2}
+\tableofcontents
+%\pagestyle{plain}
+
+\newpage
+
+\pagestyle{plain}
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{plain}
+\setcounter{page}{1}
+\section*{Foreword}
+This course provides a gentle yet efficient and comprehensive introduction to modern algorithmic 
+design and computer programming. It consists of two programming languages -- {\em Karel the Robot} 
+and {\em Python}. Karel the Robot is a famous educational programming language that was created 
+at the Stanford University. It features a robot that collects gems in a maze, and helps students 
+develop advanced algorithmic skills using a handful of simple commands that do not involve math. 
+Python is a modern high-level dynamical programming language that is widely used in business, 
+science, and engineering applications. It is much easier to learn than C, C++ or Java.
+
+Starting with Karel the Robot, students discover principles of computer programming effortlessly,
+without being exposed to technical details of conventional programming languages.
+Could such an introduction be done with a conventional programming language? Yes, but 
+it would be obscurred and slowed down by technicalities, not mentioning that it would 
+not be fun. The course starts out in Manual mode (Level 0) where the robot can be guided via 
+clicking on five buttons {\em Go} (make one step forward), {\em Left} (turn left), {\em Right} 
+(turn right), {\em Put} (put a gem on the groud) and {\em Get} (pick up a gem from the ground). 
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.75\textwidth]{imgk/fore-1.png}
+\end{center}
+\vspace{-2mm}
+\caption{Sample game {\em Diamond Mine} in Manual mode.}
+\label{fig:f1}
+\vspace{-4mm}
+\end{figure}
+\noindent
+In the next level which is called {\em Bridge to Programming} students keep solving 
+problems by typing the commands {\tt go}, {\tt left}, {\tt right}, {\tt put} and {\tt get} 
+instead of clicking on buttons. 
+
+The need for higher functionality such as loops, conditions, and custom commands arises 
+naturally as game goals become more complicated. 
+Students learn quickly that it is advantageous to break complex tasks into smaller 
+ones, which is one of the most important principle of computer 
+programming. The textbook is written by programming experts, and in addition to 
+advanced programming skills the students gain an overview of good and bad 
+programming habits.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.75\textwidth]{imgk/fore-2.png}
+\end{center}
+\vspace{-2mm}
+\caption{Sample game {\em Speleologist} in Programming mode.}
+\label{fig:f2}
+\vspace{-4mm}
+\end{figure}
+\noindent
+The syntax of Karel the Robot is very close to Python -- in fact Python feels like Karel's
+older brother. The transition from Karel to Python is as seamless as the transition from 
+one Karel's Level to another. 
+In Python, students continue building their skills in the same way they did with Karel. 
+They learn more advanced concepts including mathematical operations, plotting, local and 
+global variables, strings, tuples, lists, dictionaries, and others. They get to solve 
+realistic problems, but Python is still a lot of fun. 
+
+A strong companion of Python are its libraries. Besides the Standard Library that
+contains many build-in functions not present in lower-level languages such as 
+Java, C, C++ or Fortran, Python also has powerful scientific libraries including 
+Scipy, Numpy, Matplotlib, Pylab, Sympy and others. With these, students are ready to 
+solve entry-level scientific and engineering problems. These libraries are discussed
+at the end of the course.  
+
+\part{Karel the Robot}
+
+\input part-1.tex
+
+\part{Introduction to Python}
+
+\input part-2.tex
+
+\section{What next?}
+
+Congratulations, you made it! We hope that you enjoyed the textbook and the 
+exercises. If you can think of any way to improve the application Karel the 
+Robot or this tutorial, we would be very happy to hear from you. If you 
+have an interesting new game or exercises for Karel, please let us know as well. 
+
+Although you may feel like an Almighty Programmer right now, we would
+recommend staying humble. Even the most experienced programmers are
+learning new things all the time. There is much more to Python that 
+we managed to cover in this introductory textbook. You already know 
+about the Internet resources where you can learn more.  
+
+Alternatively, you may dive into a next programming language! We would 
+recommend Javascript since this is the most popular language for web 
+development. Of course there are many more languages to explore, including 
+C/C++, Java, Perl, Ruby, Lua and others.\\
+
+\noindent
+In any case, our team wishes you good luck, and keep us in your 
+favorite bookmarks! \\
+
+\hbox{} \hfill{} Your NCLab Team
+
+
+
+
+\end{document}

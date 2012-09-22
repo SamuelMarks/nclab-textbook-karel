@@ -1,0 +1,18 @@
+The main file is karel_en.tex. To compile it, type
+
+pdflatex karel_en
+
+or just use the script "laa". To view it (on a Linux 
+system), type
+
+okular karel_en.pdf &
+
+or just use the script "xd".
+
+You are very welcome to contribute. For this, you need 
+to make your changes, commit them, and send a pull request 
+to the source Github repository. We will get back to you!
+
+Your NCLab team
+
+ 
