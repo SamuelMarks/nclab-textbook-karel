@@ -1130,9 +1130,10 @@ ax.plot_wireframe(X, Y, Z, rstride=1, cstride=1)
 with 
 
 \begin{bluecode}
-cset = ax.contour(X, Y, Z)
+cset = ax.contour(X, Y, Z, num_contours)
 ax.clabel(cset)
 \end{bluecode}
+where {\tt num\_contours} is the number of contours to be shown.
 The output is shown in Fig. \ref{fig:plot3d-4}.
 
 \begin{figure}[!ht]
@@ -2778,13 +2779,19 @@ if needed.
 
 \subsection{Other types of exceptions}
 
-There are many different exceptions including {\tt MemoryError} (program runs out of memory),
-{\tt NameError} (local or global name is not found), {\tt OverflowError} (result of an arithmetic 
-operation is too large to be represented), {\tt SyntaxError} (parser encounters a syntax error),
-{\tt IndentationError} (parser finds incorrect indentation), {\tt UnboundLocalError} (reference 
-is made to a local variable in a function or method, but no value has been bound to that variable),
+There are many different exceptions including 
+\begin{itemize}
+\item {\tt ValueError} (wrong value encountered in a function or expression), 
+\item {\tt MemoryError} (program runs out of memory),
+\item {\tt Name Error} (local or global name is not found), 
+\item {\tt OverflowError} (result of an arithmetic operation is too large to be represented), 
+\item {\tt SyntaxError} (parser encounters a syntax error),
+\item {\tt IndentationError} (parser finds incorrect indentation), 
+\item {\tt UnboundLocalError} (reference is made to a local variable in a function or method, 
+      but no value has been bound to that variable),
+\end{itemize}
 and others. All of them can be caught using the {\tt try} command. If you are interested in 
-learning more, visit http://docs.python. org/library/exceptions.html.
+learning more, visit http://docs.python. org/library/exceptions. html.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
