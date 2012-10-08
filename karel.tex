@@ -78,7 +78,7 @@ smoothly to Python where we can do as much math as we like!
 The simplest way to launch Karel is to click on the icon 
 {\em Programming} and select {\em Karel} in the menu. This will launch the application 
 in {\em Programming mode} with a randomly generated maze, as shown in Fig. \ref{fig:init}.
-
+\newpage
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=0.7\textwidth]{imgk/init.png}
@@ -86,9 +86,9 @@ in {\em Programming mode} with a randomly generated maze, as shown in Fig. \ref{
 \vspace{-2mm}
 \caption{Launching Karel in Programming mode, with a random maze.}
 \label{fig:init}
-\vspace{-10mm}
+%\vspace{-10mm}
 \end{figure}
-\newpage
+
 \noindent
 The Programming mode is the most frequently used one. It is possible to 
 switch to {\em Manual mode}, {\em Designer}, and {\em Games} in the menu. 
@@ -946,10 +946,10 @@ coordinates [0, 0]. Let's say that Karel stands as shown in Fig. \ref{fig:gps-10
 \noindent
 Then the above program has the following output:
 
-\begin{bluecode}
+\begin{greencode}
 Horizontal position: 0
 Vertical position: 0
-\end{bluecode}
+\end{greencode}
 The maze's width (in west-east direction) is 15 tiles, and its height (in south-north direction) 
 is 12 tiles. If Karel stands in the north-east corner as shown in Fig. \ref{fig:gps-101},
 
@@ -966,10 +966,10 @@ is 12 tiles. If Karel stands in the north-east corner as shown in Fig. \ref{fig:
 \noindent
 then the output of the program is
 
-\begin{bluecode}
+\begin{greencode}
 Horizontal position: 14
 Vertical position: 11
-\end{bluecode}
+\end{greencode}
 Try it! Also move Karel to other parts of the maze in Designer and run the program again
 to make yourself familiar with how the GPS device works.
 
@@ -1049,10 +1049,10 @@ print "End position:", a
 \end{bluecode}
 will produce the following output:
 
-\begin{bluecode}
+\begin{greencode}
 Start position: 5
 End position: 10
-\end{bluecode}
+\end{greencode}
 Another way to change the value of a numerical variable is to increase it by one or 
 decrease it by one via the commands {\tt inc()} and 
 {\tt dec()}, respectively. Commands {\tt inc(a, num)} and 
@@ -1071,9 +1071,9 @@ print "Went", a, "steps before reaching a wall."
 \end{bluecode}
 will have the following output:
 
-\begin{bluecode}
+\begin{greencode}
 Went 7 steps before reaching a wall.
-\end{bluecode}
+\end{greencode}
 
 \subsection{Comparison operations}
 
@@ -1093,9 +1093,9 @@ print a < b
 \end{bluecode}
 yields the output
 
-\begin{bluecode}
+\begin{greencode}
 True
-\end{bluecode}
+\end{greencode}
 The code
 
 \begin{bluecode}
@@ -1106,9 +1106,9 @@ print c
 \end{bluecode}
 yields
 
-\begin{bluecode}
+\begin{greencode}
 False
-\end{bluecode}
+\end{greencode}
 The code 
 
 \begin{bluecode}
@@ -1119,14 +1119,14 @@ while a <= 5
 \end{bluecode}
 yields 
 
-\begin{bluecode}
+\begin{greencode}
 0
 1
 2
 3
 4
 5
-\end{bluecode}
+\end{greencode}
 
 \subsection{Lists}
 
@@ -1161,9 +1161,9 @@ print W
 \end{bluecode}
 whose output is 
 
-\begin{bluecode}
+\begin{greencode}
 [0, 50, 100]
-\end{bluecode}
+\end{greencode}
 Integer numbers can be combined with strings:
 
 \begin{bluecode}
@@ -1181,9 +1181,9 @@ print "This is the list Y:", Y
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 This is the list Y: [1, "Hello", 2, [1, 2, 3]]
-\end{bluecode}
+\end{greencode}
 \underline{\em Accessing list items by indices}\\
 
 Any list item can be accessed and either printed, assigned 
@@ -1201,12 +1201,12 @@ print "Fourth item:", L[3]
 \end{bluecode}
 whose output is
 
-\begin{bluecode}
+\begin{greencode}
 First item: 8
 Second item: 12
 Third item: 16
 Fourth item: 20
-\end{bluecode}
+\end{greencode}
 \underline{\em Appending items to a list}\\
 
 An arbitrary integer number, text string, or another list {\tt obj} can be appended 
@@ -1224,9 +1224,9 @@ print L
 \end{bluecode}
 whose output is 
 
-\begin{bluecode}
+\begin{greencode}
 [1, 11, 21]
-\end{bluecode}
+\end{greencode}
 \underline{\em Removing items via the {\tt pop()} function}\\
 
 The {\tt i}-th item can be deleted from a list {\tt L} 
@@ -1245,10 +1245,10 @@ print L
 \end{bluecode}
 whose output is 
 
-\begin{bluecode}
+\begin{greencode}
 Tuesday
 ['Monday', 'Wednesday']
-\end{bluecode}
+\end{greencode}
 If the {\tt pop()} function is used without an index, it removes
 and returns the last object of the list.\\
 
@@ -1273,10 +1273,10 @@ print L
 \end{bluecode}
 is 
 
-\begin{bluecode}
+\begin{greencode}
 ['Tuesday', 'Wednesday']
 ['Wednesday']
-\end{bluecode}
+\end{greencode}
 \underline{\em Length of a list}\\
 
 One can use the function {\tt len(X)} to obtain the length of a list {\tt X} -- an integer
@@ -1326,9 +1326,9 @@ is as shown in Fig. \ref{fig:list-1},
 \noindent
 then the output of the above program is
 
-\begin{bluecode}
+\begin{greencode}
 Path: [[11, 6], [10, 6], [9, 6], [8, 6], [7, 6], [6, 6], [5, 6]]
-\end{bluecode}
+\end{greencode}
 To keep Karel's language simple, we do not allow double indices. Nevertheless
 there is a simple way to get to the items of lists that are contained in other lists:
 
@@ -1357,9 +1357,9 @@ print a
 \end{bluecode}
 throws an error message 
 
-\begin{bluecode}
+\begin{redcode}
 Unknown variable/procedure "a" 
-\end{bluecode}
+\end{redcode}
 Although using local variables might seem constraining, in reality it helps us 
 to keep our code fit. It is a very good habit to keep variables in our programs 
 as local as possible. More about local and global variables will be said in 

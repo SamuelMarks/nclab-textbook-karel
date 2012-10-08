@@ -156,9 +156,9 @@ You can add real numbers too,
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 9.51
-\end{bluecode}
+\end{greencode}
 Two numbers can be subtracted as follows,
 
 \begin{bluecode}
@@ -166,9 +166,9 @@ Two numbers can be subtracted as follows,
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 5.4
-\end{bluecode}
+\end{greencode}
 
 \subsection{Multiplication}
 Multiplication is done using the '{\tt *}' symbol as in
@@ -178,9 +178,9 @@ Multiplication is done using the '{\tt *}' symbol as in
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 36
-\end{bluecode}
+\end{greencode}
 Of course, real numbers can be multiplied as well:
 
 \begin{bluecode}
@@ -188,9 +188,9 @@ Of course, real numbers can be multiplied as well:
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 45.029
-\end{bluecode}
+\end{greencode}
 \subsection{Division}
 With division, we need to be a bit careful. Look at this:
 
@@ -199,9 +199,9 @@ With division, we need to be a bit careful. Look at this:
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 6
-\end{bluecode}
+\end{greencode}
 And then look at this:
 
 \begin{bluecode}
@@ -209,9 +209,9 @@ And then look at this:
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 6
-\end{bluecode}
+\end{greencode}
 In all major computer languages including C, C++, Fortran, Python and 
 others:\\
 
@@ -241,9 +241,9 @@ symbol {\tt **} for this:
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 16
-\end{bluecode}
+\end{greencode}
 \subsection{Modulo}
 The last of the common arithmetic operations is {\em modulo}. Recall that this is the remainder 
 after integer division. In Python modulo is done using the per cent symbol:
@@ -253,9 +253,9 @@ after integer division. In Python modulo is done using the per cent symbol:
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 2
-\end{bluecode}
+\end{greencode}
 Of course, one can use brackets:
 
 \begin{bluecode}
@@ -263,9 +263,9 @@ Of course, one can use brackets:
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 20
-\end{bluecode}
+\end{greencode}
 \subsection{Order of operations}
 Python respects the standard order of operations:
 
@@ -286,9 +286,9 @@ To illustrate the priority of operations, we can try the following:
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 30
-\end{bluecode}
+\end{greencode}
 \subsection{Using empty characters makes you code better readable}
 Your code will be much better readable if you use empty
 characters on either side of arithmetic symbols, as well as 
@@ -313,9 +313,9 @@ After Numpy is imported, we can calculate, for example, $e^2$:
 exp(2)
 \end{bluecode}
 Output:
-\begin{bluecode}
+\begin{greencode}
 7.3890560989306504
-\end{bluecode}
+\end{greencode}
 Elementary functions (and constants) that one can import from Numpy are listed
 below. We also show their arguments for clarity, but the functions are imported without 
 them. For example, the absolute value function is imported via {\tt from numpy import abs}.\\
@@ -360,18 +360,18 @@ makes it imaginary:
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 (-1+0j)
-\end{bluecode}
+\end{greencode}
 This is one way to define complex numbers:
 \begin{bluecode}
 1 + 3j
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 (1+3j)
-\end{bluecode}
+\end{greencode}
 Another way is to use the command {\tt complex}:
 
 \begin{bluecode}
@@ -379,9 +379,9 @@ complex(1, 3)
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 (1+3j)
-\end{bluecode}
+\end{greencode}
 All arithmetic operations that are used for real numbers can be 
 used for complex numbers as well, for example:
 
@@ -390,9 +390,9 @@ used for complex numbers as well, for example:
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 (1.5+0.5j)
-\end{bluecode}
+\end{greencode}
 To extract the real and imaginary parts of a complex number {\tt z}, use {\tt z.real}
 and {\tt z.imag}. Use {\tt abs()} to get the absolute value:
 
@@ -404,11 +404,11 @@ abs(a)
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 3
 4
 5
-\end{bluecode}
+\end{greencode}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -447,9 +447,9 @@ print "5 + 3 is", add(5, 3)
 \end{bluecode}
 This will produce the following output:
 
-\begin{bluecode}
+\begin{greencode}
 5 + 3 is 8
-\end{bluecode}
+\end{greencode}
 To show another example, the following function does not take any arguments 
 and it does not return any results:
 
@@ -475,9 +475,9 @@ print add(word1, word2)
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 Good Evening!
-\end{bluecode}
+\end{greencode}
 Things like this make Python very intuitive and easy to use. In conventional languages such as C or C++, 
 we would have to define different functions: {\tt add\_real\_numbers(a, b)} for real numbers,
 {\tt add\_complex\_numbers(a, b)} for complex numbers numbers, {\tt add\_strings(a, b)} for strings, etc. 
@@ -527,9 +527,9 @@ print "Powers are", powers(var1)
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 Powers are (4, 8, 16)
-\end{bluecode}
+\end{greencode}
 We can also store the returned values in three separate variables:
 
 \begin{bluecode}
@@ -539,9 +539,9 @@ print "Powers are", p2, p3, p4
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 Powers are 9 27 81
-\end{bluecode}
+\end{greencode}
 Look how complicated the same program would be in C/C++:
 
 \begin{bluecode}
@@ -622,18 +622,18 @@ B = 1
 add(A, B)
 \end{bluecode}
 Output:
-\begin{bluecode}
+\begin{greencode}
 6
-\end{bluecode}
+\end{greencode}
 But it can be also called with the second argument omitted:
 \begin{bluecode}
 A = 5
 add(A)
 \end{bluecode}
 Output:
-\begin{bluecode}
+\begin{greencode}
 15
-\end{bluecode}
+\end{greencode}
 \underline{Some rules to remember}:
 \begin{itemize}
 \item Default arguments need to be introduced {\bf after} standard (non-default) arguments. In other words, the 
@@ -643,11 +643,10 @@ def add(a = 5, b):
     return a + b
 \end{bluecode}
 This is the error message:
-\begin{bluecode}
-  File "<nclab>", line 1
-SyntaxError: non-default argument follows default argument
-
-\end{bluecode}
+\begin{redcode}
+File "<nclab>", line 1
+SyntaxError: non-default argument follows default argument.
+\end{redcode}
 \item If multiple default arguments are present, they have to follow the non-default ones.
       If the number of arguments in the function call is less than the total number of default and non-default
       arguments, then first all non-default arguments are assigned, and then the default ones from 
@@ -662,18 +661,18 @@ print add(1)
 \end{bluecode}
 In this case, the value {\tt 1} is assigned to {\tt x} and {\tt a} and {\tt b} take the default values.
 The output will be 
-\begin{bluecode}
+\begin{greencode}
 6
-\end{bluecode}
+\end{greencode}
 When the function is called with just two values,
 \begin{bluecode}
 print add(5, 6)
 \end{bluecode}
 then the value {\tt 5} is assigned to {\tt x}, {\tt 6} to {\tt a}, and {\tt b} takes the default value {\tt 3}.
 The output is
-\begin{bluecode}
+\begin{greencode}
 14
-\end{bluecode}
+\end{greencode}
 However, it is always a good idea to be as transparent as possible. Therefore a better code is 
 \begin{bluecode}
 print add(1, a = 6)
@@ -708,7 +707,6 @@ lab.show()
 The commands {\tt clf()}, {\tt plot()} and {\tt lab.show()} do clear the canvas, 
 plot the graph, and show the graph, respectively.
 The output is shown in Fig. \ref{fig:plot}.
-
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1225,11 +1223,11 @@ print "z =", z
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 x = 0.0
 y = 0.0
 z = 0.0
-\end{bluecode}
+\end{greencode}
 As in Karel, variables must be defined (have a value assigned) before they can be 
 used. 
 
@@ -1249,11 +1247,11 @@ print a
 \end{bluecode}
 The output is 
 
-\begin{bluecode}
+\begin{greencode}
 5
 Hi!
 True
-\end{bluecode}
+\end{greencode}
 This is very different from compiled languages such as C, C++ where one needs to declare the type 
 of every variable before its first use, and the type then cannot be changed. 
 
@@ -1269,9 +1267,9 @@ print "v =", v
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 v = 4
-\end{bluecode}
+\end{greencode}
 We can also subtract a number from a numerical variable:
 
 \begin{bluecode}
@@ -1280,9 +1278,9 @@ print "New value of v is", v
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 New value of v is 3
-\end{bluecode}
+\end{greencode}
 We can multiply a numerical variable with a number:
 
 \begin{bluecode}
@@ -1291,9 +1289,9 @@ print "Now v is", v
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 Now v is 12
-\end{bluecode}
+\end{greencode}
 And finally, we can divide a numerical variable with a number:
 
 \begin{bluecode}
@@ -1302,9 +1300,9 @@ print "Finally, v is", v
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 Finally, v is 2
-\end{bluecode}
+\end{greencode}
 It is possible to use existing variables to assign a value to a new variable:
 
 \begin{bluecode}
@@ -1316,9 +1314,9 @@ print "d =", d
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 d = 7.0
-\end{bluecode}
+\end{greencode}
 Of course, apples cannot be mixed with oranges. When we try to 
 add a number to a text string,
 
@@ -1330,11 +1328,11 @@ c = a + b
 \end{bluecode}
 then the interpreter rightfully complains:
 
-\begin{bluecode}
+\begin{redcode}
 Traceback (most recent call last):
   File "<nclab>", line 4, in <module>
 TypeError: cannot concatenate 'str' and 'float' objects
-\end{bluecode}
+\end{redcode}
 
 \subsection{Local and global variables} \label{subsec:pythonlocvar}
 
@@ -1354,12 +1352,12 @@ print c
 \end{bluecode}
 The output is:
 
-\begin{bluecode}
+\begin{redcode}
 Sum of 3 and 4 is 7
 Traceback (most recent call last):
   File "<nclab>", line 6, in <module>
 NameError: name 'c' is not defined
-\end{bluecode}
+\end{redcode}
 In computer programming, {\em we want all our variables to be local}, because 
 this avoids name clashes and minimizes the risk of unwanted side effects.
 Mistakes such as unwanted overwriting of the value stored in a global variable 
@@ -1382,9 +1380,9 @@ msg()
 \end{bluecode}
 This code is ugly! But it works (unfortunately), see the output:
 
-\begin{bluecode}
+\begin{greencode}
 val = 5.0
-\end{bluecode}
+\end{greencode}
 Remember:\\
 
 \begin{center}
@@ -1415,9 +1413,9 @@ msg(val)
 Can you see the difference? Now the function {\tt msg} is {\em readable} -- you do not 
 need to look elsewhere in the program to understand what it does. The output is:
 
-\begin{bluecode}
+\begin{greencode}
 val = 5.0
-\end{bluecode}
+\end{greencode}
 
 \subsection{Variable shadowing}
 
@@ -1437,10 +1435,10 @@ print "c =", c
 \end{bluecode}
 The output is
 
-\begin{bluecode}
+\begin{greencode}
 c = 3
 c = 5
-\end{bluecode}
+\end{greencode}
 There is no 
 problem with the last line of the program because the local variable {\tt c}, defined
 inside of the function {\tt add}, is no longer defined there. But inside of the function
@@ -1471,9 +1469,9 @@ print a
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 1
-\end{bluecode}
+\end{greencode}
 Now type
 
 \begin{bluecode}
@@ -1481,9 +1479,9 @@ print a > 0
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 True
-\end{bluecode}
+\end{greencode}
 Although the syntax looks a bit unusual, this is a correct
 Python code -- since {\tt a} is one, the Boolean expression {\tt a > 0}
 is {\tt True}. This is the value that gets printed. We can try it the other 
@@ -1494,9 +1492,9 @@ print a < 0
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 False
-\end{bluecode}
+\end{greencode}
 
 \subsection{Boolean variables}
 
@@ -1508,9 +1506,9 @@ print b
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 False
-\end{bluecode}
+\end{greencode}
 Boolean expressions involving numbers often contain the following operators:
 
 \begin{center}
@@ -1541,9 +1539,9 @@ print v1 and v2
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 True
-\end{bluecode}
+\end{greencode}
 Logical {\tt or}:
 
 \begin{bluecode}
@@ -1552,9 +1550,9 @@ print v1 or v3
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 True
-\end{bluecode}
+\end{greencode}
 Negation:
 
 \begin{bluecode}
@@ -1563,9 +1561,9 @@ print v4
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 False
-\end{bluecode}
+\end{greencode}
 Sometimes logical expressions can be more complicated, but this is no problem
 as we always can use round brackets: 
 
@@ -1686,9 +1684,9 @@ print "This is a random number between 0 and 1:", a
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 This is a random number between 0 and 1: 0.999415184986
-\end{bluecode}
+\end{greencode}
 As a simple exercise, let us generate and print random numbers between 
 zero and one as long as they are less than 0.75. We certainly do not know 
 how many repetitions will be done!
@@ -1702,7 +1700,7 @@ while a < 0.75:
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 0.383771890647
 0.068637471541
 0.0850385942776
@@ -1715,10 +1713,10 @@ Output:
 0.186191737708
 0.608456569449
 0.591009262698
-\end{bluecode}
+\end{greencode}
 Running the program once more gives another output:
 
-\begin{bluecode}
+\begin{greencode}
 0.637423013735
 0.533383497321
 0.240830918488
@@ -1726,7 +1724,7 @@ Running the program once more gives another output:
 0.718014397238
 0.698931548709
 0.363558456088
-\end{bluecode}
+\end{greencode}
 
 \subsection{The {\tt break} statement}
 
@@ -1746,11 +1744,11 @@ while True:
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 0.486690683395
 0.232518153456
 0.38084453626
-\end{bluecode}
+\end{greencode}
 Combining {\tt while True:} with the {\tt break} statement in this way is 
 quite popular among Python programmers. The technique should not be overused 
 though since it is not a perfect example of structured programming. It is 
@@ -1793,18 +1791,18 @@ while True:
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 Finally the desired triplet:
 0.921077479893 0.956493808495 0.917136354634
 It took 1168 attempts to get it!
-\end{bluecode}
+\end{greencode}
 Running the program once more:
 
-\begin{bluecode}
+\begin{greencode}
 Finally the desired triplet:
 0.922450872182 0.964451255861 0.969381004134
 It took 2757 attempts to get it!
-\end{bluecode}
+\end{greencode}
 
 \subsection{A trip into scientific computing}
 
@@ -1867,10 +1865,10 @@ print "Steps made:", n
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 Result is approximately 0.739086
 Steps made: 739086
-\end{bluecode}
+\end{greencode}
 In other words, the {\tt while} loop run 739086 times. Can you 
 imagine doing this on your pocket calculator?
 
@@ -1913,9 +1911,9 @@ print "I said \"yes\"."
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 'I said "yes".'
-\end{bluecode}
+\end{greencode}
 Another example:
 
 \begin{bluecode}
@@ -1923,9 +1921,9 @@ print "It doesn\'t matter."
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 "It doesn't matter."
-\end{bluecode}
+\end{greencode}
 
 \subsection{Multiline strings and backslashes}
 
@@ -1945,7 +1943,7 @@ print edgar
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 
 Once upon a midnight dreary, while I pondered weak and weary,
 Over many a quaint and curious volume of forgotten lore,
@@ -1954,7 +1952,7 @@ As of some one gently rapping, rapping at my chamber door.
 `'Tis some visitor,' I muttered, `tapping at my chamber door -
 Only this, and nothing more.'
 
-\end{bluecode}
+\end{greencode}
 Yes, there is one empty line on top and one on bottom. The reason is that 
 Python inserted newline symbols there. If we want to avoid these empty lines, 
 we have to include a backslash after the first triple quote, and also at the 
@@ -1970,9 +1968,9 @@ and this is the second line.\
 \end{bluecode}
 will render as
 
-\begin{bluecode}
+\begin{greencode}
 'This is the first line,\nand this is the second line.' 
-\end{bluecode}
+\end{greencode}
 When a backslash is included at the end of the first line of text,
 
 \begin{bluecode}
@@ -1983,9 +1981,9 @@ and this is the second line.\
 \end{bluecode}
 we obtain 
 
-\begin{bluecode}
+\begin{greencode}
 'This is the first line,and this is the second line.'
-\end{bluecode}
+\end{greencode}
 Yes we need to watch for empty characters! Inserting one before the second 
 backslash,
 
@@ -1997,9 +1995,9 @@ and this is the second line.\
 \end{bluecode}
 we finally obtain 
 
-\begin{bluecode}
+\begin{greencode}
 'This is the first line, and this is the second line.'
-\end{bluecode}
+\end{greencode}
 
 
 \subsection{Concatenation and repetition}
@@ -2012,9 +2010,9 @@ print "I yelled" + 3 * word
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 I yelledHelpme!Helpme!Helpme!
-\end{bluecode}
+\end{greencode}
 You can see that empty spaces matter. Let's try again:
 
 \begin{bluecode}
@@ -2023,9 +2021,9 @@ print "I yelled " + 3 * word
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 I yelled "Help me!" "Help me!" "Help me!"
-\end{bluecode}
+\end{greencode}
 
 \subsection{Referring to letters by their indices}\label{subsec:ind}
 
@@ -2042,12 +2040,12 @@ print "One-before-last character:", word[-2]
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 First character: b
 Second character: r
 Last character: t
 One-before-last character: s
-\end{bluecode}
+\end{greencode}
 
 \subsection{Parsing strings with the {\tt for} loop}\label{subsec:forstr} 
 
@@ -2061,9 +2059,9 @@ print "Length of the string:", n
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 Length of the string: 9
-\end{bluecode}
+\end{greencode}
 In order to parse strings, it is practical to introduce the Python counting 
 ({\tt for}) loop. We do this ahead of time, more on the {\tt for} loop will 
 be said in Section \ref{sec:forloop}. Let us begin with an example again: The
@@ -2078,7 +2076,7 @@ for i in range(n):
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 b
 r
 e
@@ -2088,7 +2086,7 @@ f
 a
 s
 t
-\end{bluecode}
+\end{greencode}
 This deserves some explanation. Calling the function {\tt range(n)} generates 
 a sequence of integers that goes from zero to {\tt n-1}. Let's try this:
 
@@ -2097,9 +2095,9 @@ print range(3)
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 [0, 1, 2]
-\end{bluecode}
+\end{greencode}
 Another example:
 
 \begin{bluecode}
@@ -2107,9 +2105,9 @@ print range(10)
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-\end{bluecode}
+\end{greencode}
 When called with two arguments, {\tt range(n1, n2)} will generate 
 a sequence {\tt [n1, n1+1, n1+2, ..., n2-1]}. Example:
 
@@ -2118,9 +2116,9 @@ print range(4, 10)
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 [4, 5, 6, 7, 8, 9]
-\end{bluecode}
+\end{greencode}
 The {\tt for} loop goes through the sequence generated by the {\tt range()} function, 
 taking one element per cycle. So in the first cycle, the variable {\tt i}
 has the value {\tt 0}, in the second cycle {\tt i} is {\tt 1}, in the third cycle 
@@ -2142,9 +2140,9 @@ print w2
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 bic
-\end{bluecode}
+\end{greencode}
 An omitted first index in a slice defaults to zero:
 
 \begin{bluecode}
@@ -2153,9 +2151,9 @@ print w3
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 bi
-\end{bluecode}
+\end{greencode}
 An omitted second index defaults to the length of the string:
 
 \begin{bluecode}
@@ -2164,9 +2162,9 @@ print w4
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 cycle
-\end{bluecode}
+\end{greencode}
 This is enough for now but hold on -- many wonderful operations one 
 can do with text strings will be shown in Subsection \ref{subsec:textstrclass}
 
@@ -2218,11 +2216,11 @@ print "Third month:", months[2]
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 First month: January
 Second month: February
 Third month: March
-\end{bluecode}
+\end{greencode}
 Index {\tt -1} refers to the last item, {\tt -2} to the one before last, etc.:
 
 \begin{bluecode}
@@ -2231,10 +2229,10 @@ print "Last month:", months[-1]
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 One before last month: November
 Last month: December
-\end{bluecode}
+\end{greencode}
 
 \noindent
 We can {\em slice} tuples similarly to how we sliced strings:
@@ -2244,9 +2242,9 @@ months[2:5]
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 ('March', 'April', 'May')
-\end{bluecode}
+\end{greencode}
 The length of a tuple is obtained using the function {\tt len()}:
 
 \begin{bluecode}
@@ -2254,9 +2252,9 @@ len(months)
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 12
-\end{bluecode}
+\end{greencode}
 
 \subsection{Lists}
 
@@ -2287,10 +2285,10 @@ print cls
 \end{bluecode}
 Output
 
-\begin{bluecode}
+\begin{greencode}
 ['John', 'Pam', 'Jessie', 'Brian', 'Sam', 'Jim', 
 'Tom', 'Jerry', 'Alex']
-\end{bluecode}
+\end{greencode}
 After some time, a new student Jack moves in:
 
 \begin{bluecode}
@@ -2299,10 +2297,10 @@ print cls
 \end{bluecode}
 Output
 
-\begin{bluecode}
+\begin{greencode}
 ['John', 'Pam', 'Jessie', 'Brian', 'Sam', 'Jim', 
 'Tom', 'Jerry', 'Alex', 'Jack']
-\end{bluecode}
+\end{greencode}
 Useful can be the function {\tt pop()} that deletes an item and returns it for further
 use (as opposed to {\tt del} which just deletes the item):
 
@@ -2313,11 +2311,11 @@ print cls
 \end{bluecode}
 Output
 
-\begin{bluecode}
+\begin{greencode}
 Jessie
 ['John', 'Pam', 'Brian', 'Sam', 'Jim', 
 'Tom', 'Jerry', 'Alex', 'Jack']
-\end{bluecode}
+\end{greencode}
 New item can be inserted at an arbitrary position using the function {\tt insert()}:
 
 \begin{bluecode}
@@ -2326,10 +2324,10 @@ print cls
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 ['John', 'Pam', 'Brian', 'Daniel', 'Sam', 'Jim', 
 'Tom', 'Jerry', 'Alex', 'Jack']
-\end{bluecode}
+\end{greencode}
 A list can be sorted via the function {\tt sort()}:
 
 \begin{bluecode}
@@ -2338,10 +2336,10 @@ print cls
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 ['Alex', 'Brian', 'Daniel', 'Jack', 
 'Jerry', 'Jim', 'John', 'Pam', 'Sam', 'Tom']
-\end{bluecode}
+\end{greencode}
 The function {\tt reverse()} reverses a list:
 
 \begin{bluecode}
@@ -2350,10 +2348,10 @@ print cls
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 ['Tom', 'Sam', 'Pam', 'John', 'Jim', 
 'Jerry', 'Jack', 'Daniel', 'Brian', 'Alex']
-\end{bluecode}
+\end{greencode}
 The function {\tt count()} counts the number of occurences of an item
 in the list:
 
@@ -2362,9 +2360,9 @@ cls.count('Jerry')
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 1
-\end{bluecode}
+\end{greencode}
 The function {\tt index()} returns the index of the first occurence 
 of an item. If the item is not found, error is thrown:
 
@@ -2373,9 +2371,9 @@ cls.index('Jerry')
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 5
-\end{bluecode}
+\end{greencode}
 Another useful operation with lists is their {\em zipping}. The {\tt zip} command takes two lists as arguments 
 and creates a new list of pairs. Example:
 
@@ -2386,9 +2384,9 @@ print zip(A, B)
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 [(1, 'x'), (2, 'y'), (3, 'z')]
-\end{bluecode}
+\end{greencode}
 If the lists are not equally-long, the superfluous items in the longer list 
 are skipped:
 
@@ -2399,9 +2397,9 @@ print zip(A, B)
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 [(1, 'x'), (2, 'y'), (3, 'z')]
-\end{bluecode}
+\end{greencode}
 
 \subsection{Dictionaries}
 
@@ -2438,10 +2436,10 @@ print phonebook
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 {'Peter Parson': 8806336, 'Emily Everett': 6784346,
 'Lewis Lame': 1122345, 'Silly Sam': 1234567}
-\end{bluecode}
+\end{greencode}
 And we can also delete a person from the phonebook:
 
 \begin{bluecode}
@@ -2450,10 +2448,10 @@ print phonebook
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 {'Emily Everett': 6784346, 'Lewis Lame': 1122345, 
 'Silly Sam': 1234567}
-\end{bluecode}
+\end{greencode}
 We can check if a key is in the dictionary:
 
 \begin{bluecode}
@@ -2464,9 +2462,9 @@ else:
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 Silly Sam's phone number is 1234567
-\end{bluecode}
+\end{greencode}
 To get the list of all keys, we type:
 
 \begin{bluecode}
@@ -2474,9 +2472,9 @@ phonebook.keys()
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 ['Emily Everett', 'Lewis Lame', 'Silly Sam']
-\end{bluecode}
+\end{greencode}
 Similarly, we can also get the list of all values:
 
 \begin{bluecode}
@@ -2484,9 +2482,9 @@ phonebook.values()
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 [6784346, 1122345, 1234567]
-\end{bluecode}
+\end{greencode}
 It is important to remember that {\bf dictionaries are not ordered} in any 
 special way. While a list can be sorted, a dictionary can not. They are only 
 designed to get you the value for a given key. 
@@ -2497,9 +2495,9 @@ len(phonebook)
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 3
-\end{bluecode}
+\end{greencode}
 There are additional functions that one can use with dictionaries. However, 
 what we mentioned so far is enough for an introductory course and we refer 
 to the Python tutorial\footnote{http://docs.python.org/tutorial} for more 
@@ -2527,9 +2525,9 @@ range(10)
 \end{bluecode}
 produces the following output:
 
-\begin{bluecode}
+\begin{greencode}
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-\end{bluecode}
+\end{greencode}
 It is possible to start from a different number:
 
 \begin{bluecode}
@@ -2537,9 +2535,9 @@ range(3, 10)
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 [3, 4, 5, 6, 7, 8, 9]
-\end{bluecode}
+\end{greencode}
 The {\tt for} loop in Python is a {\em counting loop} analogous to the {\tt repeat}
 loop in Karel the Robot. Thus it should be used when we know how many repetitions there 
 will be. However, in Python, the counting loop is not restricted to integer numbers 
@@ -2556,7 +2554,7 @@ for i in range(10):
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 0
 1
 2
@@ -2567,7 +2565,7 @@ Output:
 7
 8
 9
-\end{bluecode}
+\end{greencode}
 As usual, note indentation of the body of the loop, which has the same 
 purpose as indentation in the {\tt while} loop. 
 
@@ -2581,7 +2579,7 @@ for m in months:
 \end{bluecode}
 Output:
 
-\begin{bluecode}
+\begin{greencode}
 January
 February
 March
@@ -2594,7 +2592,7 @@ September
 October
 November
 December
-\end{bluecode}
+\end{greencode}
 The {\tt for} loop works in the same way with lists -- it does not distinguish between these 
 two data types at all.
 
@@ -2617,10 +2615,10 @@ print SE
 \end{bluecode}
 The output of this program is:
 
-\begin{bluecode}
+\begin{greencode}
 Spanish-English dictionary:
 {'ciudad': 'city', 'sol': 'sun', 'fuego': 'fire'}
-\end{bluecode}
+\end{greencode}
 Isn't Python beautifully simple?
 
 
@@ -2650,11 +2648,11 @@ def f(x):
 But we can almost guarantee that the first user will call the 
 function with $x = 3$ or $x = -3$. What does he see?
 
-\begin{bluecode}
+\begin{redcode}
 Traceback (most recent call last):
   File "<nclab>", line 1, in <module>
 ZeroDivisionError: float division by zero
-\end{bluecode}
+\end{redcode}
 
 \subsection{Never underestimate the user}
 
@@ -2767,13 +2765,13 @@ function when x is zero or negative.")
 \end{bluecode}
 Now the output of {\tt invsqrt(-5)} is:
 
-\begin{bluecode}
+\begin{redcode}
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
   File "<nclab>", line 4, in invsqrt
 ValueError: Please do not call the invsqrt() 
 function when x is zero or negative.
-\end{bluecode}
+\end{redcode}
 Incorrect values of user input are the most common cause for raising 
 exceptions on our own. Any other exception type can be raised as well
 if needed.
@@ -2973,11 +2971,11 @@ lab.show()
 \end{bluecode}
 The output (text and Fig. \ref{fig:3circ}) is shown below.
 
-\begin{bluecode}
+\begin{greencode}
 Area and perimeter of circle 1: 3.14159265359 6.28318530718
 Area and perimeter of circle 2: 0.785398163397 3.14159265359
 Area and perimeter of circle 3: 0.196349540849 1.57079632679
-\end{bluecode}
+\end{greencode}
 
 \begin{figure}[!ht]
 \begin{center}
@@ -3010,9 +3008,9 @@ str = "sentences should start with a capital letter."
 print str.capitalize()
 \end{bluecode}
 \underline{Output}:
-\begin{bluecode}
+\begin{greencode}
 Sentences should start with a capital letter.
-\end{bluecode}
+\end{greencode}
 \vspace{4mm}
 
 \noindent
@@ -3029,9 +3027,9 @@ str = "John Stevenson, John Lennon, and John Wayne."
 print str.count("John")
 \end{bluecode}
 \underline{Output}:
-\begin{bluecode}
+\begin{greencode}
 3
-\end{bluecode}
+\end{greencode}
 \vspace{4mm}
 
 \noindent
@@ -3049,9 +3047,9 @@ str = "This happened during the summer."
 print str.find("sum")
 \end{bluecode}
 \underline{Output}:
-\begin{bluecode}
+\begin{greencode}
 25
-\end{bluecode}
+\end{greencode}
 \vspace{4mm}
 
 \noindent
@@ -3082,10 +3080,10 @@ else:
     print str2, "is not alphanumeric."
 \end{bluecode}
 \underline{Output}:
-\begin{bluecode}
+\begin{greencode}
 mypassword123 is alphanumeric.
 mypassword123+ is not alphanumeric.
-\end{bluecode}
+\end{greencode}
 \vspace{4mm}
 
 \noindent
@@ -3110,10 +3108,10 @@ else:
     print str2, "is not alphabetic."
 \end{bluecode}
 \underline{Output}:
-\begin{bluecode}
+\begin{greencode}
 John is alphabetic.
 My name is John is not alphabetic.
-\end{bluecode}
+\end{greencode}
 \vspace{4mm}
 
 \noindent
@@ -3137,10 +3135,10 @@ else:
     print str2, "is not a number."
 \end{bluecode}
 \underline{Output}:
-\begin{bluecode}
+\begin{greencode}
 2012 is a number.
 Year 2012 is a number.
-\end{bluecode}
+\end{greencode}
 \vspace{4mm}
 
 \noindent
@@ -3161,9 +3159,9 @@ str4 = "movie."
 print str.join([str1, str2, str3, str4])
 \end{bluecode}
 \underline{Output}:
-\begin{bluecode}
+\begin{greencode}
 This...is...the...movie.
-\end{bluecode}
+\end{greencode}
 \vspace{4mm}
 
 \noindent
@@ -3179,9 +3177,9 @@ str = "She lives in New Orleans."
 print str.lower()
 \end{bluecode}
 \underline{Output}:
-\begin{bluecode}
+\begin{greencode}
 she lives in new orleans.
-\end{bluecode}
+\end{greencode}
 \vspace{4mm}
 
 \noindent
@@ -3198,9 +3196,9 @@ str = "First word, second word, and third word."
 print str.replace("word", "thing")
 \end{bluecode}
 \underline{Output}:
-\begin{bluecode}
+\begin{greencode}
 First thing, second thing, and third thing.
-\end{bluecode}
+\end{greencode}
 \vspace{4mm}
 
 \noindent
@@ -3216,9 +3214,9 @@ str = "The abbreviation is MENSA"
 print str.swapcase()
 \end{bluecode}
 \underline{Output}:
-\begin{bluecode}
+\begin{greencode}
 tHE ABBREVIATION IS mensa
-\end{bluecode}
+\end{greencode}
 \vspace{4mm}
 
 \noindent
@@ -3235,9 +3233,9 @@ str = "this is the title of my new book"
 print str.title()
 \end{bluecode}
 \underline{Output}:
-\begin{bluecode}
+\begin{greencode}
 This Is The Title Of My New Book
-\end{bluecode}
+\end{greencode}
 \vspace{4mm}
 
 \noindent
@@ -3251,9 +3249,9 @@ str = "this is the title of my new book"
 print str.upper()
 \end{bluecode}
 \underline{Output}:
-\begin{bluecode}
+\begin{greencode}
 'THIS IS THE TITLE OF MY NEW BOOK'
-\end{bluecode}
+\end{greencode}
 \vspace{4mm}
 
 \noindent
@@ -3528,13 +3526,13 @@ lab.show()
 \end{bluecode}
 First, here is the textual output:
 
-\begin{bluecode}
+\begin{greencode}
 Area and perimeter of the triangle: 2.5 7.38516480713
 Area and perimeter of the quad: 4.0 8.472135955
 Area and perimeter of the rectangle: 3.0 8.0
 Area and perimeter of the square: 2.25 6.0
 Area and perimeter of the circle: 19.6349540849 15.7079632679
-\end{bluecode}
+\end{greencode}
 The graphical output is shown in Fig. \ref{fig:classes2}.
 
 \begin{figure}[!ht]
