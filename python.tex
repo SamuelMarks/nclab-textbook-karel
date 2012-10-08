@@ -2646,7 +2646,7 @@ def f(x):
     return 1. / (9 - x**2)
 \end{bluecode}
 But we can almost guarantee that the first user will call the 
-function with $x = 3$ or $x = -3$. What does he see?
+function with $x = 3$ or $x = -3$. What will happen?
 
 \begin{redcode}
 Traceback (most recent call last):
@@ -2656,7 +2656,7 @@ ZeroDivisionError: float division by zero
 
 \subsection{Never underestimate the user}
 
-We need to be very careful with users! If we are not, they always manage
+Be very careful with users! If we are not, they always manage
 to crash our code. By always we mean {\em always}. And most often they do even
 if we are as careful as possible. Sometimes they do it for fun, to show us that we are not all that smart.
 But most of the time they do it without bad intentions -- they are just learning to use our
