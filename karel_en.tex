@@ -1,3 +1,304 @@
+\documentclass[article,A4,12pt]{llncs}
+
+% Conditional compilation.
+% NOTE: If you set fullversionfalse, just compile ONCE so that TOC stays unchanged.
+\newif\iffullversion
+\fullversiontrue
+%\fullversionfalse
+
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{amsfonts}
+\usepackage{mathrsfs, bm}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{subfig}
+\usepackage{epsf,times}
+\usepackage{color}
+\usepackage{wrapfig}
+\usepackage{cases}
+\usepackage{multicol}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\usepackage{palatino}
+
+\usepackage[T1]{fontenc}
+%\newcommand{\tmname}[1]{\textsc{#1}}
+%\newcommand{\tmop}[1]{\ensuremath{\operatorname{#1}}}
+%\newcommand{\tmsamp}[1]{\textsf{#1}}
+%\newcommand{\tmtextsc}[1]{{\scshape{#1}}}
+%\newcommand{\tmtextsl}[1]{{\slshape{#1}}}
+%\newcommand{\tmtexttt}[1]{{\ttfamily{#1}}}
+
+\leftmargin=0.0cm
+\oddsidemargin=0.5cm
+\evensidemargin=0.5cm
+\topmargin=0cm
+\textwidth=16.0cm
+%\textheight=21.5cm
+\textheight=20.0cm
+\pagestyle{plain}
+\setlength{\columnsep}{20pt}
+
+\def\m{\mathbf{m}}
+\def\H{\mathbf{H}}
+\def\E{\mathbf{E}}
+\newcommand{\vepsi}{{\varepsilon}}
+\def\hnorm#1#2{\vert\,#1\,\vert_{#2}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\Sph}{{\mathbb S}}
+\def\x{\mathbf{x}}
+\def\hvec{\overline{\mathbf{h}}}
+\def\evec{\overline{\mathbf{e}}}
+
+\newcommand{ \etal}{\mbox{\emph{et al. }}}
+
+\newcommand\vect[1]{\mbf{#1}}
+\newcommand{\mbf}[1]{\mbox{\boldmath$#1$}} 
+\newcommand{\RC}[1]{#1 $\times$ #1 $\times$ #1}
+\def\um{$\mu$m}
+\def\C{$^{\circ}\mathrm{C}$}
+
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+
+% DEFINITION OF CUSTOM FONT SIZE
+\newcommand{\customfontA}{\fontsize{50}{55}\selectfont}
+\newcommand{\customfontB}{\fontsize{14.4}{20}\selectfont}
+\newcommand{\customfontC}{\fontsize{30}{35}\selectfont}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+
+\def\clovek#1{\noindent\bgroup\vbox{\noindent#1}\egroup\vskip1em}
+
+% TO INPUT BACKGROUND IMAGE
+%\usepackage{eso-pic}
+%\newcommand\BackgroundPic{
+%\put(0,0){
+%\parbox[b][\paperheight]{\paperwidth}{
+%\vfill
+%\centering
+%\includegraphics[width=\paperwidth,height=\paperheight]{img/karel-frontpage.png}
+%%\includegraphics[width=\paperwidth,height=\paperheight]{img/background.jpg}
+%\vfill
+%}}}
+
+\usepackage{fancyvrb}
+
+\newenvironment{bluecode}{\VerbatimEnvironment \color{blue} \begin{Verbatim}}
+{\end{Verbatim}}
+\newenvironment{greencode}{\VerbatimEnvironment \color{ForestGreen} \begin{Verbatim}}
+{\end{Verbatim}}
+\newenvironment{redcode}{\VerbatimEnvironment \color{Red} \begin{Verbatim}}
+{\end{Verbatim}}
+
+
+\begin{document}
+
+% INPUTTING BACKGROUND IMAGE
+%\AddToShipoutPicture{\BackgroundPic}
+%\vbox{}
+%\pagestyle{empty}
+%\newpage
+%\textwidth=15.5cm
+%\ClearShipoutPicture
+%\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{empty}
+
+\vbox{}
+\begin{figure}[!ht]
+%\hspace{-4mm}
+\includegraphics[width=8cm]{imgk/logo.png}
+\vspace{10mm}
+\end{figure}
+\vbox{}
+\vspace{1.5cm}
+
+\begin{center}
+{\huge \bf First Course in Programming}
+\end{center}
+
+\begin{figure}[!ht]
+\begin{center}
+\vspace{-6mm}
+\includegraphics[width=0.26\textheight]{imgk/karel-logo.png}\ \ \ \ \ \ 
+\vbox{}
+\vspace{-9mm}
+\end{center}
+\end{figure}
+\begin{center}
+{\huge \bf with Karel the Robot}
+\end{center}
+\vbox{}
+\vspace{5mm}
+\begin{center}
+\iffullversion
+\else
+\centerline{\huge \color{red}{PREVIEW}}
+\fi
+\vfill
+%{\large
+%{\bf Pavel Solin \& Salih Dede}
+%Contribute and become a co-author!
+%}
+\end{center}
+\vfill
+\vfill
+\begin{center}
+Revision Oct-10-2012. Copyright 2012 FEMhub Inc. All rights reserved.
+\end{center}
+\newpage
+\vbox{}
+\vfill
+{
+\noindent
+{\bf About this Textbook}\\[4mm]
+This free textbook is provided as a courtesy to NCLab users. 
+It will help you acquire important principles of algorithmic thinking 
+and procedural programming. Karel 
+is a famous educational language created and still used at the Stanford 
+University. After taking this introductory course, you will be able to transition 
+smoothly to Python and other modern programming languages. NCLab has
+a course on Python programming which is a natural continuation of this one.\\[4mm]
+
+\noindent
+{\bf Become a Co-Author}\\[4mm]
+We do not wish to publish the textbook at a commercial publishing house since this 
+would make it unnecessarily expensive. Feel free to contribute to the textbook in any way 
+-- all contributors become automatically co-authors. The is never enough illustrations 
+and exercises, and there always are bugs to report. Instructions for contributors 
+can be found below.\\[4mm]
+
+\noindent
+{\bf How to Contribute (for \LaTeX \ and Git users)}\\[4mm]
+\noindent
+The textbook is written in \LaTeX, a high-quality professional-level typesetting system that 
+you can learn and use in NCLab. In the future it will be possible to contribute to 
+the textbook directly in NCLab, but at this time, the sources are stored 
+in a public Git repository at Github (http://github.com). Standard Git workflow is 
+followed: If you wish to contribute, create a free account at Github and fork the public 
+repository {\tt nclab-textbook-karel}. Then, clone your fork into your computer, make local changes, 
+commit them, push them into your Github fork, and send us a pull request. We are looking forward! \\[4mm]
+
+\noindent
+{\bf How to Contribute (for all others)}\\[4mm]
+\noindent
+We will gladly accept new interesting exercises for Karel and/or Python, as well as
+new images of good quality that make the textbook more interesting to students. You
+can send those at any time via email to {\tt pavel@femhub.com}.\\[4mm]
+
+\newpage
+\noindent
+{\bf List of Authors and Contributors}
+\begin{itemize}
+\item Pavel Solin, University of Nevada, Reno (main author). 
+\item Martin Novak, Czech Technical University, Prague, Czech Republic.
+\item Salih Dede, Coral Academy of Science High School, Reno, NV.
+\item Nazhmiddin Shapoatov, Sonoran Science Academy, Phoenix, AZ.
+\item Artur Skonecki, Warsaw University of Technology, Warsaw, Poland.
+\end{itemize}
+\vspace{6mm}
+
+
+\noindent
+{\bf For Instructors}\\[4mm]
+Review Book and Exercise Book containing 
+hundreds of review questions with answers and programming exercises with
+solutions, respectively, are part of the NCLab-powered course 
+{\em Intro to Programming with Karel the Robot and Python} that is 
+available at \\[4mm]
+
+{\color{blue}
+\centerline{\tt http://introtoprogramming.net}
+}
+\vspace{5mm}
+
+\noindent
+for a small subscription fee. The fee is used to cover cloud computing resources, 
+development, maintenance, and user support. 
+
+The course is completely web-browser based, no installation of anything at your school 
+or home is needed. You and your students can access the course from anywhere and at any 
+time. Instructor's workflow includes downloading assignments and review
+question worksheets from the database, sending them to the students 
+via one mouse click, and collecting them back, automatically graded. 
+The course is scheduled to open in January 2013. In the meantime, enjoy 
+Karel and Python, and let us know with any questions at {\tt support@nclab.com}!
+}
+
+
+\newpage
+%{\ }
+\setcounter{tocdepth}{2}
+\tableofcontents
+%\pagestyle{plain}
+
+\newpage
+
+\pagestyle{plain}
+\setcounter{page}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{plain}
+\setcounter{page}{1}
+\section*{Foreword}
+This course provides a gentle yet efficient and comprehensive introduction to modern algorithmic 
+design and computer programming. It features {\em Karel the Robot}, a famous educational programming 
+language that was created at the Stanford University. The robot collects gems in a maze and helps 
+students develop advanced algorithmic skills using a handful of simple commands that do not involve 
+math. 
+
+With Karel the Robot, learning feels more like playing. Without being exposed to technical details 
+of conventional programming languages, soon you will master essential principles of modern 
+algorithmic design and computer programming.
+Could such an introduction be done with a conventional programming language? Yes, but 
+you would be obscurred and slowed down by technicalities, not mentioning that it would 
+not be so much fun. 
+
+The course starts out in Manual mode (Level 0) where the robot can be guided via 
+clicking on five buttons {\em Go} (make one step forward), {\em Left} (turn left), {\em Right} 
+(turn right), {\em Put} (put a gem on the groud) and {\em Get} (pick up a gem from the ground). 
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.75\textwidth]{imgk/fore-1.png}
+\end{center}
+\vspace{-2mm}
+\caption{Sample game {\em Diamond Mine} in Manual mode.}
+\label{fig:f1}
+\vspace{-4mm}
+\end{figure}
+\noindent
+In the next level which is called {\em Bridge to Programming} students keep solving 
+problems by typing the commands {\tt go}, {\tt left}, {\tt right}, {\tt put} and {\tt get} 
+instead of clicking on buttons. 
+
+The need for higher functionality such as loops, conditions, and custom commands arises 
+naturally as game goals become more complicated. 
+Students learn quickly that it is advantageous to break complex tasks into smaller 
+ones, which is one of the most important principle of computer 
+programming. The textbook is written by programming experts, and in addition to 
+advanced programming skills the students gain an overview of good and bad 
+programming habits.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.75\textwidth]{imgk/fore-2.png}
+\end{center}
+\vspace{-2mm}
+\caption{Sample game {\em Speleologist} in Programming mode.}
+\label{fig:f2}
+\vspace{-4mm}
+\end{figure}
+\noindent
+The syntax of Karel the Robot is very close to Python -- in fact Python feels like Karel's
+older brother. The transition from Karel to Python is as seamless as the transition from 
+one Karel's Level to another. 
+
 \section{Introduction}
 
 \subsection{Objectives} 
@@ -78,7 +379,7 @@ smoothly to Python where we can do as much math as we like!
 The simplest way to launch Karel is to click on the icon 
 {\em Programming} and select {\em Karel} in the menu. This will launch the application 
 in {\em Programming mode} with a randomly generated maze, as shown in Fig. \ref{fig:init}.
-\newpage
+
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=0.7\textwidth]{imgk/init.png}
@@ -412,7 +713,7 @@ Karel has built-in sensors to better navigate in the maze:
 The first one is an infrared sensor {\tt wall} that the robot uses to determine 
 whether it is safe to make one step forward, or whether there is a wall. This is 
 illustrated in Fig. \ref{fig:dede-ifelse}.
-
+\newpage
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{imgk/salih-ifelse.png}
@@ -1363,7 +1664,7 @@ Unknown variable/procedure "a"
 Although using local variables might seem constraining, in reality it helps us 
 to keep our code fit. It is a very good habit to keep variables in our programs 
 as local as possible. More about local and global variables will be said in 
-Part II, Subsection \ref{subsec:pythonlocvar}.
+the Python textbook..
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1525,3 +1826,28 @@ New functionality:
 \item Functions that return values.
 \item Lists.
 \end{itemize}
+
+
+\section{What next?}
+
+Congratulations, you made it through Karel the Robot! We hope that you 
+enjoyed the textbook and exercises. If you can think of any way to 
+improve the application Karel the Robot or this textbook, we would like
+to hear from you. If you have an interesting new game or exercise for 
+Karel, please let us know as well. 
+
+You are now ready to dive into a next programming language! We would 
+recommend Python which is a modern high-level dynamical programming 
+language that is used in many diverse applications in business, science,
+engineering, and other areas.\\
+
+\noindent
+In any case, our team wishes you good luck, and keep us in your 
+favorite bookmarks! \\
+
+\hbox{} \hfill{} Your Authors
+
+
+
+
+\end{document}
