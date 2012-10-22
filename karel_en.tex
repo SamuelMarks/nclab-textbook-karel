@@ -73,6 +73,10 @@
 
 \def\clovek#1{\noindent\bgroup\vbox{\noindent#1}\egroup\vskip1em}
 
+
+
+
+
 % TO INPUT BACKGROUND IMAGE
 %\usepackage{eso-pic}
 %\newcommand\BackgroundPic{
@@ -93,6 +97,132 @@
 {\end{Verbatim}}
 \newenvironment{redcode}{\VerbatimEnvironment \color{Red} \begin{Verbatim}}
 {\end{Verbatim}}
+
+% For Pygments:
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage[utf-8]{inputenc}
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\def\PY@tok@gd{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\def\PY@tok@gu{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\def\PY@tok@gt{\def\PY@tc##1{\textcolor[rgb]{0.00,0.25,0.82}{##1}}}
+\def\PY@tok@gs{\let\PY@bf=\textbf}
+\def\PY@tok@gr{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\def\PY@tok@cm{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@vg{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@m{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@mh{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@go{\def\PY@tc##1{\textcolor[rgb]{0.50,0.50,0.50}{##1}}}
+\def\PY@tok@ge{\let\PY@it=\textit}
+\def\PY@tok@vc{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@il{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@cs{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@cp{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\def\PY@tok@gi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\def\PY@tok@gh{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PY@tok@ni{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\def\PY@tok@nl{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\def\PY@tok@nn{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\def\PY@tok@no{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\def\PY@tok@na{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\def\PY@tok@nb{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@nc{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\def\PY@tok@nd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\def\PY@tok@ne{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\def\PY@tok@nf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\def\PY@tok@si{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\def\PY@tok@s2{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@vi{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@nt{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@nv{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@s1{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@sh{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@sc{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@sx{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@bp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@c1{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@kc{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@c{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@mf{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@err{\def\PY@bc##1{\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{##1}}}
+\def\PY@tok@kd{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@ss{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@sr{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\def\PY@tok@mo{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@kn{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@mi{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@gp{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PY@tok@o{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@kr{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@s{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@kp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@w{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\def\PY@tok@kt{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\def\PY@tok@ow{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\def\PY@tok@sb{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@k{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@se{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\def\PY@tok@sd{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+% End of Pygments inputs.
+
+% Define color boxes:
+\definecolor{MyGreen}{rgb}{0.9, 1, 0.9}
+\makeatletter\newenvironment{gbox}{%
+   \begin{lrbox}{\@tempboxa}\begin{minipage}{0.985\columnwidth}}{\end{minipage}\end{lrbox}%
+   \noindent
+   \colorbox{MyGreen}{\usebox{\@tempboxa}}
+}\makeatother
+
+%\definecolor{MyYellow}{rgb}{0.98, 0.98, 0.824}
+\definecolor{MyYellow}{rgb}{1, 0.99, 0.8}
+\makeatletter\newenvironment{ybox}{%
+   \begin{lrbox}{\@tempboxa}\begin{minipage}{0.985\columnwidth}}
+   {\end{minipage}\end{lrbox}%
+   \noindent
+   \colorbox{MyYellow}{\usebox{\@tempboxa}}
+}\makeatother
+
+\definecolor{MyBlue}{rgb}{0.88, 0.95, 1}
+\makeatletter\newenvironment{bbox}{%
+   \begin{lrbox}{\@tempboxa}\begin{minipage}{0.985\columnwidth}}
+   {\end{minipage}\end{lrbox}%
+   \noindent
+   \colorbox{MyBlue}{\usebox{\@tempboxa}}
+}\makeatother
+
+\definecolor{MyBlue}{rgb}{0.88, 0.95, 1}
+\makeatletter\newenvironment{bboxshort}{%
+   \begin{lrbox}{\@tempboxa}\begin{minipage}{0.95\columnwidth}}
+   {\end{minipage}\end{lrbox}%
+   \noindent
+   \colorbox{MyBlue}{\usebox{\@tempboxa}}
+}\makeatother
 
 
 \begin{document}
@@ -326,11 +456,11 @@ He was manufactured with only five simple commands in his memory:
 \end{itemize}
 He also has five built-in sensors that allow him to check his immediate surroundings:
 \begin{itemize}
-\item {\color{blue} \tt wall} ... true if he would crash into a wall by making one more step, false otherwise. 
-\item {\color{blue} \tt gem} ... true if he stands on a gem, false otherwise.
-\item {\color{blue} \tt north} ... true if he is facing North, false otherwise.
-\item {\color{blue} \tt home} ... true if he is at home, false otherwise.
-\item {\color{blue} \tt empty} ... true if his bag with gems is empty, false otherwise. 
+\item {\color{ForestGreen} \tt wall} ... true if he would crash into a wall by making one more step, false otherwise. 
+\item {\color{ForestGreen} \tt gem} ... true if he stands on a gem, false otherwise.
+\item {\color{ForestGreen} \tt north} ... true if he is facing North, false otherwise.
+\item {\color{ForestGreen} \tt home} ... true if he is at home, false otherwise.
+\item {\color{ForestGreen} \tt empty} ... true if his bag with gems is empty, false otherwise. 
 \end{itemize}
 
 \subsection{What does this course have to offer?}
@@ -389,7 +519,9 @@ in {\em Programming mode} with a randomly generated maze, as shown in Fig. \ref{
 The Programming mode is the most frequently used one. It is possible to 
 switch to {\em Manual mode}, {\em Designer}, and {\em Games} in the menu. 
 These modes will be discussed in Paragraph \ref{levels}.
+\newpage
 
+\noindent
 The application window contains two lines of menus and information on top,
 work area on the left, maze on the right, and status bar on the bottom.
 The menus are fairly intuitive, so let us just explain a few selected 
@@ -399,9 +531,9 @@ functions, starting with the {\em File} menu:
 \item {\em Open} will open a file in your account.
 \item {\em New} will generate a new random maze.
 \item {\em Clone} will copy a Displayed Project into your account. 
-\item {\em Display} will submit a project for review. If you think that 
-      other users would find your program or game interesting, this is the way to make it 
-      available to them. Upon passing the review, the project will be added to Displayed Projects.
+\item {\em Display} will assign a static URL (HTML address) to the project. Then you can 
+      place such a link on your own web page. Displayed projects are also given priority in 
+      Search.
 \end{itemize}
 {\em Edit} menu enables operation with code and text cells (to be discussed in 
 Section \ref{sec:editmenu}). In {\em Settings} one can change Karel's {\em Level} (to be discussed
@@ -573,32 +705,42 @@ and once you understand its beauty, you will never want to leave.
 
 The {\em counting loop}, represented by the {\tt repeat} command, can save 
 us lots of writing when something is repeated a given number of times. 
-For example, for Karel to make 15 steps forward we could type:
+For example, for Karel to make 15 steps forward we could type:\\
 
-\begin{bluecode}
-go
-go
-go
-go
-go
-go
-go
-go
-go
-go
-go
-go
-go
-go
-go
-\end{bluecode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 But this is neither efficient nor elegant. Instead, the same can be
-achieved by telling Karel to {\tt repeat} the {\tt go} command {\tt 15} times:
+achieved by telling Karel to {\tt repeat} the {\tt go} command {\tt 15} times:\\
 
-\begin{bluecode}
-repeat 15
-    go
-\end{bluecode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{repeat} 15
+    \PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 There are a few simple rules that we need to remember when using the {\tt repeat} command:
 
 \begin{itemize}
@@ -608,31 +750,46 @@ There are a few simple rules that we need to remember when using the {\tt repeat
       code with not-so-long lines, the latter is easier to read. 
 \item Cancel the indentation for the first command that does not belong to the body of the loop.
 \end{itemize}
-To illustrate what the indentation does, let's look at a code that will move the robot 8 steps forward:
+To illustrate what the indentation does, let's look at a code that will move the robot 8 steps forward:\\
 
-\begin{bluecode}
-repeat 4
-    go
-    go
-\end{bluecode}
-Compare to a code that will only move the robot 5 steps forward:
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{repeat} 4
+    \PY{n+nf}{go}
+    \PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{bluecode}
-repeat 4
-    go
-go
-\end{bluecode}
+\noindent
+Compare to a code that will only move the robot 5 steps forward:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{repeat} 4
+    \PY{n+nf}{go}
+\PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Multiple {\tt repeat} commands can be {\em nested}. This means that a {\tt repeat} command 
 can used in the body of another {\tt repeat} command. Everything that was said about indentation 
-still holds. Can you figure out what the following code does?
+still holds. Can you figure out what the following code does?\\
 
-\begin{bluecode}
-repeat 10
-    repeat 5
-        go
-    repeat 2
-        left
-\end{bluecode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{repeat} 10
+    \PY{k}{repeat} 5
+        \PY{n+nf}{go}
+    \PY{k}{repeat} 2
+        \PY{n+nf}{left}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 After you figured it out, launch Karel via the {\em Programming} menu, enter this code into
 the code cell, and run it! But before doing that, remember to switch to {\em Designer} and make 
 some free space in front of the robot 
@@ -721,16 +878,21 @@ illustrated in Fig. \ref{fig:dede-ifelse}.
 \noindent
 The usage of the {\tt wall} sensor in a program can be illustrated using a simple program "Careful step" 
 where Karel first checks whether there is a wall ahead before
-making a step. If there is wall, he turns back: 
+making a step. If there is wall, he turns back:\\
 
-\begin{bluecode}
-# Program "Careful step".
-if wall
-    repeat 2
-        left
-else
-    go
-\end{bluecode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Program "Careful step".}
+\PY{k}{if} \PY{n+nb+bp}{wall}
+    \PY{k}{repeat} 2
+        \PY{n+nf}{left}
+\PY{k}{else}
+    \PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 As we mentioned before, the symbol '{\tt \#}' introduces a comment, meaning that the line 
 of code behind it is ignored by the robot.
 The {\tt else} branch does not have to be there if it is not needed. Notice the indentation 
@@ -753,37 +915,58 @@ to how we indent the body of the {\tt repeat} command. There are four more senso
 
 Karel can also use the reserved word {\tt not} to test the opposites.
 For illustration, the previous program can be rewritten as follows, without 
-changing its function:
-\begin{bluecode}
-# Program "Careful step".
-if not wall
-    go
-else
-    repeat 2
-        left
-\end{bluecode}
+changing its function:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Program "Careful step".}
+\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+    \PY{n+nf}{go}
+\PY{k}{else}
+    \PY{k}{repeat} 2
+        \PY{n+nf}{left}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Programming hints}
 
 Good programmer is a careful programmer! Errors can be avoided by always checking the 
-appropriate sensor before making an action. A few examples of careful actions:
+appropriate sensor before making an action. A few examples of careful actions:\\
  
-\begin{bluecode}
-if not wall
-    go
-\end{bluecode}
-Another example:
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+    \PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Another example:\\
  
-\begin{bluecode}
-if gem
-    get
-\end{bluecode}
-And a last one:
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{if} \PY{n+nb+bp}{gem}
+    \PY{n+nf}{get}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+And one more:\\
  
-\begin{bluecode}
-if not empty
-    put
-\end{bluecode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{empty}
+    \PY{n+nf}{put}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -802,64 +985,95 @@ Often Karel needs to repeat something, {\em not knowing in advance how many repe
 there will be}. So, the {\tt repeat} command is not practical. This can be the case, for example, 
 when the robot is asked to walk straight ahead until he reaches the closest wall.
 Remember that he only can see walls that are right ahead of him -- walls 
-that are further away he can't see. Such a program would be:
+that are further away he can't see. Such a program would be:\\
 
-\begin{bluecode}
-while not wall
-    go
-\end{bluecode}
-Or, Karel may be asked to walk until he gets home:
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+    \PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{bluecode}
-while not home
-    go
-\end{bluecode}
-Beware though -- {\bf this program is dangerous} since the robot will crash into a wall
-if his home is not straight ahead of him!
+\noindent
+Or, Karel may be asked to walk until he gets home:\\
 
-Another example: The robot may be asked to empty his bag (he does not know how many gems are in it): 
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{home}
+    \PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Beware though: {\color{red}{this program is dangerous}} since the robot will crash into a wall
+if his home is not straight ahead of him!\\
+
+\noindent
+The robot may be asked to empty his bag (he does not know how many gems are in it):\\
  
-\begin{bluecode}
-while not empty
-    put
-\end{bluecode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{empty}
+    \PY{n+nf}{put}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Or, he may be asked to collect all gems from a pile (he does not know 
-how many gems there are):
+how many gems there are):\\
 
-\begin{bluecode}
-while gem
-    get
-\end{bluecode}
-Or we may ask him to turn to face North (he does not know which direction he is
-facing):
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{while} \PY{n+nb+bp}{gem}
+    \PY{n+nf}{get}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{bluecode}
-while not north
-    left
-\end{bluecode}
-At last, let us face the following situation: Karel is asked to 
+\noindent
+Or we may ask him to turn to face North (recall that the robot does not know which direction he is
+facing - there is no such sensor):\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{north}
+    \PY{n+nf}{left}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+At last, let us write the following program: Karel is asked to 
 turn South, walk straight ahead until he reaches the closest wall, and 
 collect all gems that he can find on the way:
 
-\begin{bluecode}
-# First turn North.
-while not north
-    left
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} First turn North.}
+\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{north}
+    \PY{n+nf}{left}
 
-# Then turn South.
-repeat 2
-    left
+\PY{c}{\PYZsh{} Then turn South.}
+\PY{k}{repeat} 2
+    \PY{n+nf}{left}
 
-# Go straight ahead and pick all gems.
-while not wall
-    if gem
-        get
-    go
+\PY{c}{\PYZsh{} Go straight ahead and pick all gems.}
+\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+    \PY{k}{if} \PY{n+nb+bp}{gem}
+        \PY{n+nf}{get}
+    \PY{n+nf}{go}
 
-# Pick gem at the wall (if any).
-if gem
-    get
-\end{bluecode}
+\PY{c}{\PYZsh{} Pick gem at the wall (if any).}
+\PY{k}{if} \PY{n+nb+bp}{gem}
+    \PY{n+nf}{get}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Notice that we first need to turn the robot to face North -- this is because North 
 is the only direction that he can check!
 
@@ -871,7 +1085,7 @@ is the only direction that he can check!
 \subsection{Objectives} 
  
 \begin{itemize}
-\item Learn that replicating computer code is a very bad habit.
+\item Learn that replicating computer code is a bad habit.
 \item Learn that splitting the big task into smaller ones will simplify the solution a lot. 
 \item Learn to bring more structure and clarity into our programs by introducing new commands.
 \end{itemize}
@@ -919,13 +1133,18 @@ rewrite it from scratch.
 New commands are defined using the reserved word 
 {\tt def}. For example, in a program where the robot needs to turn back
 many times, it is a good idea to define a new command {\tt back}
-as follows:
+as follows:\\
 
-\begin{bluecode}
-def back
-    repeat 2
-        left
-\end{bluecode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} back
+    \PY{k}{repeat} 2
+        \PY{n+nf}{left}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Note the indent -- the body of a new command needs to be indented 
 analogously to the bodies of loops and conditions.
 
@@ -941,14 +1160,19 @@ analogously to the bodies of loops and conditions.
 \end{itemize}
 By a {\em recursive} algorithm we mean an algorithm that uses itself. Doesn't it sound weird?
 But in our life we use recursion all the time, for example when we descend a staircase.
-With a bit of abstraction, our algorithm is:
+With a bit of abstraction, our algorithm is:\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 Descend_staircase
     Descend one step
     If this was not the last step
         Descend_staircase
-\end{bluecode}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Recursion is not advantageous for all types of problems, but it can be really 
 helpful, especially for problems where 
 \begin{itemize}
@@ -960,15 +1184,20 @@ directly or through other commands.
 
 \subsection{How it works} 
 
-Consider the following program:
-\begin{bluecode}
-def reach_wall
-    if not wall
-        go
+Consider the following program:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} reach_wall
+    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+        \PY{n+nf}{go}
         reach_wall
 
 reach_wall
-\end{bluecode}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
 \noindent
 Imagine that the initial position of the robot is like in Fig. \ref{fig:rec1}.
 
@@ -1000,15 +1229,19 @@ position changes as shown in Fig. \ref{fig:rec2}.
 \noindent
 Next the robot executes the {\tt reach\_wall} command that follows the {\tt go} command. A good way to 
 understand what happens is to imagine that the command is replaced with its own body. The corresponding 
-program would look as follows:
+program would look as follows:\\
 
-\begin{bluecode}
-if not wall
-    go
-    if not wall
-        go
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+    \PY{n+nf}{go}
+    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+        \PY{n+nf}{go}
         reach_wall
-\end{bluecode}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
 \noindent
 Since the robot is two steps away from the wall, the second {\tt if not wall} condition passes and 
 he makes a second step forward. His new position is shown in Fig. \ref{fig:rec3}.
@@ -1024,17 +1257,21 @@ he makes a second step forward. His new position is shown in Fig. \ref{fig:rec3}
 \end{figure}
 \noindent
 Next the robot executes the third {\tt reach\_wall} command. Again we can imagine that the command 
-is replaced with its own body. The corresponding program would look as follows:
+is replaced with its own body. The corresponding program would look as follows:\\
 
-\begin{bluecode}
-if not wall
-    go
-    if not wall
-        go
-        if not wall
-            go
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+    \PY{n+nf}{go}
+    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+        \PY{n+nf}{go}
+        \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+            \PY{n+nf}{go}
             reach_wall
-\end{bluecode}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
 \noindent
 Since the robot is one step away from the wall, the third {\tt if not wall} condition passes and 
 he makes a third step forward. His new position is shown in Fig. \ref{fig:rec4}.
@@ -1050,19 +1287,23 @@ he makes a third step forward. His new position is shown in Fig. \ref{fig:rec4}.
 \end{figure}
 \noindent
 Next the robot executes the {\tt reach\_wall} command again and we can imagine that the command 
-is replaced with its own body. The corresponding program would look as follows:
+is replaced with its own body. The corresponding program would look as follows:\\
 
-\begin{bluecode}
-if not wall
-    go
-    if not wall
-        go
-        if not wall
-            go
-            if not wall
-                go
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+    \PY{n+nf}{go}
+    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+        \PY{n+nf}{go}
+        \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+            \PY{n+nf}{go}
+            \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+                \PY{n+nf}{go}
                 reach_wall
-\end{bluecode}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
 \noindent
 However, now the robot is facing the wall and thus the {\tt if not wall} condition does not pass.  
 This means that the program is finished!
@@ -1072,13 +1313,17 @@ This means that the program is finished!
 In the previous example we have seen one important fact: To prevent infinite recursion, one always needs {\tt if} or {\tt if-else} 
 statement of some sort where one branch makes a recursive call, and the other branch is either 
 missing or it does not make a recursive call. The branch without a recursive 
-call is called the {\em base case}. A bad example of a recursive command without a base case would be 
+call is called the {\em base case}. A bad example of a recursive command without a base case would be\\
 
-\begin{bluecode}
-def left_forever
-    left
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} left_forever
+    \PY{n+nf}{left}
     left_forever
-\end{bluecode}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
 \noindent
 One can guess where the name of this command comes from! Fortunately, the program can be stopped using 
 either the red button or the {\tt stop} button under the code cell.
@@ -1086,44 +1331,59 @@ either the red button or the {\tt stop} button under the code cell.
 \subsection{When should recursion be used?}
 
 The recursive command {\tt reach\_wall} that we defined above may not be the most useful example 
-since the same functionality could be achieved more elegantly without recursion, just with
+since the same functionality could be achieved more elegantly without recursion, just with\\
 
-\begin{bluecode}
-def reach_wall
-    while not wall
-        go
-\end{bluecode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} reach_wall
+    \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+        \PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 If there is a small task that needs to be solved repeatedly in order to get a bigger task done,
 then often one can write both a non-recursive and a recursive algorithm. Recall for example the Diamond
 Staircase example from Section \ref{sec:newcom}. The small task there was to climb one step and pick 
-up the gem, ending up facing east. The non-recursive version of the algorithm would be:
+up the gem, ending up facing east. The non-recursive version of the algorithm would be:\\
 
-\begin{bluecode}
-def climb_one_step
-    left
-    go
-    right
-    go
-    get
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} climb_one_step
+    \PY{n+nf}{left}
+    \PY{n+nf}{go}
+    \PY{n+nf}{right}
+    \PY{n+nf}{go}
+    \PY{n+nf}{get}
 
-while not home
+\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{home}
     climb_one_step
-\end{bluecode}
-The recursive version of the algorithm looks as follows:
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{bluecode}
-def climb_the_stairs
-    if not home
-        left
-        go
-        right
-        go
-        get
+\noindent
+The recursive version of the algorithm looks as follows:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} climb_the_stairs
+    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{home}
+        \PY{n+nf}{left}
+        \PY{n+nf}{go}
+        \PY{n+nf}{right}
+        \PY{n+nf}{go}
+        \PY{n+nf}{get}
         climb_the_stairs
 
 climb_the_stairs
-\end{bluecode}
-If it is easy to write a non-recursive version of an algorithm, then it should be used
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+If it is easy to write a non-recursive version of an algorithm, then it should be done
 because in general, non-recursive algorithms are faster. 
 Recursive version of an algorithm should be used if a non-recursive version would 
 be difficult to design. For example, nearly all code written for tree-like structures 
@@ -1136,28 +1396,39 @@ Recursion can have interesting forms. In its simplest shape, a command
 calls itself in its own body. But, we can have a pair of commands
 that call themselves mutually, such as the commands {\tt odd} and 
 {\tt even} in the following example (that also solves the Diamond Staircase
-problem by the way):
+problem by the way):\\
  
-\begin{bluecode}
-def climb_step
-    left
-    go
-    right
-    go
-    get 
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} climb_step
+    \PY{n+nf}{left}
+    \PY{n+nf}{go}
+    \PY{n+nf}{right}
+    \PY{n+nf}{go}
+    \PY{n+nf}{get} 
 
-def odd
-    if not home
+\PY{k}{def} odd
+    \PY{k}{if} not home
         climb_step
         even
-    
-def even
-    if not home
+    \end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} even
+    \PY{k}{if} not home
         climb_step
         odd
     
 odd
-\end{bluecode}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Obviously this program is not the most efficient one to solve the 
 Diamond Staircase problem, but it is great for illustration purposes.
 
@@ -1191,11 +1462,16 @@ be a number, word, sentence, or anything else.
 
 All of us are using variables in our lives. One of 
 the first ones is our own name. With a bit of abstraction (and say that your name is "Melissa"), 
-when you were about two years old, you did the following:
+when you were about two years old, you did the following:\\
 
-\begin{bluecode}
-my_name = "Melissa"
-\end{bluecode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{my\PYZus{}name} \PY{o}{=} \PY{l+s}{"}\PY{l+s}{Melissa}\PY{l+s}{"}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 Since then, each time someone called a name, you retrieved in your brain the value of the variable
 {\tt my\_name}, compared it to the name that you heard, and if you got a match then you turned around 
 to see who was calling you. Imagine that we would not be able to use that variable!
@@ -1221,31 +1497,42 @@ Karel's coolest Christmas present was a new GPS device that allows him to determ
 in the maze. With it, he will never get lost again! He can retrieve his coordinates at any time via the 
 kaywords {\tt gpsx} and {\tt gpsy}. He also has a new ability to output results via the {\tt print} 
 command. The usage of these commands is best illustrated using the following short program where 
-Karel determines his coordinates in the maze and prints them:
+Karel determines his coordinates in the maze and prints them:\\
 
-\begin{bluecode}
-print "Horizontal position:", gpsx
-print "Vertical position:", gpsy
-\end{bluecode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Horizontal position:}\PY{l+s}{"}\PY{p}{,} \PY{n}{gpsx}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Vertical position:}\PY{l+s}{"}\PY{p}{,} \PY{n}{gpsy}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 The south-west corner of the maze is the origin of the coordinate system and it has 
 coordinates [0, 0]. Let's say that Karel stands as shown in Fig. \ref{fig:gps-100}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/gps-100.png}
 \vspace{-0mm}
 \caption{South-west corner of the maze has GPS coordinates [0, 0].}
-%\vspace{-1cm}
+\vspace{-6mm}
 \label{fig:gps-100}
 \end{center}
 \end{figure}
 \noindent
-Then the above program has the following output:
+Then the above program has the following output:\\
 
-\begin{greencode}
+\begin{ybox}
+\begin{verbatim}
 Horizontal position: 0
 Vertical position: 0
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 The maze's width (in west-east direction) is 15 tiles, and its height (in south-north direction) 
 is 12 tiles. If Karel stands in the north-east corner as shown in Fig. \ref{fig:gps-101},
 
@@ -1254,65 +1541,103 @@ is 12 tiles. If Karel stands in the north-east corner as shown in Fig. \ref{fig:
 \includegraphics[height=0.4\textwidth]{img/gps-101.png}
 \vspace{-0mm}
 \caption{North-east corner of the maze has GPS coordinates [14, 11].}
-%\vspace{-1cm}
+\vspace{-1cm}
 \label{fig:gps-101}
 \end{center}
 \end{figure}
 \newpage
 \noindent
-then the output of the program is
+then the output of the program is\\
 
-\begin{greencode}
+\begin{ybox}
+\begin{verbatim}
 Horizontal position: 14
 Vertical position: 11
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 Try it! Also move Karel to other parts of the maze in Designer and run the program again
 to make yourself familiar with how the GPS device works.
 
-\subsection{Custom Functions}
+\subsection{Custom functions}
 
 In Level 3 we can use the reserved word {\tt return} inside the body of
 a command to return a value. Such commands are then called {\em functions}. 
 They are also defined using the keyword {\tt def}. For example, the following function
 {\tt count\_steps} will return the number of steps the robot needed to 
-make in order to reach the closest wall in the direction that he was facing:
+make in order to reach the closest wall in the direction that he was facing:\\
 
-\begin{bluecode}
-def count_steps
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} count_steps
     n = 0
-    while not wall
-        go
-        inc(n)
-    return n
-\end{bluecode}
-The function can be then used as follows:
+    \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+        \PY{n+nf}{go}
+        \PY{n+nf}{inc}(n)
+    \PY{k}{return} n
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{bluecode}
-num = count_steps
-print "Number of steps:", num 
-\end{bluecode}
+\noindent
+The function can be then used as follows:\\
 
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{num} \PY{o}{=} \PY{n}{count\PYZus{}steps}
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{Number of steps:}\PY{l+s}{"}\PY{p}{,} \PY{n}{num} 
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
 \subsection{Creating numerical variables} \label{par:var}
 
 In Karel, numerical variables can be created in several different ways: 
 \begin{enumerate}
-\item By setting them to an integer number. For example, new variable {\tt a} is created and set to zero by typing 
-\begin{bluecode}
+\item By setting them to an integer number. For example, new variable {\tt a} is created and set to zero by typing \\
+
+\begin{bboxshort}
+\begin{Verbatim}[commandchars=\\\{\}]
 a = 0
-\end{bluecode}
-\item By setting them to {\tt gpsx}. For example, new variable {\tt var} is created and set to {\tt gpsx} by typing
-\begin{bluecode}
+\end{Verbatim}
+\end{bboxshort}
+\vspace{1mm}
+
+\noindent
+\item By setting them to {\tt gpsx}. For example, new variable {\tt var} is created and set to {\tt gpsx} by typing\\
+
+\begin{bboxshort}
+\begin{Verbatim}[commandchars=\\\{\}]
 var = gpsx
-\end{bluecode}
-\item By setting them to {\tt gpsy}. For example, new variable {\tt pos1} is created and set to {\tt gpsy} by typing
-\begin{bluecode}
+\end{Verbatim}
+\end{bboxshort}
+\vspace{1mm}
+
+\noindent
+\item By setting them to {\tt gpsy}. For example, new variable {\tt pos1} is created and set to {\tt gpsy} by typing\\
+
+\begin{bboxshort}
+\begin{Verbatim}[commandchars=\\\{\}]
 pos1 = gpsy
-\end{bluecode}
+\end{Verbatim}
+\end{bboxshort}
+\vspace{1mm}
+
+\noindent
 \item Initialize them with an existing value. For example, if we already have a variable {\tt var1}, then a new variable 
-{\tt var2} can be created as follows:
-\begin{bluecode}
+{\tt var2} can be created as follows:\\
+
+\begin{bboxshort}
+\begin{Verbatim}[commandchars=\\\{\}]
 var2 = var1
-\end{bluecode}
+\end{Verbatim}
+\end{bboxshort}
+\vspace{1mm}
+
+\noindent
 \item Initialize them with value returned by an existing function, as it was shown in the previous 
 paragraph. 
 \end{enumerate}
@@ -1333,22 +1658,32 @@ Karel stands as shown in Fig. \ref{fig:var1}.
 \end{figure}
 
 \noindent
-Then the program
+Then the program\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 a = gpsx
-print "Start position:", a
-repeat 5
-    go
+\PY{k}{print} \PY{l+s}{"Start position:"}, a
+\PY{k}{repeat} 5
+    \PY{n+nf}{go}
 a = gpsx 
-print "End position:", a
-\end{bluecode}
-will produce the following output:
+\PY{k}{print} \PY{l+s}{"End position:"}, a
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+will produce the following output:\\
+
+\begin{ybox}
+\begin{verbatim}
 Start position: 5
 End position: 10
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 Another way to change the value of a numerical variable is to increase it by one or 
 decrease it by one via the commands {\tt inc()} and 
 {\tt dec()}, respectively. Commands {\tt inc(a, num)} and 
@@ -1356,20 +1691,28 @@ decrease it by one via the commands {\tt inc()} and
 by an integer number {\tt num}.
 
 Consider again Karel's initial position as shown 
-in Fig. \ref{fig:var1}. Then the code
+in Fig. \ref{fig:var1}. Then the code\\
 
-\begin{bluecode}
-a = zero
-while not wall
-    go
-    inc(a)
-print "Went", a, "steps before reaching a wall."
-\end{bluecode}
-will have the following output:
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+a = 0
+\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+    \PY{n+nf}{go}
+    \PY{n+nf}{inc}(a)
+\PY{n+nf}{print} \PY{l+s}{"Went"}, a, \PY{l+s}{"steps before reaching a wall."}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+will have the following output:\\
+
+\begin{ybox}
+\begin{verbatim}
 Went 7 steps before reaching a wall.
-\end{greencode}
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
 
 \subsection{Comparison operations}
 
@@ -1378,51 +1721,81 @@ standard operators {\tt >, <, >=, <=, ==, !=, <>}. In this order,
 they read "greater than", "less than", "greater than or equal to", 
 "less than or equal to", "equal to", "not equal to" and "not equal to"
 (the last two operations have the same meaning). The result of each such 
-operation is a logical value {\tt true} or {\tt false}, and it can be 
+operation is a logical value {\tt True} or {\tt False}, and it can be 
 either used in a condition or conditional loop, or assigned to 
-a variable. For example,
+a variable. For example,\\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 a = 1
 b = 5
-print a < b
-\end{bluecode}
-yields the output
+\PY{k}{print} a < b
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+yields the output\\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
 True
-\end{greencode}
-The code
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+The code\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 a = 1
 b = 5
 c = a > b
-print c
-\end{bluecode}
-yields
+\PY{k}{print} c
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+yields\\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
 False
-\end{greencode}
-The code 
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+The code \\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 a = 0
-while a <= 5
-  print a 
-  inc(a)
-\end{bluecode}
-yields 
+\PY{k}{while} a <= 5
+  \PY{k}{print} a 
+  \PY{n+nf}{inc}(a)
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+yields\\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
 0
 1
 2
 3
 4
 5
-\end{greencode}
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 
 \subsection{Lists}
 
@@ -1437,51 +1810,93 @@ illustrate their usage on examples.\\
 \noindent
 \underline{\em Creating a list}\\
 
-An empty list {\tt U} is created via 
+\noindent
+An empty list {\tt U} is created via \\
 
-\begin{bluecode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 U = []
-\end{bluecode}
-Lists can be also created non-empty:
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+Lists can be also created non-empty:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 V = [1, 2, 3, 4, 5]
-\end{bluecode}
-One can use variables when creating a list, as can be 
-illustrated using the code
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{bluecode}
+\noindent
+One can use variables when creating a list, as can be 
+illustrated using the code\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 c = 100
 W = [0, 50, c]
-print W
-\end{bluecode}
-whose output is 
+\PY{k}{print} W
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{greencode}
+\noindent
+whose output is \\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
 [0, 50, 100]
-\end{greencode}
-Integer numbers can be combined with strings:
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
 
-\begin{bluecode}
-X = [1, "Hello", 2]
-\end{bluecode}
-Lists can contain other lists as their elements:
+\noindent
+Integer numbers can be combined with strings:\\
 
-\begin{bluecode}
-Y = [1, "Hello", 2, [1, 2, 3]]
-\end{bluecode}
-One can print a list as expected:
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+X = [1, \PY{s+1}{"Hello"}, 2]
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
-\begin{bluecode}
-print "This is the list Y:", Y
-\end{bluecode}
-Output:
+\noindent
+Lists can contain other lists as their elements:\\
 
-\begin{greencode}
-This is the list Y: [1, "Hello", 2, [1, 2, 3]]
-\end{greencode}
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+Y = [1, \PY{s+1}{"Hello"}, 2, [1, 2, 3]]
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+One can print a list as expected:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{print} \PY{s+1}{"This is the list Y:"}, Y
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Output:\\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
+This is the list Y: [1, \PY{s+1}{"Hello"}, 2, [1, 2, 3]]
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
 \underline{\em Accessing list items by indices}\\
 
+\noindent
 Any list item can be accessed and either printed, assigned 
 to a variable, or used in an operation, via its index. It is important to remember that 
 the indices start from zero. In other words, {\tt L[0]} is the 
@@ -1505,6 +1920,7 @@ Fourth item: 20
 \end{greencode}
 \underline{\em Appending items to a list}\\
 
+\noindent
 An arbitrary integer number, text string, or another list {\tt obj} can be appended 
 to the end of an existing list {\tt L} as follows:
 
@@ -1525,6 +1941,7 @@ whose output is
 \end{greencode}
 \underline{\em Removing items via the {\tt pop()} function}\\
 
+\noindent
 The {\tt i}-th item can be deleted from a list {\tt L} 
 and assigned to a variable {\tt x} via 
 
@@ -1551,6 +1968,7 @@ and returns the last object of the list.\\
 \noindent
 \underline{\em Deleting items via the {\tt del} command}\\
 
+\noindent
 The purpose of the {\tt del} command is similar to the {\tt pop()} function
 except that the deleted object is destroyed (it cannot be assigned to a variable).
 The {\tt i}-th item can be deleted from a list {\tt L} via 
