@@ -732,33 +732,33 @@ analogously to the bodies of loops and conditions.
 \item Understand what recursion is and when it can be useful.
 \item Learn to write good recursive algorithms.
 \end{itemize}
-By a {\em recursive} algorithm we mean an algorithm that uses itself. Doesn't it sound weird?
-But in our life we use recursion all the time, for example when we descend a staircase.
-With a bit of abstraction, our algorithm is:\\
+By a {\em recursive} algorithm we mean an algorithm that makes a call to itself. How does it sound?
+In our life we use recursion all the time, without noticing it. For example, when we descend 
+a staircase, our algorithm is:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 Descend_staircase
-    Descend one step
-    If this was not the last step
+    Descend_one_step
+    If this_was_not_the_last_step
         Descend_staircase
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
 
 \noindent
-Recursion is not advantageous for all types of problems, but it can be really 
-helpful, especially for problems where 
+Recursion is not applicable to all types of problems, but it can be very 
+helpful, especially for problems where we can
 \begin{itemize}
-\item we can do some work to reduce the problem to the same one but smaller in size, 
-\item we can apply the same algorithm to the smaller problem. 
+\item reduce the problem to a similar one which is smaller in size, 
+\item apply the same algorithm to the smaller problem. 
 \end{itemize}
 On program level, this means that some command calls itself, either 
 directly or through other commands.
 
-\subsection{How it works} 
+\subsection[\ \ How it works]{How it works} 
 
-Consider the following program:\\
+Consider the following Karel program:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -796,14 +796,14 @@ position changes as shown in Fig. \ref{fig:rec2}.
 \includegraphics[width=6cm]{img/rec-2.png}
 \end{center}
 \vspace{-4mm}
-\caption{Robot's position after the first {\tt if not wall} condition passes and he makes the first step forward.}
+\caption{Robot's position after making the first step forward.}
 \label{fig:rec2}
 \vspace{-4mm}
 \end{figure}
 \noindent
 Next the robot executes the {\tt reach\_wall} command that follows the {\tt go} command. A good way to 
-understand what happens is to imagine that the command is replaced with its own body. The corresponding 
-program would look as follows:\\
+understand what happens is to imagine that the command is replaced with its own body. So the corresponding 
+code would look as follows:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -825,13 +825,13 @@ he makes a second step forward. His new position is shown in Fig. \ref{fig:rec3}
 \includegraphics[width=6cm]{img/rec-3.png}
 \end{center}
 \vspace{-4mm}
-\caption{Robot's position after the second {\tt if not wall} condition passes and he makes a second step forward.}
+\caption{Robot's position after making the second step forward.}
 \label{fig:rec3}
 \vspace{-4mm}
 \end{figure}
 \noindent
 Next the robot executes the third {\tt reach\_wall} command. Again we can imagine that the command 
-is replaced with its own body. The corresponding program would look as follows:\\
+is replaced with its own body. The corresponding code would look as follows:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -855,13 +855,14 @@ he makes a third step forward. His new position is shown in Fig. \ref{fig:rec4}.
 \includegraphics[width=6cm]{img/rec-4.png}
 \end{center}
 \vspace{-4mm}
-\caption{Robot's position after the third {\tt if not wall} condition passes and he makes a third step forward.}
+\caption{Robot's position after making the third step forward.}
 \label{fig:rec4}
 %\vspace{-10mm}
 \end{figure}
 \noindent
-Next the robot executes the {\tt reach\_wall} command again and we can imagine that the command 
-is replaced with its own body. The corresponding program would look as follows:\\
+Now the robot stands in front of the wall, so it gets more interesting. The 
+{\tt reach\_wall} command is executed one more time, so we can imagine that its body 
+is pasted into the code one last time:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -879,15 +880,17 @@ is replaced with its own body. The corresponding program would look as follows:\
 \vspace{6mm}
 
 \noindent
-However, now the robot is facing the wall and thus the {\tt if not wall} condition does not pass.  
-This means that the program is finished!
+However, now the {\tt if not wall} condition does not pass, which means that  
+the program is finished!
 
-\subsection{The base case}
+\subsection[\ \ The base case]{The base case}
 
-In the previous example we have seen one important fact: To prevent infinite recursion, one always needs {\tt if} or {\tt if-else} 
-statement of some sort where one branch makes a recursive call, and the other branch is either 
-missing or it does not make a recursive call. The branch without a recursive 
-call is called the {\em base case}. A bad example of a recursive command without a base case would be\\
+In the last example we have observed one important fact: To prevent infinite recursion, we 
+used an {\tt if} statement. The {\tt else} statement was omitted which meant "else do nothing".
+In recursive algorithms, we always need an {\tt if} or {\tt if-else} statement of some sort, 
+where one branch makes a recursive call while the other one does not. 
+The branch without a recursive call is called the {\em base case}. A bad example 
+of a recursive command without a base case would be\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -899,10 +902,10 @@ call is called the {\em base case}. A bad example of a recursive command without
 \vspace{6mm}
 
 \noindent
-One can guess where the name of this command comes from! Fortunately, the program can be stopped using 
-either the red button or the {\tt stop} button under the code cell.
+This program is an infinite recursion that needs to be stopped using the 
+red stop button.
 
-\subsection{When should recursion be used?}
+\subsection[\ \ When should recursion be used?]{When should recursion be used?}
 
 The recursive command {\tt reach\_wall} that we defined above may not be the most useful example 
 since the same functionality could be achieved more elegantly without recursion, just with\\
@@ -918,9 +921,9 @@ since the same functionality could be achieved more elegantly without recursion,
 
 \noindent
 If there is a small task that needs to be solved repeatedly in order to get a bigger task done,
-then often one can write both a non-recursive and a recursive algorithm. Recall for example the Diamond
+then often one can write both a non-recursive and recursive version. Recall for example the Diamond
 Staircase example from Section \ref{sec:newcom}. The small task there was to climb one step and pick 
-up the gem, ending up facing east. The non-recursive version of the algorithm would be:\\
+up the gem, ending up facing east. A non-recursive version of the algorithm would be:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -938,7 +941,7 @@ up the gem, ending up facing east. The non-recursive version of the algorithm wo
 \vspace{6mm}
 
 \noindent
-The recursive version of the algorithm looks as follows:\\
+A recursive version of the same:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -957,20 +960,26 @@ climb_the_stairs
 \vspace{6mm}
 
 \noindent
-If it is easy to write a non-recursive version of an algorithm, then it should be done
-because in general, non-recursive algorithms are faster. 
-Recursive version of an algorithm should be used if a non-recursive version would 
-be difficult to design. For example, nearly all code written for tree-like structures 
-is recursive. Also many sorting algorithms are more naturally written in recursive form.
-We will come to these subjects later.
+If an algorithm comes in both a recursive and a non-recursive version, then the following 
+should be taken into account:
+\begin{itemize}
+\item The recursive version will be slightly slower than a non-recursive one. The reason is 
+      the overhead related to creating a new instance of the recursive command and calling it. 
+\item The recursive version will also require more memory -- when a recursive command is called 
+      1000 times, then it actually exists in 1000 copies in the memory. Hence, recursion is 
+      not recommended with very large numbers of repetitions.
+\end{itemize}
+Recursive algorithms are used mainly where non-recursive ones are cumbersome to design. 
+For example, much code written for traversing tree-like data structures is recursive. Also certain 
+sorting algorithms are more naturally written in recursive form. We will discuss these subjects 
+in more detail later.
 
-\subsection{Mutually recursive commands}
+\subsection[\ \ Mutually recursive commands]{Mutually recursive commands}
 
-Recursion can have interesting forms. In its simplest shape, a command 
-calls itself in its own body. But, we can have a pair of commands
+Recursion can have interesting forms. For example, there can be a pair of commands
 that call themselves mutually, such as the commands {\tt odd} and 
 {\tt even} in the following example (that also solves the Diamond Staircase
-problem by the way):\\
+problem). Note the presence of base case in both recursive commands:\\
  
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -985,13 +994,7 @@ problem by the way):\\
     \PY{k}{if} not home
         climb_step
         even
-    \end{Verbatim}
-\end{bbox}
-\vspace{6mm}
 
-\noindent
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} even
     \PY{k}{if} not home
         climb_step
@@ -1000,42 +1003,44 @@ problem by the way):\\
 odd
 \end{Verbatim}
 \end{bbox}
-\vspace{6mm}
-
-\noindent
-Obviously this program is not the most efficient one to solve the 
-Diamond Staircase problem, but it is great for illustration purposes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Variables and Lists} \label{sec:var}
+\section{Variables and Functions} \label{sec:var}
 
-In this Section we are entering exciting Level 3! Karel grew up and left the home of his 
-parents to experience a life of his own. Therefore, his home will not be present
-in the following exercises and games anymore. There are a few more changes
-that reflect Karel's growing up, including numerical and logical variables,
-functions that return values, and lists. Do not forget to adjust the level 
-to Level 3 in Settings. A compact overview of new functionality in Level 3 
-can be found in Section \ref{sec:newfunc3}.
+In this Section we are entering exciting Level 3 where Karel grows up and leaves the 
+home of his parents to experience life on his own. Therefore, his home will not be 
+present in the maze anymore. There are additional changes
+that reflect Karel's growing up -- there is a GPS device that Karel can use to 
+determine his position in the maze, he can print messages, work with variables and 
+lists, employ functions that return values, and more. Do not forget to switch to 
+Level 3 in Settings. A compact overview of new functionality in Level 3 can be found 
+in Section \ref{sec:newfunc3}.
 
-\subsection{Objectives} 
+\subsection[\ \ Objectives]{Objectives} 
  
 \begin{itemize}
 \item Understand the concept of variables.
-\item Learn to work with numerical and logical variables.
+\item Learn to work with numerical and logical variables and text strings.
 \item Learn to use functions that return values. 
 \item Understand that variables defined inside functions are local. 
-\item Learn to work with lists.
 \end{itemize}
 
 \noindent
-In programming, variables are used to store useful information for later use. This information can 
-be a number, word, sentence, or anything else. 
+In programming, variables are used to store useful information for later use. 
+To give a few examples, this information can be a number, word, sentence, 
+or a logical value ("true" or "false").
 
-\subsection{Types of variables}
+\subsection[\ \ Types of variables]{Types of variables}
 
-All of us are using variables in our lives. One of 
-the first ones is our own name. With a bit of abstraction (and say that your name is "Melissa"), 
+All of us use variables in our lives. One of 
+the first ones is our own name. \\
+
+\noindent
+\underline{\em Text strings}\\
+
+\noindent
+With a bit of abstraction (and say that your name is "Melissa"), 
 when you were about two years old, you did the following:\\
 
 \begin{bbox}
@@ -1046,30 +1051,58 @@ when you were about two years old, you did the following:\\
 \vspace{6mm}
 
 \noindent
-Since then, each time someone called a name, you retrieved in your brain the value of the variable
+The variable {\tt my\_name} stores a text (string of characters). 
+Since then, each time someone said a name, you retrieved in your brain the value of the variable
 {\tt my\_name}, compared it to the name that you heard, and if you got a match then you turned around 
-to see who was calling you. Imagine that we would not be able to use that variable!
+to see who was calling you. \\
 
-The variable {\tt my\_name} stores a word (string of characters). We also use many numerical variables such as
-{\tt seconds\_per\_minute} whose value is 60, {\tt minutes\_per\_hour} whose value is 60 as well, 
-{\tt hours\_per\_day} whose value is 24, and we could go on. The last three variables do not change 
+\newpage
+\noindent
+\underline{\em Numbers}\\
+
+\noindent
+We also use numerical variables such as\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{seconds\PYZus{}per\PYZus{}minute} \PY{o}{=} 60
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+or {\tt minutes\_per \_hour} whose value is 60 as well, 
+{\tt hours\_per\_day} whose value is 24, and so on. The last three variables do not change 
 too often, most likely they will not change during our lives. But we also use variables whose 
 values change, such as {\tt days\_per\_year}, {\tt number\_of\_my\_pets}, etc. In Karel, we
-will only use integer numbers.
+will only use integers (not general real numbers).\\
 
-Next let's look at logical variables. Those are variables that only can store two possible values --
-{\tt True} or {\tt False}, and we use a huge number of them. One such example may be {\tt I\_speak\_a\_foreign\_language}.
-For someone this variable has the value {\tt False}, for someone it is {\tt True}. The important 
-thing is that when someone asks you about that, you do not need to go check the records in the language 
-school -- you just know it. The value is {\em stored}, it does not have to be {\em created} each time 
-it is needed. Logical variables will be discussed in more detail shortly -- first let us explore 
-the numerical ones.
+\noindent
+\underline{\em Logical values}\\
 
-\subsection{Reading GPS coordinates}
+\noindent
+Logical variables can only store two possible values:
+{\tt True} or {\tt False}. We use many of them. One such example: \\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{I\PYZus{}speak\PYZus{}a\PYZus{}foreign\PYZus{}language} \PY{o}{=} True
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Of course, for someone else this variable will have the value {\tt False}. The important 
+thing is that when someone asks you whether you speak a foreign language, you can retrieve 
+this information quickly. The value is {\em stored}, it does not have to be {\em created}
+again. Logical variables and operations will be discussed in more detail in Section 
+\ref{sec:logic}. In the rest of this section we will work with integers and text strings.
+
+\subsection[\ \ Using the GPS device and the {\tt print} command]{Using the GPS device and the {\tt print} command}
 
 Karel's coolest Christmas present was a new GPS device that allows him to determine his position 
-in the maze. With it, he will never get lost again! He can retrieve his coordinates at any time via the 
-kaywords {\tt gpsx} and {\tt gpsy}. He also has a new ability to output results via the {\tt print} 
+in the maze. He can retrieve his coordinates at any time via the 
+commands {\tt gpsx} and {\tt gpsy}. He also has a new ability to output text messages via the {\tt print} 
 command. The usage of these commands is best illustrated using the following short program where 
 Karel determines his coordinates in the maze and prints them:\\
 
@@ -1083,8 +1116,7 @@ Karel determines his coordinates in the maze and prints them:\\
 
 \noindent
 The south-west corner of the maze is the origin of the coordinate system and it has 
-coordinates [0, 0]. Let's say that Karel stands as shown in Fig. \ref{fig:gps-100}.
-\newpage
+coordinates [0, 0]. With Karel's position shown in Fig. \ref{fig:gps-100},
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1096,7 +1128,7 @@ coordinates [0, 0]. Let's say that Karel stands as shown in Fig. \ref{fig:gps-10
 \end{center}
 \end{figure}
 \noindent
-Then the above program has the following output:\\
+the above program will have the following output:\\
 
 \begin{ybox}
 \begin{verbatim}
@@ -1132,10 +1164,25 @@ Vertical position: 11
 \vspace{6mm}
 
 \noindent
-Try it! Also move Karel to other parts of the maze in Designer and run the program again
-to make yourself familiar with how the GPS device works.
+Try to move Karel to other parts of the maze via simple commands or in Designer, 
+and run the program again, to make yourself familiar with how the GPS device works.\\
 
-\subsection{Custom functions}
+\noindent
+The {\tt print} command can be used to display more complicated sentences where text
+and variables are separated by commas:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{print} \PY{l+s}{"}\PY{l+s}{My GPS coordinates are}\PY{l+s}{"}\PY{p}{,} \PY{n}{gpsx}, \PY{l+s}{"and"}, \PY{n}{gpsy}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Notice that each comma means the inclusion of one empty character:
+
+
+\subsection[\ \ Defining custom functions]{Defining custom functions}
 
 In Level 3 we can use the reserved word {\tt return} inside the body of
 a command to return a value. Such commands are then called {\em functions}. 
@@ -1156,7 +1203,17 @@ make in order to reach the closest wall in the direction that he was facing:\\
 \vspace{6mm}
 
 \noindent
-The function can be then used as follows:\\
+Notice couple of things here:
+\begin{itemize}
+\item The variable {\tt n} was created and initialized by {\tt 0} using {\tt n = 0}. In
+      Karel, we do not have to state the type of a variable in advance -- the interpreter 
+      will figure it out from the type of value that is first assigned to it.  
+\item The {\tt inc()} function increases the value of an integer variable by one. 
+      There is also a function {\tt dec()}, not used in the above program, that decreases 
+      the value of an integer variable by one. More about these two functions will be said 
+      in Paragraph \ref{subsec:incdec}.
+\end{itemize}
+The function can then be used as follows:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1167,9 +1224,32 @@ The function can be then used as follows:\\
 \vspace{6mm}
 
 \noindent
-\subsection{Creating numerical variables} \label{par:var}
+Here, we create a new variable {\tt num} and initialize it using the 
+integer value that is returned by the {\tt count\_steps} function.
+The result is then printed. For the situation shown in Fig. \ref{fig:cf-1},
 
-In Karel, numerical variables can be created in several different ways: 
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[height=0.4\textwidth]{img/maze-new-1.png}
+\vspace{-0mm}
+\caption{Testing the function {\tt count\_steps}.}
+\vspace{-1cm}
+\label{fig:cf-1}
+\end{center}
+\end{figure}
+
+\noindent
+the output is\\
+
+\begin{ybox}
+\begin{verbatim}
+Number of steps: 10
+\end{verbatim}
+\end{ybox}
+\vspace{6mm}
+\subsection[\ \ Creating and initializing numerical variables]{Creating and initializing numerical variables} \label{par:var}
+
+In Karel, numerical variables can be created and initialized in several different ways: 
 \begin{enumerate}
 \item By setting them to an integer number. For example, new variable {\tt a} is created and set to zero by typing \\
 
@@ -1201,8 +1281,8 @@ pos1 = gpsy
 \vspace{1mm}
 
 \noindent
-\item Initialize them with an existing value. For example, if we already have a variable {\tt var1}, then a new variable 
-{\tt var2} can be created as follows:\\
+\item Initialize them with an existing value. For example, if there already is an integer variable 
+{\tt var1}, then a new variable {\tt var2} can be created as follows:\\
 
 \begin{bboxshort}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1212,15 +1292,22 @@ var2 = var1
 \vspace{1mm}
 
 \noindent
-\item Initialize them with value returned by an existing function, as it was shown in the previous 
-paragraph. 
+\item Initialize them with value returned by an existing function, as it was shown 
+with the function {\tt count\_steps} in the previous paragraph:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{num} \PY{o}{=} \PY{n}{count\PYZus{}steps}
+\end{Verbatim}
+\end{bbox}
 \end{enumerate}
 
-\subsection{Changing values of numerical variables}
+\subsection[\ \ Changing values of numerical variables]{Changing values of numerical variables}
 
 The value of a numerical variable can be updated at any time by redefining it via 
-one of the four options described in the previous paragraph. For example, let's say that 
+one of the five options described in the previous paragraph. For example, let's say that 
 Karel stands as shown in Fig. \ref{fig:var1}.
+
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/variables1.png}
@@ -1257,12 +1344,14 @@ End position: 10
 \end{ybox}
 \vspace{6mm}
 
-\noindent
-Another way to change the value of a numerical variable is to increase it by one or 
-decrease it by one via the commands {\tt inc()} and 
-{\tt dec()}, respectively. Commands {\tt inc(a, num)} and 
-{\tt dec(a, num)} will increase / decrease the value of variable {\tt a}
-by an integer number {\tt num}.
+\subsection[\ \ Using functions {\tt inc()} and {\tt dec()}]{Using functions {\tt inc()} and {\tt dec()}}\label{subsec:incdec}
+
+As we saw before, we can increase or decrease the value of a numerical 
+variable by one using the functions {\tt inc()} and 
+{\tt dec()}, respectively. The full version of these functions 
+is {\tt inc(n, num)} and {\tt dec(n, num)} where {\tt n} is the 
+name of the variable and {\tt num} is 
+an integer number that is set to one by default.
 
 Consider again Karel's initial position as shown 
 in Fig. \ref{fig:var1}. Then the code\\
@@ -1288,7 +1377,7 @@ Went 7 steps before reaching a wall.
 \end{ybox}
 \vspace{6mm}
 
-\subsection{Comparison operations}
+\subsection[\ \ Comparison operations]{Comparison operations}
 
 Integer numbers and numerical variables can be compared using the 
 standard operators {\tt >, <, >=, <=, ==, !=, <>}. In this order, 
@@ -1371,18 +1460,117 @@ yields\\
 
 \noindent
 
-\subsection{Lists}
+\subsection[\ \ Text string variables]{Text string variables}
 
-Lists are extremely useful data structures that can be used to store multiple 
-objects in one variable at the same time. 
-Such as, for example, integer variables, text strings, and even other lists.
-Objects in a list are ordered and they can be added to the end of a list 
-using the {\tt append()} function, accessed by their index, and 
-deleted via the {\tt pop()} function or the {\tt del} command. Let us 
-illustrate their usage on examples.\\
+Text string variables are created and initialized analogously 
+to numerical variables:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+robot_name = \PY{s+1}{"Karel"}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+ 
+\noindent
+They can be printed as usual. The code\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{print} \PY{s+1}{"Robot's name is"}, my_name
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
 \noindent
-\underline{\em Creating a list}\\
+yields\\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
+MRobot's name is Karel
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+A text string variable can be used to initialize a new one. Let's say 
+that someone wants to rename the robot to "Carlos" (which is the Spanish 
+version of "Karel"),
+and store his original name in the variable {\tt robot\_name\_orig}. 
+This is done as follows:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+robot_name_orig = robot_name
+robot_name = \PY{s+1}{"Carlos"}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Text string variables can be useful, for example, to store texts for 
+error messages and warnings in larger programs. Then, they can be 
+defined in one place, although they are used in many different parts of 
+the program. When we need to change such error message, we can do it 
+very elegantly where the variable is defined, without having to go through 
+the entire program and change the text everywhere.  
+
+\subsection[\ \ Local and global variables]{Local and global variables}\label{subsec:karellocvar}
+
+Note that a variable that is defined inside a function is {\em local to that function}, 
+meaning that it can be used in the function only. If we attempt to use it 
+outside, an error is thrown. For illustration, the code \\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} myfunction
+  a = 1
+
+myfunction
+\PY{k}{print} a  
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+throws an error message \\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{s+1}{Unknown variable/procedure "a"} 
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+Although using local variables might seem constraining, in reality it helps us 
+to keep our code fit. It is a very good habit to keep variables in our programs 
+as local as possible. More about local and global variables will be said in 
+the Python textbook.
+
+\section{Lists}
+
+In this Section we introduce the concept of a {\em list}. 
+The syntax and philosophy is the same as in the Python programming 
+language, so all you learn here is directly usable in Python.
+The Python language provides additional functionality for
+working with lists which is not covered in Karel.
+
+\subsection[\ \ Objectives]{Objectives} 
+ 
+\begin{itemize}
+\item Understand the concept of a list.
+\item Learn to create empty lists, add items, and delete items.
+\item Learn to parse lists and work with indices.
+\end{itemize}
+Lists are very useful data structures that can be used to store multiple 
+integer values, logical values, or text strings at the same time. 
+Values of different types can be combined and lists can even contain other lists.
+Objects in a list are ordered and they can be added to the end of a list, 
+accessed by their index, and deleted from any position of the list. Let us 
+illustrate this functionality on examples.
+
+\subsection[\ \ Creating a list]{Creating a list}
 
 \noindent
 An empty list {\tt U} is created via \\
@@ -1405,8 +1593,7 @@ V = [1, 2, 3, 4, 5]
 \vspace{6mm}
 
 \noindent
-One can use variables when creating a list, as can be 
-illustrated using the code\\
+One can use variables when creating a list:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1428,7 +1615,7 @@ whose output is \\
 \vspace{6mm}
 
 \noindent
-Integer numbers can be combined with strings:\\
+Integer numbers can be combined with text strings:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1467,15 +1654,14 @@ This is the list Y: [1, \PY{s+1}{"Hello"}, 2, [1, 2, 3]]
 \end{ybox}
 \vspace{6mm}
 
-\noindent
-\underline{\em Accessing list items by their index}\\
+\subsection[\ \ Accessing list items by their index]{Accessing list items by their index}
 
 \noindent
 Any list item can be accessed and either printed, assigned 
-to a variable, or used in an operation, via its index. It is important to remember that 
-the indices start from zero. In other words, {\tt L[0]} is the 
-first item in the list, {\tt L[1]} is the second one, etc. For
-illustration, let us show a sample code\\
+to a variable, or used in an operation, via its index. Indices 
+always start from zero. In other words, {\tt L[0]} is the 
+first item in the list {\tt L}, {\tt L[1]} is the second one, etc. 
+Working with indices can be illustrated using a simple code\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1501,12 +1687,11 @@ Fourth item: 20
 \end{ybox}
 \vspace{6mm}
 
-\noindent
-\underline{\em Appending items to a list}\\
+\subsection[\ \ Appending items to a list]{Appending items to a list}
 
 \noindent
-An arbitrary object {\tt obj} (integer, real number, text string, another list, etc.) can be appended 
-to the end of an existing list {\tt L} using the {\tt append()} function:\\
+An arbitrary object {\tt obj} (integer, text string, logical value, another list, etc.) can be appended 
+to the end of an existing list using the {\tt append()} function. For a list {\tt L} this would be\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1516,19 +1701,19 @@ L.append(obj)
 \vspace{6mm}
 
 \noindent
-This can be illustrated using the code\\
+For illustration, the code\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-L = [1, 11]
-L.append(21)
-\PY{k}{print} L
+K = [1, 11]
+K.append(21)
+\PY{k}{print} K
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
 
 \noindent
-whose output is \\
+has the output\\
 
 \begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1537,12 +1722,11 @@ whose output is \\
 \end{ybox}
 \vspace{6mm}
 
-\noindent
-\underline{\em Removing items via the {\tt pop()} function}\\
+\subsection[\ \ Removing items via the {\tt pop()} function]{Removing items via the {\tt pop()} function}
 
 \noindent
-The {\tt i}-th item can be deleted from a list {\tt L} 
-and assigned to a variable {\tt x} via \\
+The {\tt i}th item (where indices start from zero) can be deleted 
+from a list {\tt L} and assigned to a variable {\tt x} via \\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1552,20 +1736,22 @@ x = L.pop(i)
 \vspace{6mm}
 
 \noindent
-Recall that indices start from zero. The usage can be illustrated using the code\\
+For illustration, let us create a list {\tt X} containing 
+three text strings "Monday", "Tuesday" and "Wednesday", and then
+delete the second item:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-L = ["Monday", "Tuesday", "Wednesday"]
-day = L.pop(1)
+X = ["Monday", "Tuesday", "Wednesday"]
+day = X.pop(1)
 print day
-print L
+print X
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
 
 \noindent
-whose output is\\
+The output of this code is\\
 
 \begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1577,15 +1763,34 @@ Tuesday
 
 \noindent
 If the {\tt pop()} function is used without an index, it removes
-and returns the last object of the list.\\
+and returns the last object of the list:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+day = X.pop()
+print day
+print X
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
 \noindent
-\underline{\em Deleting items via the {\tt del} command}\\
+Output:\\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
+Wednesday
+['Monday']
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\subsection[\ \ Deleting items via the {\tt del} command]{Deleting items via the {\tt del} command}
 
 \noindent
 The purpose of the {\tt del} command is similar to the {\tt pop()} function
 except that the deleted object is destroyed (it cannot be assigned to a variable).
-The {\tt i}-th item can be deleted from a list {\tt L} via \\
+The {\tt i}th item can be deleted from a list {\tt L} via \\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1619,14 +1824,36 @@ is \\
 \end{ybox}
 \vspace{6mm}
 
-\noindent
-\underline{\em Length of a list}\\
+\subsection[\ \ Length of a list]{Length of a list}
 
 \noindent
-One can use the function {\tt len(X)} to obtain the length of a list {\tt X} -- an integer
-number that can in turn be used to parse the list via a {\tt repeat} command.
-The following sample code defines a list {\tt M} consisting of four numbers 
-{\tt 1, 2, 3} and {\tt 4} and prints all of them increased by two: \\
+The function {\tt len(X)} returns the length of the list {\tt X}.
+For illustration, the code \\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+M = [\PY{s+1}{"John"}, \PY{s+1}{"Josh"}, \PY{s+1}{"Jim"}, \PY{s+1}{"Jane"}]
+n = \PY{n+nf}{len}(L)
+\PY{k}{print} \PY{s+1}{"Length of the list is"}, n
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+has the output\\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
+Length of the list is 4
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\subsection[\ \ Parsing lists]{Parsing lists}
+
+In Karel, lists can be parsed via the {\tt repeat} command.
+For illustration, the following sample code defines a list {\tt M} consisting of four numbers 
+{\tt 1, 2, 3, 4} and prints all of them increased by two: \\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1641,8 +1868,7 @@ i = 0
 \end{bbox}
 \vspace{6mm}
 
-\noindent
-\underline{\em Storing the robot's path in a list}\\
+\subsection[\ \ Storing the robot's path in a list]{Storing the robot's path in a list}
 
 \noindent
 Lists can be used to store the robot's path. The following 
@@ -1667,7 +1893,6 @@ In fact, each time we are appending a list consisting of the horizontal and
 vertical GPS coordinates -- there is no other way to represent two numbers 
 in one variable unless the variable is a list. When the robot's initial position 
 is as shown in Fig. \ref{fig:list-1},
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1705,56 +1930,22 @@ a = L[1]
 ...
 \end{Verbatim}
 \end{bbox}
-\vspace{6mm}
-
-\noindent
-
-\subsection{Local and global variables}\label{subsec:karellocvar}
-
-Note that a variable that is defined inside a function is {\em local to that function}, 
-meaning that it can be used in the function only. If we attempt to use it 
-outside, an error is thrown. For illustration, the code \\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} myfunction
-  a = 1
-
-myfunction
-\PY{k}{print} a  
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-throws an error message \\
-
-\begin{ybox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{s+1}{Unknown variable/procedure "a"} 
-\end{Verbatim}
-\end{ybox}
-\vspace{6mm}
-
-\noindent
-Although using local variables might seem constraining, in reality it helps us 
-to keep our code fit. It is a very good habit to keep variables in our programs 
-as local as possible. More about local and global variables will be said in 
-the Python textbook..
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Logic} \label{sec:logic}
+\section{Logic} \label{sec:logic} 
 
-\subsection{Objectives} 
+\subsection[\ \ Objectives]{Objectives} 
  
 \begin{itemize}
-\item Learn to work with elementary and more complex logical expressions.
+\item Review elementary logic.
+\item Practice working with more complex logical expressions.
 \end{itemize}
 
-\subsection{Logical expressions}
+\subsection[\ \ Simple logical expressions]{Simple logical expressions}
+
 As we already know, logical expressions are expressions that can be answered with either {\tt True} or 
-{\tt False}. We say that the {\tt True} or the {\tt False} is their value. Here are some 
+{\tt False}. We say that the {\tt True} or the {\tt False} is their {\em value}. Here are some 
 real-life examples, try to answer them with {\tt True} or {\tt False}:
 
 \begin{itemize}
@@ -1764,70 +1955,177 @@ real-life examples, try to answer them with {\tt True} or {\tt False}:
 \end{itemize}
 And here are some Karel examples:
 \begin{itemize}
-\item wall ({\tt True} if the robot is facing a wall, {\tt False} otherwise)
-\item home ({\tt True} if the robot is home, {\tt False} otherwise)
-\item gem ({\tt True} if the robot stands on a gem, {\tt False} otherwise)
-\item north ({\tt True} if the robot is facing North, {\tt False} otherwise)
-\item empty ({\tt True} if the robot does not have any gems on him, {\tt False} otherwise)
+\item {\color{ForestGreen} \tt wall} ... {\tt True} if the robot is facing a wall, {\tt False} otherwise.
+\item {\color{ForestGreen} \tt gem}  ... {\tt True} if the robot stands on a gem, {\tt False} otherwise.
+\item {\color{ForestGreen} \tt north} ... {\tt True} if the robot is facing North, {\tt False} otherwise.
+\item {\color{ForestGreen} \tt home} ... {\tt True} if the robot is home, {\tt False} otherwise.
+\item {\color{ForestGreen} \tt empty} ... {\tt True} if the robot does not have any gems on him, {\tt False} otherwise.
 \end{itemize}
+Let's consider the situation shown in Fig. \ref{fig:logic1}.
+\newpage
 
-\subsection{Logical variables}
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{img/logic-1.png}
+\end{center}
+\vspace{-2mm}
+\caption{Karel is testing the {\tt wall} sensor.}
+\label{fig:logic1}
+%\vspace{-10mm}
+\end{figure}
+\noindent
+The following code shows different ways we can operate with the 
+logical value provided by the {\tt wall} sensor:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb+bp}{wall}
+\PY{k}{print} \PY{s+1}{"Value of the wall sensor:"}, \PY{n+nb+bp}{wall}
+value = \PY{n+nb+bp}{wall}
+\PY{k}{if} value
+    \PY{k}{print} \PY{s+1}{"I am standing in front of a wall."}
+\PY{k}{else}
+    \PY{k}{print} \PY{s+1}{"There is no wall in front of me."}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+The output of this code is \\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
+False
+Value of the wall sensor: False
+There is no wall in front of me.
+\end{Verbatim}
+\end{ybox}
+
+\subsection[\ \ Complex logical expressions]{Complex logical expressions}
 
 In programming as well as in real life we often deal with logical expressions that are 
 fairly complex. Often we use two or more simple logical expressions in one sentence, 
-and moreover combine them with logical operations {\em and}, {\em or} or {\em not}.
+and moreover combine them with logical operations {\tt and}, {\tt or} or {\tt not}.
 
 For example, the sentence "I will go skiing on Saturday if weather is good and if 
 Michael goes as well." includes three simple logical expressions. Let's call 
 them for brevity\\
 
 \noindent
-A = "I will go skiing on Saturday."\\
-B = "The weather is good."\\
-C = "Michael goes as well."\\
+{\tt A} = "I will go skiing on Saturday."\\
+{\tt B} = "The weather is good."\\
+{\tt C} = "Michael goes as well."\\
 
 \noindent
-There is a logical operation {\em and} between the expressions B and C.
+There is a logical operation {\tt and} between the expressions {\tt B}, {\tt C}.
+The original sentence can be written briefly as \\
 
-The original sentence can be written briefly as "if (B and C) then A". We love this kind of 
-brevity in programming! A, B and C are {\em logical variables}. Logical variables 
-can only represent {\tt True} or {\tt False}, and their purpose is to ease the operation with 
-longer expressions.
-Regarding the original sentence, we could go one step further and define a new logical variable\\
+\centerline{
+if {\tt B} {\tt and} {\tt C} then {\tt A}
+}
+\vspace{4mm}
+\noindent
+We love this kind of brevity in programming. Let's say that we can 
+predict the future and we know that the weather will be good and that 
+Michael will go as well. Then we can translate the above condition 
+into computer code. We also print the resulting value of {\tt A}
+at the end:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Let's say that weather will be good}
+\PY{c}{\PYZsh{} and Michael will join you:}
+B = \PY{n+nb+bp}{True}
+C = \PY{n+nb+bp}{True}
+\PY{c}{\PYZsh{} This is how you decide:}
+\PY{k}{if} B and C
+    A = \PY{n+nb+bp}{True}
+\PY{k}{else}
+    A = \PY{n+nb+bp}{False}
+\PY{c}{\PYZsh{} Print the result:}
+\PY{k}{if} A
+    \PY{k}{print} \PY{s+1}{"I will go ski on Sunday."}
+\PY{k}{else}
+    \PY{k}{print} \PY{s+1}{"I will not go ski on Sunday."}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
 
 \noindent
-D = B {\em and} C.\\
+Output:\\
 
-\noindent
-Then, the sentence would become just "if D then A"! 
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
+I will go ski on Sunday.
+\end{Verbatim}
+\end{ybox}
 
-\subsection{Logical operations}
+\subsection[\ \ Truth tables]{Truth tables}
 
-It is worth mentioning the following properties of the logical operation {\em and}:\\
+Each of these three logical operations comes with its own {\em truth table} that 
+summarizes its results for different values of operands. The truth table for the 
+logical {\tt and} is:\\
 
 \begin{center}
-\framebox{(A {\em and} B) is {\tt True} only if both A and B are {\tt True}. Otherwise A {\em and} B is {\tt False}.}
+\begin{tabular}{|c|c||c|}
+\hline
+{\tt A} & {\tt B} & \ {\tt A} {\tt and} {\tt B} \ \\
+\hline
+\hline
+{\tt True} & {\tt True} & {\tt True} \\
+\hline
+{\tt True} & \ {\tt False} \ & \ {\tt False} \ \\
+\hline
+\ {\tt False} \ & {\tt True} & \ {\tt False} \ \\
+\hline
+\ {\tt False} \ & \ {\tt False} \ & \ {\tt False} \ \\
+\hline
+\end{tabular}
 \end{center}
 \vspace{4mm}
 \noindent
-The logical operation {\em or} has the following properties:\\
+The truth table for logical {\tt or} is:\\
 
 \begin{center}
-\framebox{(A {\em or} B) is {\tt True} if at least one of A, B is {\tt True}. If both A. B are {\tt False}, (A {\em or} B) is {\tt False}.}
+\begin{tabular}{|c|c||c|}
+\hline
+{\tt A} & {\tt B} & \ {\tt A} {\tt or} {\tt B} \ \\
+\hline
+\hline
+{\tt True} & {\tt True} & {\tt True} \\
+\hline
+{\tt True} & \ {\tt False} \ & \ {\tt True} \ \\
+\hline
+\ {\tt False} \ & {\tt True} & \ {\tt True} \ \\
+\hline
+\ {\tt False} \ & \ {\tt False} \ & \ {\tt False} \ \\
+\hline
+\end{tabular}
 \end{center}
 \vspace{4mm}
 \noindent
-We also use the logical operation {\em not} with the following property:\\
+And finally, truth table for logical {\tt not} is:\\
 
 \begin{center}
-\framebox{({\em not} A) is {\tt True} if A is {\tt False} and vice versa.}
+\begin{tabular}{|c||c|}
+\hline
+{\tt A} & \ {\tt not} {\tt A} \ \\
+\hline
+\hline
+{\tt True} & {\tt False} \\
+\hline
+{\tt False} & \ {\tt True} \ \\
+\hline
+\end{tabular}
 \end{center}
+\vspace{4mm}
+\noindent
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Appendix - Overview of Functionality by Level}\label{sec:newfunc3}
 
-\subsection{Level 0 (Section \ref{sec:manual})}
+\subsection[\ \ Level 0 (Section \ref{sec:manual})]{Level 0 (Section \ref{sec:manual})}
 
 In Level 0, Karel can be guided by clicking on buttons:
 \begin{itemize}
@@ -1838,7 +2136,7 @@ In Level 0, Karel can be guided by clicking on buttons:
 \item Get ... pick up a gem from the ground.
 \end{itemize}
 
-\subsection{Level 1 (Section \ref{sec:bridge})}
+\subsection[\ \ Level 1 (Section \ref{sec:bridge})]{Level 1 (Section \ref{sec:bridge})}
 
 In Level 1, Karel can be guided by typing the commands:
 \begin{itemize}
@@ -1849,7 +2147,7 @@ In Level 1, Karel can be guided by typing the commands:
 \item {\tt get} ... pick up a gem from the ground.
 \end{itemize}
 
-\subsection{Level 2 (Sections \ref{sec:repeat} -- \ref{sec:recursion})}
+\subsection[\ \ Level 2 (Sections \ref{sec:repeat} -- \ref{sec:recursion})]{Level 2 (Sections \ref{sec:repeat} -- \ref{sec:recursion})}
 
 New commands:
 \begin{itemize}
@@ -1871,7 +2169,7 @@ New functionality:
 \item Recursion (a command can make a call to itself).
 \end{itemize}
 
-\subsection{Level 3 (Sections \ref{sec:var}, \ref{sec:logic})}
+\subsection[\ \ Level 3 (Sections \ref{sec:var}, \ref{sec:logic})]{Level 3 (Sections \ref{sec:var}, \ref{sec:logic})}
 
 New keywords:
 \begin{itemize}
