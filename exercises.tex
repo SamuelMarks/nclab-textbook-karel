@@ -2,16 +2,20 @@
 \setcounter{section}{2}
 \section{Manual Mode}
 
+All exercises in this textbook are also available as Displayed Projects 
+in NCLab. To clone them into your account, launch the File Manager, go
+to the menu File $\rightarrow$ Clone, and in the search box type "Karel".  
+
 \subsection{First steps}
 
 {\em Karel is returning from a long walk and his batteries are running out. 
 Use the buttons on the left to get him home quickly! }
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[height=0.4\textwidth]{img/a01.png}
+\includegraphics[height=0.30\textwidth]{img/a01.png}
 \end{center}
 \vspace{-4mm}
-\caption{In the first exercise you need to help the robot get home.}
+\caption{Help the robot get home before his batteries run out!}
 \label{fig:a01}
 \end{figure}
 
@@ -23,7 +27,7 @@ as shown in Fig. \ref{fig:a01b}.
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[height=0.4\textwidth]{img/a01b.png}
+\includegraphics[height=0.30\textwidth]{img/a01b.png}
 \end{center}
 \vspace{-4mm}
 \caption{Karel can be guided manually, using five buttons located in the left panel.}
@@ -1001,8 +1005,9 @@ respectively. Call the function and print the result.}
 \vspace{-4mm}
 \caption{Karel is measuring his room.}
 \label{fig:h02}
+\vspace{-1cm}
 \end{figure}
-
+\newpage
 
 
 \subsection{Reconnaissance}
@@ -1045,7 +1050,6 @@ Write a function {\tt carpet} that returns a list of triplets [x, y, n] with one
 row, starting with the bottom one, where 'x' and 'y' are the GPS coordinates of the left-most
 square, and 'n' is the size of the row. }
 
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1053,8 +1057,10 @@ square, and 'n' is the size of the row. }
 \end{center}
 \vspace{-4mm}
 \caption{Karel is measuring his apartment before buying new carpet.}
+\vspace{-1cm}
 \label{fig:h04}
 \end{figure}
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1066,8 +1072,6 @@ square, and 'n' is the size of the row. }
 where Karel enters a box, determines the number in it, and returns it. Initial position of the 
 robot is at the entrance of the box, facing north. The final position of the robot should be the same. 
 Use this function to determine the numbers in the three boxes as shown in the screenshot. }
-
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1084,6 +1088,8 @@ Use this function to determine the numbers in the three boxes as shown in the sc
 
 {\em There is a pile of gems at the entrance of each box. The number of gems in each pile is random between 0 and 9. Write a function "writenumber" where Karel counts the gems in the pile, enters the box, and renders the number. Then use the function to render numbers in three boxes as shown in the screenshot. }
 
+\newpage
+
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/i02.png}
@@ -1098,11 +1104,10 @@ Use this function to determine the numbers in the three boxes as shown in the sc
 
 \subsection{Adding numbers}
 
-This is an extra credit problem that can be solved with the help of the results 
-of the previous two exercises.\\
-
 \noindent
-{\em The two upper boxes contain randomly generated numbers between 0 and 9. Karel stands at the entrance of the first box,
+{\em This problem can be solved with the help of the results 
+of the previous two exercises.
+The two upper boxes contain randomly generated numbers between 0 and 9. Karel stands at the entrance of the first box,
 facing north. Write a function {\tt addnumbers} where Karel will enter each box, determine the number in it,
 and then add the numbers together and return the result. Also render the result in the double-box below. 
 Use the functionality developed in the previous two tasks!}
@@ -1122,8 +1127,8 @@ Use the functionality developed in the previous two tasks!}
 
 \subsection{Eight queens}
 
-This is an extra credit problem -- quite a tough one. Check Wikipedia for 
-"eight queens puzzle". \\
+This is an extra credit problem and not an easy one. Check Wikipedia for 
+more details on the "eight queens puzzle". \\
 
 \noindent
 {\em Karel stands on an 8 x 8 chess board along with eight queens (the gems). Recall that a chess queen dominates its row, its column, as well as both diagonals that pass through her position. Nothing may stand in these fields or she will destroy it. Currently, some queens are threatening each other. Write a program for Karel to correct the positions of the queens in such a way that none of them is threatened. Your program should be able to do it for any initial distribution of the queens. }
@@ -1137,6 +1142,7 @@ This is an extra credit problem -- quite a tough one. Check Wikipedia for
 \label{fig:g14}
 \end{figure}
 
+\newpage
 
 
 
@@ -1159,4 +1165,4 @@ right. Use the BubbleSort algorithm.}
 \label{fig:g13}
 \end{figure}
 \noindent
-
+\newpage
