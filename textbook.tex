@@ -12,15 +12,15 @@
 
 The educational programming language Karel the Robot was introduced by Richard E. 
 Pattis in his book "Karel The Robot: A Gentle Introduction to the Art of Programming" in 1981. 
-Pattis first used the language in his courses at Stanford University, and now it is used at 
-countless schools in the world to introduce students to algorithmic design and computer programming. 
-The language is named after Karel \v{C}apek, a Czech writer who invented the word "robot" in his 1921 
-science fiction play R.U.R. (Rossum's Universal Robots).
+Pattis first used the language in his courses at Stanford University, and nowadays Karel is used at 
+countless schools in the world. The language is named after Karel \v{C}apek, a Czech writer 
+who invented the word "robot" in his 1921 science fiction play R.U.R. (Rossum's Universal Robots).
 
 \subsection{Who is Karel?}
 
 Karel is a little robot that lives in a maze and loves to collect gems.
 He was manufactured with only five simple commands in his memory:
+
 \begin{itemize}
 \item {\color{blue} \tt go} ... make one step forward.
 \item {\color{blue} \tt get} ... pick up a gem from the ground. 
@@ -37,30 +37,43 @@ He also has five built-in sensors that allow him to check his immediate surround
 \item {\color{ForestGreen} \tt empty} ... true if his bag with gems is empty, false otherwise. 
 \end{itemize}
 
-\subsection{What does this course have to offer?}
+\subsection{What will this course teach you?}
 
 Computer programming skills are highly valued today, and they will be even more 
-valued in the future. Karel's language is so simple that you will be able to 
-focus on the login of algorithms without struggling with syntax and other 
-technicalities. After you went through Karel, learning other programming 
-languages will be much easier, as you will already master all important 
-programming concepts.
-
+valued in the future. Karel is the perfect language for beginners. It will teach
+you how to design algorithms and write working computer programs without struggling 
+with technical complications of mainstream programming languages. Thanks to its 
+simplicity, you should be done with Karel fairly quickly, and in no time you will be 
+ready to move on to other programming languages. In particular, NCLab offers
+Python programming: Textbook with exercises and review questions is available at 
+{\tt http://femhub.com/textbook-python}). After finishing Karel, you will be able to 
+transition to Python smoothly. 
 
 \subsection{Is Karel a toy language?}
 
-{\em Definitely not!} Despite its playful appearance, Karel features all elements 
-of modern procedural programming. The complexity of algorithms 
-that you will encounter in this course ranges from {\em extremely simple} 
-to {\em extremely tough}. Towards the end of this course there are
-tasks that will make your head spin. 
-The biggest conceptual difference between Karel and standard procedural
-programming languages such as Python, C, C++ or Fortran is that {\em the robot does not 
-know math}. At least not until we get to advanced levels that are beyond 
-the original Pattis' book. In the basic course, you will solve many exercises 
-whose objective is to teach you the logic of computer programming, and math is 
-not needed for that. After finishing this tutorial, you will be able to transition 
-smoothly to Python where you can do as much math as you like!
+No, definitely not. Despite its playful appearance, Karel features all key
+concepts of modern procedural programming. Computer programming includes two 
+fairly independent tasks -- first to {\em design an algorithm} (sequence of 
+steps leading to the solution of the problem at hand), and second, to {\em translate 
+the algorithm into a suitable programming language}. The former skill is by 
+far more important and therefore Karel puts maximum emphasis on it. This is 
+why the language itself is kept so simple. As a matter of fact, the complexity 
+of algorithms that you will encounter in this textbook ranges from trivial  
+to extremely tough. Towards the end of the course you will encounter exercises
+which you will probably not call toy problems.
+
+\subsection{How does Karel differ from other programming languages?}
+
+The biggest conceptual difference between Karel and mainstream procedural
+programming languages such as Python, C, C++, Java or Fortran is that {\em 
+the robot does not know math}. Math is not present in the first two levels
+that correspond to the Pattis' book, and it is strongly suppressed in the 
+advanced Level 3 as well. This is done for a reason -- math brings complications of its own 
+which are unrelated to programming. In fact, many programming courses are
+designed in such a way that students are struggling more with math than with 
+programming. That's not good. Math (except for logic perhaps) is not needed to understand 
+how to design great algorithms and to translate them into efficient computer 
+programs. 
  
 \section{Launching Karel}
 
@@ -85,27 +98,28 @@ in {\em Programming mode} with a randomly generated maze, as shown in Fig. \ref{
 \end{figure}
 
 \noindent
-The Programming mode is the most frequently used one. It is possible to 
-switch to {\em Manual mode}, {\em Designer}, and {\em Games} in the menu. 
-These modes will be discussed in Paragraph \ref{levels}.
+The Programming mode is the most frequently used one. From there one can 
+switch to {\em Manual mode}, {\em Designer mode}, and {\em Game mode} in 
+the main menu. These modes will be discussed in more detail Paragraph \ref{levels}.
 
-The application window contains two lines of menus and information on top,
+The application window contains the main menu on top,
 work area on the left, maze on the right, and status bar on the bottom.
-The menus are fairly intuitive, so let us just explain a few selected 
-functions, starting with the {\em File} menu:
+The menus are fairly intuitive, so let us explain just a few selected 
+functions. In the {\em File} menu:
 
 \begin{itemize}
-\item {\em Open} will open a file stored in your NCLab account (not on your local computer).
-\item {\em Clone} will download a Displayed Project from the database into your account. 
-\item {\em Display} will assign a static URL (HTML address) to the project. Then you can 
-      place such a link on your own web page. Displayed projects are also given priority in 
-      Search.
+\item {\em Open} will open a Karel file that you created and saved, or cloned previously.
+\item {\em Clone} will help you search and download public Karel projects from the database. 
+\item {\em Add static URL} will create a HTML address for your project. Such a link can be 
+      included in any web page. 
 \end{itemize}
 The {\em Maze} menu facilitates operating with mazes, including creating a new random 
 one, duplicating an existing maze, restoring maze to its saved version, and save and remove 
 maze. The {\em Edit} menu enables operation with code and text cells (to be discussed in 
-Section \ref{sec:editmenu}). In {\em Settings} one can change Karel's {\em Level} (to be discussed
-in Paragraph \ref{levels}), change his speed, and adjust sound preferences. The green and red 
+Section \ref{sec:editmenu}). In {\em Settings} one can change Karel's Level, change his 
+speed, and adjust sound preferences. 
+
+The green and red 
 buttons are used to run and stop programs, respectively, and the two buttons next to them on
 the right can be used to increase and decrease font size. The pair of icons on far right is the 
 step counter (that can be reset by clicking on it) and gem counter that indicates how many gems 
@@ -117,19 +131,21 @@ Karel operates in four modes:
 \begin{itemize}
 \item {\em Manual mode:} The robot is controlled using the mouse and five buttons Go, Get, Left, Right, and Put. 
       Watch out and do not crash!
-\item {\em Programming mode:} The robot is controlled using written programs (computer code). The Programming mode is 
-      split into several Levels:
+\item {\em Programming mode:} The robot is controlled using written programs (computer code). This mode has 
+      three Levels:
 \begin{itemize}
-\item Level 1 is a transition layer between the Manual and Programming modes. Programs are written using only 
+\item Level 1 serves as transition layer between the Manual and Programming modes. Programs are written using only 
       five commands {\tt go}, {\tt get}, {\tt left}, {\tt right}, and {\tt put} that exactly correspond to 
       the buttons Go, Get, Left, Right, and Put in Manual mode.
 \item Level 2 is where the actual programming begins. On top of the commands from Level 1, programs can contain 
       conditions, loops, and custom commands.
-\item In Level 3 Karel has a GPS device, and he is able to work with variables and lists. Functions
-      can return results.
+\item Level 3 goes beyond the original Pattis' book by introducing variables, lists, and functions that 
+      return values. In this level Karel also gets a GPS device that allows him to determine his position 
+      in the maze. The functionality of Level 3 can be used to design entry-level artificial 
+      intelligence (AI) algorithms. 
 \end{itemize}
-\item {\em Designer:} This mode allows the user to create custom mazes.
-\item {\em Games:} Makes it possible to create and play games. 
+\item {\em Designer mode} allows the user to create custom mazes.
+\item {\em Game mode} makes it possible to create and play games. 
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -433,7 +449,6 @@ Karel has built-in sensors to better navigate in the maze:
 The first one is an infrared sensor {\tt wall} that the robot uses to determine 
 whether it is safe to make one step forward, or whether there is a wall. This is 
 illustrated in Fig. \ref{fig:dede-ifelse}.
-\newpage
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/salih-ifelse.png}
@@ -443,6 +458,7 @@ illustrated in Fig. \ref{fig:dede-ifelse}.
 \label{fig:dede-ifelse}
 %\vspace{-10mm}
 \end{figure}
+
 \noindent
 The usage of the {\tt wall} sensor in a program can be illustrated using a simple program "Careful step" 
 where Karel first checks whether there is a wall ahead before
@@ -783,7 +799,6 @@ Imagine that the initial position of the robot is like in Fig. \ref{fig:rec1}.
 When the command {\tt reach\_wall} is first called, the robot stands three steps away from the wall and 
 thus the {\tt if not wall} condition passes. Then the command {\tt go} follows and the robot's 
 position changes as shown in Fig. \ref{fig:rec2}. 
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1050,7 +1065,6 @@ Since then, each time someone said a name, you retrieved in your brain the value
 {\tt my\_name}, compared it to the name that you heard, and if you got a match then you turned around 
 to see who was calling you. \\
 
-\newpage
 \noindent
 \underline{\em Numbers}\\
 
@@ -1141,11 +1155,11 @@ is 12 tiles. If Karel stands in the north-east corner as shown in Fig. \ref{fig:
 \includegraphics[height=0.4\textwidth]{img/gps-101.png}
 \vspace{-0mm}
 \caption{North-east corner of the maze has GPS coordinates [14, 11].}
-\vspace{-1cm}
+%\vspace{-1cm}
 \label{fig:gps-101}
 \end{center}
 \end{figure}
-\newpage
+
 \noindent
 then the output of the program is\\
 
@@ -1221,6 +1235,7 @@ The function can then be used as follows:\\
 Here, we create a new variable {\tt num} and initialize it using the 
 integer value that is returned by the {\tt count\_steps} function.
 The result is then printed. For the situation shown in Fig. \ref{fig:cf-1},
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1887,6 +1902,7 @@ In fact, each time we are appending a list consisting of the horizontal and
 vertical GPS coordinates -- there is no other way to represent two numbers 
 in one variable unless the variable is a list. When the robot's initial position 
 is as shown in Fig. \ref{fig:list-1},
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1956,7 +1972,6 @@ And here are some Karel examples:
 \item {\color{ForestGreen} \tt empty} ... {\tt True} if the robot does not have any gems on him, {\tt False} otherwise.
 \end{itemize}
 Let's consider the situation shown in Fig. \ref{fig:logic1}.
-\newpage
 
 \begin{figure}[!ht]
 \begin{center}
