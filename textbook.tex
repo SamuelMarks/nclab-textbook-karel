@@ -185,8 +185,8 @@ as shown in Fig. \ref{fig:buttons}.
 \end{figure}
 \noindent
 The function of the buttons is self-explanatory -- pressing Left will turn the robot 90 degrees to the left,
-pressing Right will turn him 90 degrees to the right, and pressing Go will move him one step forward 
-(watch out and do not crash!). Upon pressing Put the robot will reach into his bag with gems, 
+pressing Right will turn him 90 degrees to the right, and pressing Go will move him one step forward. 
+Upon pressing Put the robot will reach into his bag with gems, 
 take one, and put it on the ground where he stands. 
 An indicator showing how many gems are in the bag can be found in the upper right 
 corner of the window. Last, upon pressing 
@@ -214,59 +214,154 @@ direction. This is illustrated in Fig. \ref{fig:buttons2}.
 \begin{itemize}
 \item Start operating the robot in Programming mode.
 \item Understand the difference between {\em algorithm} and {\em program}. 
-\item Learn the difference between {\em syntactical} and {\em logical} mistakes.
+\item Learn the difference between {\em logical} and {\em syntax} errors.
 \item Understand that {\em debugging} is an indivisible part of computer programming.
 \end{itemize}
 
 \subsection{Typing commands}
-In Programming mode, commands for the robot are entered into an code cell located in the left panel.
-These commands are {\tt left}, {\tt right}, {\tt go}, {\tt get}, and {\tt put}.
+
+Commands for the robot are entered into a {\em code cell} located on the left.
+In Level 1, we can use the commands {\tt left}, {\tt right}, {\tt go}, {\tt get}, and {\tt put}.
 Their function is the same as the function of the corresponding buttons in Manual mode.
 One or more commands form a {\em computer program (computer code)}. Often 
 we just say {\em program} or {\em code}.
 There are two simple rules to remember:
 \begin{enumerate}
-\item Always type one command per line.
-\item Do not enter empty characters in front of commands. 
+\item Always type one command per line, it greatly adds to code readability.
+\item Indentation matters - do not enter extra empty characters in front of commands. 
 \end{enumerate}
-Ignoring these rules would not make the program invalid, but the code would be 
-difficult to read. It is important to write a clean, transparent code. 
+Ignoring these rules would not necessarily make your program invalid, 
+but the code would be difficult to read. It is very important to write 
+a clean, well readable code. 
 
 \subsection{Algorithms, programs, and bugs} \label{subsec:interm1}
 
-Karel always obeys all commands {\em exactly}. Sometimes it may happen that 
-we plan one thing but to our surprise the robot does something else. In most cases this 
-happens when our {\em algorithm} is wrong. By an {\em algorithm} we mean a sequence of 
-logical steps that the robot needs to follow in order to fulfill his task. Algorithms 
-are presented using normal human language, not in terms of the robot's commands. 
+Karel will always follow your commands {\em exactly}. No exceptions. Sometimes it will happen
+that the robot does something else than you expected.
+In this case most likely your {\em algorithm} was wrong. An {\em algorithm} is a sequence of 
+steps (operations) that the robot follows in order to fulfill his task. Algorithms 
+are written using normal human language, not in terms of computer code. Imagine that Karel's 
+task is to pick up the gem and return home, as shown in Fig. \ref{fig:algo-1}.
 
-{\em Program} or {\em computer code} is created when the algorithm is expressed
-in terms of the robot's language. When our algorithm is good, then 
-the program is easy to write.
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=6.6cm]{img/algo-1.png}
+\vspace{-0mm}
+\caption{From an algorithm to a program.}
+\label{fig:algo-1}
+\vspace{-1cm}
+\end{center}
+\end{figure}
+\newpage
+\noindent
+An algorithm to solve this task would be:
 
-Mistakes in algorithms are called {\em logical errors}. A logical error is, for 
-example, when we crash the robot into a wall because we forgot to make a turn.
-Mistakes such as mis-spelling a command, writing "1o" instead of "10", or forgetting 
-indentation are related to 
-{\em syntax} and they are called {\em syntactical errors}. Of these two types, 
-logical errors are usually much more difficult to find. 
+\begin{verbatim}
+Make two steps forward
+Collect the gem
+Turn around
+Make three steps forward
+\end{verbatim}
 
-In general, mistakes or either kind are called {\em bugs} and the procedure of 
+\noindent
+A {\em computer program} is created by translating an algorithm into a particular 
+programming language -- in our case the Karel language. It is always important 
+to design a good algorithm. If the algorithm is good, then translating it 
+into a computer program is straightforward. The above example is trivial of
+course, we will have a chance to work with more complicated algorithms later. 
+One possible program corresponding to the above algoritm is:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{get}
+\PY{n+nf}{left}
+\PY{n+nf}{left}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Often there is more than one way to translate an algorithm into a computer 
+program. For example, the above algorithm can be also translated into\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{get}
+\PY{n+nf}{right}
+\PY{n+nf}{right}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+
+\subsection*{Logical and syntax errors}
+
+Mistakes in algorithms are called {\em logical errors}. Let's return to 
+the setting shown in Fig. \ref{fig:algo-1} and consider the algorithm
+
+\begin{verbatim}
+Make three steps forward
+Collect the gem
+Turn around
+Make three steps forward
+\end{verbatim}
+That would hurt! This algorithm makes the robot crash into the wall. 
+
+Mistakes such as mis-spelling a command, writing "1O" instead of "10", or forgetting 
+indentation are related to {\em syntax} and they are called {\em syntax errors}. Find
+two syntax errors in the following program!\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{got}
+\PY{n+nf}{r1ght}
+\PY{n+nf}{right}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Mistakes or either kind are called {\em bugs} and the procedure of 
 eliminating them is called {\em debugging}. Depending on how careful we 
 were while preparing our algorithm and writing the program, debugging takes either 
 a short time or a long time. It does not happen often that a program works correctly
-right away. 
+right away. \\
 
-When we commit a syntactical error,
-the robot will write an error message and do nothing.
-If our algorithm contains a logical error, then he will
-write an error message and stop executing the program. 
-The most usual logical error are:
+\begin{gbox}
+\begin{center}
+Of logical and syntax errors, the former are usually much harder to find.
+Make sure to spend enough time thinking about the algorithm before you 
+start coding!
+\end{center}
+\end{gbox}
+\vspace{4mm}
+
+\noindent
+When our program contains a syntax error,
+the robot writes an {\em error message} and does nothing.
+If our algorithm contains a logical error, then multiple 
+things may happen -- the robot may execute the program 
+without fulfilling the goals. Or, he may do something 
+that will trigger and error message and stop program 
+execution. This includes:
 
 \begin{itemize}
-\item Karel crashes into a wall.
-\item The robot tries to collect a gem where is none.
-\item He attempts to put a gem on the ground while his bag is empty.
+\item Crashing into a wall.
+\item Attempting to collect a gem where there is none.
+\item Attempting to put a gem on the ground while his bag is empty.
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
