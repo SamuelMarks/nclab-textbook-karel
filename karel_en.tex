@@ -225,52 +225,45 @@
 }\makeatother
 
 
+% TO INPUT BACKGROUND IMAGE
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{
+\put(0,0){
+\parbox[b][\paperheight]{\paperwidth}{
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight]{img/karel-cover.png}
+\vfill
+}}}
+
+
 \begin{document}
 
 % INPUTTING BACKGROUND IMAGE
-%\AddToShipoutPicture{\BackgroundPic}
-%\vbox{}
-%\pagestyle{empty}
-%\newpage
-%\textwidth=15.5cm
-%\ClearShipoutPicture
-%\newpage
+\AddToShipoutPicture{\BackgroundPic}
+\vbox{}
+\pagestyle{empty}
+\newpage
+\textwidth=15.5cm
+\ClearShipoutPicture
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagestyle{empty}
 
-\vbox{}
-\begin{figure}[!ht]
-%\hspace{-4mm}
-\includegraphics[width=8cm]{img/logo.png}
-\vspace{10mm}
-\end{figure}
-\vbox{}
-\vspace{1.5cm}
 
-\begin{center}
-{\huge \bf First Course in Programming}
-\end{center}
 
-\begin{figure}[!ht]
-\begin{center}
-\vspace{-6mm}
-\includegraphics[width=0.26\textheight]{img/karel-logo.png}\ \ \ \ \ \ 
-\vbox{}
-\vspace{-9mm}
-\end{center}
-\end{figure}
-\begin{center}
-{\huge \bf with Karel the Robot}
-\end{center}
-\vfill
-\begin{center}
-Revision Nov-01-2012. Copyright 2012 FEMhub Inc. All rights reserved.
-\end{center}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \vbox{}
-\vfill
-{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
 \noindent
 {\bf About this Textbook}\\[4mm]
 This free textbook is provided as a courtesy to NCLab users. It will help you develop 
@@ -341,7 +334,6 @@ can send those at any time via email to {\tt pavel@femhub.com}.\\[2mm]
 %via one mouse click, and collecting them back, automatically graded. 
 %The course is scheduled to open in January 2013. In the meantime, enjoy 
 %Karel and Python, and let us know with any questions at {\tt support@nclab.com}!
-}
 
 
 \newpage

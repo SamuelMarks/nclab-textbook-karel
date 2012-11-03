@@ -5,16 +5,109 @@
 \begin{itemize}
 \item Learn basic facts about the Karel language and its history. 
 \item Learn how Karel differs from other programming languages.
-\item Learn what skills this course provides.
+\item Learn what skills this course will teach you.
 \end{itemize}
 
 \subsection{Brief history}
 
 The educational programming language Karel the Robot was introduced by Richard E. 
-Pattis in his book "Karel The Robot: A Gentle Introduction to the Art of Programming" in 1981. 
+Pattis in his book {\em Karel The Robot: A Gentle Introduction to the Art of Programming} in 1981. 
 Pattis first used the language in his courses at Stanford University, and nowadays Karel is used at 
 countless schools in the world. The language is named after Karel \v{C}apek, a Czech writer 
 who invented the word "robot" in his 1921 science fiction play R.U.R. (Rossum's Universal Robots).
+Various implementations of the language can be downloaded from the web, as shown in Fig. 
+\ref{fig:intro-111}.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=4.9cm]{img/intro-112.png}\ \ \ 
+\includegraphics[width=4.9cm]{img/intro-113.png}\ \ \ 
+\includegraphics[width=4.9cm]{img/intro-114.png}
+\caption{Various implementations of Karel that can be found on the web.}
+\vspace{-4mm}
+\label{fig:intro-111}
+\end{center}
+\end{figure}
+\noindent
+The original Karel language was strongly influenced by Pascal, a popular
+language of the 1980s. 
+Since Pascal is no longer being used today, we refreshed 
+the language and changed it to be close to Python, a modern high-level 
+dynamic programming language that is widely used in science, engineering, 
+and business applications. 
+Our changes made the language much easier
+to use. For illustration, compare the original Karel program\\
+
+\begin{bbox}
+\begin{verbatim}
+BEGINNING-OF-PROGRAM
+ 
+DEFINE turnright AS
+BEGIN
+    turnleft
+    turnleft
+    turnleft
+END
+ 
+BEGINNING-OF-EXECUTION
+    ITERATE 3 TIMES
+    BEGIN
+        turnright
+        move
+    END
+    turnoff
+END-OF-EXECUTION
+ 
+END-OF-PROGRAM
+\end{verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+with its exact NCLab equivalent\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{def} turnright
+    \PY{k}{repeat} 3
+        \PY{n+nf}{left}
+ 
+\PY{k}{repeat} 3
+    turnright
+    \PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+In fact, NCLab' Karel has a built-in command {\tt right} for the
+right turn, so the above program can be written using just three lines:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{repeat} 3
+    \PY{n+nf}{right}
+    \PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+The new command was added after careful consideration because it makes Karel's motion 
+easier to watch (in more complicated mazes he resembled a raging tornado).
+Of course, orthodox Karel fans can still define and use their own {\tt rightturn} 
+command. We made a few additional cosmetic changes to the language in order to make 
+it more accessible to kids -- for example, beepers were replaced with gems, Karel 
+has a home in the maze, and longer commands were replaced with simpler ones, such as 
+{\tt leftturn} with {\tt left}, {\tt move} with {\tt go}, 
+{\tt pickbeeper} with {\tt get} and {\tt putbeeper} with {\tt put}. 
+
+NCLab's Karel has a Manual Mode and a Programming Mode with three levels. While Levels 
+1 and 2 exactly correspond to the original Pattis' book, Level 3 contains 
+additional material. It introduces variables, lists, functions returning 
+values, and a GPS device for the robot. Hence Karel can store his path,
+and experiment with entry-level Artificial Intelligence (AI) algorithms. 
+In the rest of this textbook, when we say "Karel" we always mean "NCLab's Karel".
 
 \subsection{Who is Karel?}
 
@@ -86,6 +179,7 @@ programs.
 The simplest way to launch Karel is to click on the icon 
 {\em Programming} and select {\em Karel} in the menu. This will launch the application 
 in {\em Programming mode} with a randomly generated maze, as shown in Fig. \ref{fig:init}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -115,7 +209,7 @@ functions. In the {\em File} menu:
 \end{itemize}
 The {\em Maze} menu facilitates operating with mazes, including creating a new random 
 one, duplicating an existing maze, restoring maze to its saved version, and save and remove 
-maze. The {\em Edit} menu enables operation with code and text cells (to be discussed in 
+maze. The {\em Edit} menu enables operation with code cells and descriptive HTML cells (to be discussed in 
 Section \ref{sec:editmenu}). In {\em Settings} one can change Karel's Level, change his 
 speed, and adjust sound preferences. 
 
@@ -141,7 +235,7 @@ Karel operates in four modes:
       conditions, loops, and custom commands.
 \item Level 3 goes beyond the original Pattis' book by introducing variables, lists, and functions that 
       return values. In this level Karel also gets a GPS device that allows him to determine his position 
-      in the maze. The functionality of Level 3 can be used to design entry-level artificial 
+      in the maze. As we already mentioned, the functionality of Level 3 can be used to design entry-level artificial 
       intelligence (AI) algorithms. 
 \end{itemize}
 \item {\em Designer mode} allows the user to create custom mazes.
@@ -156,7 +250,9 @@ Karel operates in four modes:
 \begin{itemize}
 \item Learn to operate the robot in Manual mode.
 \end{itemize}
-\noindent
+
+\subsection{Compass}
+
 Before we begin, let us review the four directions on the compass:\\[-7mm]
 
 \begin{figure}[!ht]
@@ -169,7 +265,8 @@ Before we begin, let us review the four directions on the compass:\\[-7mm]
 \vspace{-1cm}
 \end{figure}
 
-\noindent
+\subsection{Control buttons}
+
 When launching Karel through the Programming icon, switch to Manual mode using the corresponding 
 menu button. Then, five buttons Left, Right, Go, Get and Put will appear in the panel on the left,
 as shown in Fig. \ref{fig:buttons}.
@@ -225,19 +322,25 @@ In Level 1, we can use the commands {\tt left}, {\tt right}, {\tt go}, {\tt get}
 Their function is the same as the function of the corresponding buttons in Manual mode.
 One or more commands form a {\em computer program (computer code)}. Often 
 we just say {\em program} or {\em code}.
-There are two simple rules to remember:
+There are two simple rules to remember:\\
+
+\begin{gbox}
 \begin{enumerate}
 \item Always type one command per line, it greatly adds to code readability.
 \item Indentation matters - do not enter extra empty characters in front of commands. 
 \end{enumerate}
+\end{gbox}
+\vspace{6mm}
+
+\noindent
 Ignoring these rules would not necessarily make your program invalid, 
 but the code would be difficult to read. It is very important to write 
 a clean, well readable code. 
 
-\subsection{Algorithms, programs, and bugs} \label{subsec:interm1}
+\subsection{Algorithm} \label{subsec:interm1}
 
 Karel will always follow your commands {\em exactly}. No exceptions. Sometimes it will happen
-that the robot does something else than you expected.
+to you that the robot does something else than you expected.
 In this case most likely your {\em algorithm} was wrong. An {\em algorithm} is a sequence of 
 steps (operations) that the robot follows in order to fulfill his task. Algorithms 
 are written using normal human language, not in terms of computer code. Imagine that Karel's 
@@ -247,9 +350,9 @@ task is to pick up the gem and return home, as shown in Fig. \ref{fig:algo-1}.
 \begin{center}
 \includegraphics[width=6.6cm]{img/algo-1.png}
 \vspace{-0mm}
-\caption{From an algorithm to a program.}
+\caption{Collect the gem and get home!}
 \label{fig:algo-1}
-\vspace{-1cm}
+\vspace{-1.5cm}
 \end{center}
 \end{figure}
 \newpage
@@ -263,8 +366,9 @@ Turn around
 Make three steps forward
 \end{verbatim}
 
-\noindent
-A {\em computer program} is created by translating an algorithm into a particular 
+\subsection{Program}
+
+{\em Computer program} or just {\em program} is created by translating an algorithm into a particular 
 programming language -- in our case the Karel language. It is always important 
 to design a good algorithm. If the algorithm is good, then translating it 
 into a computer program is straightforward. The above example is trivial of
@@ -342,18 +446,17 @@ right away. \\
 
 \begin{gbox}
 \begin{center}
-Of logical and syntax errors, the former are usually much harder to find.
-Make sure to spend enough time thinking about the algorithm before you 
-start coding!
+Of logical and syntax errors, the former are much harder to find.\\
+Always make sure to design a good algorithm before you start coding!
 \end{center}
 \end{gbox}
 \vspace{4mm}
 
 \noindent
 When our program contains a syntax error,
-the robot writes an {\em error message} and does nothing.
-If our algorithm contains a logical error, then multiple 
-things may happen -- the robot may execute the program 
+the robot outputs an {\em error message} and does nothing.
+If the algorithm contains a logical error, then multiple 
+things may happen: The robot may execute the program 
 without fulfilling the goals. Or, he may do something 
 that will trigger and error message and stop program 
 execution. This includes:
@@ -368,23 +471,42 @@ execution. This includes:
 
 \section{Counting Loop} \label{sec:repeat}
 
+In Section \ref{sec:bridge} we successfully crossed a bridge that 
+connects the land of Clicking with the land of Programming. The bridge 
+collapsed, there is no way back. But do not worry, the land of Programming is much more beautiful.
+Once you understand its beauty, you will never want to go back!
+
 \subsection{Objectives} 
 
 \begin{itemize}
+\item Start learning higher-level programming concepts.
 \item Learn to make the robot repeat something a given number of times.
 \end{itemize}
 
 \noindent
-In Section \ref{sec:bridge} we successfully crossed the bridge between manual control 
-and programming. The bridge collapsed, there is no way back. But do 
-not worry about that! The land of Programming is much more beautiful,
-and once you understand its beauty, you will never want to leave.
+Please switch Karel to Level 2 in Settings to enable the higher-level 
+programming functionality presented in this section.
 
 \subsection{The {\tt repeat} command}
 
-The {\em counting loop}, represented by the {\tt repeat} command, can save 
-us lots of writing when something is repeated a given number of times. 
-For example, for Karel to make 15 steps forward we could type:\\
+The {\em counting loop}, represented by the {\tt repeat} command in Karel,
+is part of any procedural programming language. Its purpose is to save 
+code in situations where some action needs to be repeated a given number 
+of times. Imagine that Karel needs to go get the gem as shown in 
+Fig. \ref{fig:counting-11}, and then return home. 
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=12.2cm]{img/counting-11.png}
+\vspace{-0mm}
+\caption{Repeating an action a given number of times.}
+\label{fig:counting-11}
+%\vspace{-1cm}
+\end{center}
+\end{figure}
+
+\noindent
+In principle we could type\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -392,6 +514,22 @@ For example, for Karel to make 15 steps forward we could type:\\
 \PY{n+nf}{go}
 \PY{n+nf}{go}
 \PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{go}
+\PY{n+nf}{get}
+\PY{n+nf}{left}
+\PY{n+nf}{left}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nf}{go}
 \PY{n+nf}{go}
 \PY{n+nf}{go}
@@ -408,153 +546,322 @@ For example, for Karel to make 15 steps forward we could type:\\
 \vspace{6mm}
 
 \noindent
-But this is neither efficient nor elegant. Instead, the same can be
-achieved by telling Karel to {\tt repeat} the {\tt go} command {\tt 15} times:\\
+and this program would get the job done. But it is not very elegant. 
+Instead, the same can be achieved by telling Karel to {\tt repeat} the {\tt go} 
+command {\tt 10} times, get the gem, turn back, and  {\tt repeat} the {\tt go} 
+command another {\tt 11} times:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{repeat} 15
-    \PY{n+nf}{go}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-There are a few simple rules that we need to remember when using the {\tt repeat} command:
-
-\begin{itemize}
-\item Keep code readable -- always write one command per line.
-\item Indentation -- all commands to be repeated (the {\em body of the loop}) need to be indented. 
-      One can choose between 2-indent and 4-indent. The former yields more compact 
-      code with not-so-long lines, the latter is easier to read. 
-\item Cancel the indentation for the first command that does not belong to the body of the loop.
-\end{itemize}
-To illustrate what the indentation does, let's look at a code that will move the robot 8 steps forward:\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{repeat} 4
-    \PY{n+nf}{go}
-    \PY{n+nf}{go}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-Compare to a code that will only move the robot 5 steps forward:\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{repeat} 4
-    \PY{n+nf}{go}
-\PY{n+nf}{go}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-Multiple {\tt repeat} commands can be {\em nested}. This means that a {\tt repeat} command 
-can used in the body of another {\tt repeat} command. Everything that was said about indentation 
-still holds. Can you figure out what the following code does?\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Walk to the gem:}
 \PY{k}{repeat} 10
+    \PY{n+nf}{go}
+\PY{c}{\PYZsh{} Pick it up:}
+\PY{n+nf}{get}
+\PY{c}{\PYZsh{} Turn back:}
+\PY{k}{repeat} 2
+    \PY{n+nf}{left}
+\PY{c}{\PYZsh{} Walk home:}
+\PY{k}{repeat} 11
+    \PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+We even saved space for comments! All text that follows the hash symbol '{\tt \#}' 
+is ignored by the interpreter till the end of line. \\
+
+\begin{gbox}
+\begin{center}
+Commenting your code is a very good habit. It helps others to understand 
+your code, and it also helps you when you return to your own code after some time.
+\end{center}
+\end{gbox}
+
+\subsection{Body of the loop and indentation}
+
+Note that in the last program, commands to be repeated (the {\em body of the loop}) 
+are indented. In this case, each loop's body is formed by a single command, but if
+there were more of them, all of them would be indented. In Karel, you can choose between 
+a 2-indent and a 4-indent. The former yields more compact code with not-so-long lines, 
+but the latter is easier to read. 
+
+Having the indentation right is extremely important. If you make 
+a mistake here, you can easily damage your robot! 
+Assume the maze shown in Fig. \ref{fig:repeat-11}.
+Karel's task is to walk around the block and stop in the 
+upper left corner, facing South. 
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=3.8cm]{img/repeat-11.png}
+\vspace{-0mm}
+\caption{Karel needs to go around a block.}
+\label{fig:repeat-11}
+%\vspace{-1cm}
+\end{center}
+\end{figure}
+\noindent
+Here is the program that will do it:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{repeat} 3
+    \PY{n+nf}{go}
+    \PY{n+nf}{go}
+    \PY{n+nf}{left}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+After this program is executed, the robot's position is 
+as shown in Fig. \ref{fig:repeat-12}.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=3.8cm]{img/repeat-12.png}
+\vspace{-0mm}
+\caption{Karel is where he is supposed to be.}
+\label{fig:repeat-12}
+%\vspace{-1cm}
+\end{center}
+\end{figure}
+\noindent
+However, let's say that the last command of the loop's body is
+unindented by mistake:
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{repeat} 3
+    \PY{n+nf}{go}
+    \PY{n+nf}{go}
+\PY{n+nf}{left}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Then the robot will make just two steps before crashing right into the wall:
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=3.8cm]{img/repeat-13.png}
+\vspace{-0mm}
+\caption{Karel just crashed!}
+\label{fig:repeat-13}
+%\vspace{-1cm}
+\end{center}
+\end{figure}
+\noindent
+There will be an error message telling where the problem occurred:\\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{s+1}{Ouch, you crashed me!}
+Line 2:go
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+
+\subsection{Two nested {\tt repeat} loops}
+
+In the last two programs, the {\tt go} command was written twice. This is 
+not that bad since using the {\tt repeat} command and writing one command 
+per line, we would also need two lines. 
+But consider the situation shown in Fig. \ref{fig:repeat-14} and imagine
+that Karel has to walk around the block now, returning to his original 
+position.
+\newpage
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=6.7cm]{img/repeat-14.png}
+\vspace{-0mm}
+\caption{Walk around a larger block.}
+\label{fig:repeat-14}
+%\vspace{-1cm}
+\end{center}
+\end{figure}
+\noindent
+Writing the {\tt go} command inside the {\tt repeat} loop five times would not be too nice.
+Instead, the following code does the job elegantly:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{repeat} 4
     \PY{k}{repeat} 5
         \PY{n+nf}{go}
-    \PY{k}{repeat} 2
-        \PY{n+nf}{left}
+    \PY{n+nf}{left}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
 
 \noindent
-After you figured it out, launch Karel via the {\em Programming} menu, enter this code into
-the code cell, and run it! But before doing that, remember to switch to {\em Designer} and make 
-some free space in front of the robot 
-so that he does not crash into a wall.
+When a loop is used within another loop's body, we say that the loops are {\em nested}.
+Notice that the same indentation scheme applies to each of the two loops. The {\tt go}
+command that is inside of the internal loop, is indented by eight empty characters, while 
+the {\tt left} command which does not belong to the internal loop anymore is only indented 
+by four.  
 
+\subsection{Three nested {\tt repeat} loops}
 
-\section{Working with Code and Text Cells} \label{sec:editmenu}
+Let's look at one last example in this section. Karel stands on the intersection of 
+two streets that separate four blocks, as shown in Fig. \ref{fig:repeat-15}. His 
+task is to walk around each block, always returning to his initial position before 
+starting a new block. 
+
+\newpage
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=9.5cm]{img/repeat-15.png}
+\vspace{-0mm}
+\caption{Standing on an intersection.}
+\label{fig:repeat-15}
+%\vspace{-1cm}
+\end{center}
+\end{figure}
+\noindent
+Here is the program that will do it:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{repeat} 4
+    \PY{k}{repeat} 4
+        \PY{k}{repeat} 5
+            \PY{n+nf}{go}
+        \PY{n+nf}{left}
+    \PY{n+nf}{right}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+This program features three nested {\tt repeat} loops. Take the time to 
+reconstruct this example in Karel and run the program -- it is well worth the effort!
+
+\section{Working with Code and Descriptive HTML Cells} \label{sec:editmenu}
 
 \subsection{Objectives} 
  
 \begin{itemize}
-\item Learn why it is good to include comments in the code.
-\item Learn how to add new code cells and descriptive text cells.
+\item Learn how to add new code cells and descriptive HTML cells.
 \item Learn how to change the order of cells.
 \item Learn how to run all code cells at once, and how to run them individually.
 \item Learn how to clear, collapse, remove and merge cells.
 \end{itemize}
-It is a very good habit to add comments to programs (every line starting with the '{\tt \#}'
-symbol is a comment) and also to include descriptive 
-texts in Karel worksheets, since descriptions make it easier for someone else to 
-understand your program. Sometimes you may be in the position of the "someone else" yourself,
-when you return to your own program some time after you wrote it. Here are a couple of 
-simple new rules to remember:
-\begin{enumerate} 
-\item New text cell can be added under the current cell via the button 
-      {\em Add text cell} under the cell. 
-      After an empty text cell appears, click into it and add text. The text can be 
-      formatted and/or colors using the menu. After you are finished, click 
-      on the button {\em Save cell} under the text cell. 
-\item New code cell can be added under a cell by clicking on {\em Add code cell} 
-      under the cell. Having multiple code cells can be useful, for example, to test various versions 
-      of our program, or if we want to run parts of the program separately. 
-\item Order of cells can be changed via the arrows under the cells.
-\item Clicking on {\em Clear cell} under a cell will erase its contents.
-\item Any cell can be collapsed by clicking on the {\em Collapse cell} button
-      under the cell. Then a new button {\em Expand this cell} will appear instead
-      of the original cell. The cell can be expanded by clicking on this button.
-\item Clicking on the button {\em Remove cell} under a cell will remove it. 
-      All text or code in that cell will be lost.
-\item Run programs via the green arrow button in the main menu (this will evaluates all code
-      cells). Each cell can be also evaluated individually by clicking on the green 
-      arrow button under the cell. If there is just one code cell, both options 
-      are equivalent.
-\item Programs can be stopped using the red button in the menu. 
-\item If a particular
-      code cell needs to be stopped, then use the red button under that cell.
-\item Cells can be merged via the options {\em Merge active cell up} and 
-      {\em Merge active cell down} in Edit menu.
-\end{enumerate}
+
+\subsection{Code cells}
+
+As we know well by now, programs are entered in code cells. So far we have worked with 
+a single code cell, but our worksheet can have more of them. 
+Having multiple code cells can be useful to insert nice descriptions 
+between various parts of the code, to test various versions 
+of our program, or if we want to run parts of the program separately. Fig. 
+\ref{fig:menu-111} shows a sample code cell including its bottom menubar. 
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=16cm]{img/menu-114.png}
+\caption{Sample code cell.}
+\label{fig:menu-111}
+%\vspace{-1cm}
+\end{center}
+\end{figure}
+
+\noindent
+Left to right, the icons under the code cell have the following meaning: 
+\begin{itemize}
+\item Run the program in this particular code cell.
+\item Stop the code cell (this icon becomes active when the program is running).
+\item Move the cell under the one below it (changes the order of cells in the worksheet).
+\item Move the cell above the one above it (changes the order of cells in the worksheet).
+\item Duplicate the cell (new code cell with the same contents is created).
+\item Clear the cell (erase all contents).
+\item Add empty code cell under the cell.
+\item Add empty descriptive HTML cell under the cell.
+\item Remove the cell.
+\item Collapse the cell. 
+\end{itemize}
+
+\subsection{Descriptive HTML cells}
+
+Descriptive HTML cells use a WYSIWYG text and HTML editor 
+to add descriptions and illustrations to the worksheet. Fig. 
+\ref{fig:menu-112} shows a sample descriptive cell.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=16cm]{img/menu-113.png}
+\vspace{-0mm}
+\caption{Sample descriptive cell.}
+\label{fig:menu-112}
+%\vspace{-1cm}
+\end{center}
+\end{figure}
+\noindent
+
+\noindent
+This cell has two menus. The top one is related to text editing and 
+inclusion of images, the bottom one is analogous to the menu of 
+code cells. Let us begin with the top menu:
+Left to right, the buttons and icons have the following meaning: 
+\begin{itemize}
+\item Select text font. 
+\item Make selected text boldface.
+\item Make selected text italics.
+\item Underline selected text.
+\item Increase font size for selected text.
+\item Decrease font size for selected text.
+\item Choose foreground text color
+\item Choose background text color
+\item Align text left
+\item Center text
+\item Align text right 
+\item Add a hyperlink.
+\item Create enumerated list.
+\item Create bullet list.
+\item Edit source HTML code. This is also how images can be added via external links.
+\end{itemize}
+The bottom menu, left to right:
+\begin{itemize}
+\item Save the descriptive cell.
+\item Edit the descriptive cell.
+\item Move the cell under the one below it (changes the order of cells in the worksheet).
+\item Move the cell above the one above it (changes the order of cells in the worksheet).
+\item Duplicate the cell (new descriptive cell with the same contents is created).
+\item Clear the cell (erase all contents).
+\item Add empty code cell under the cell.
+\item Add empty descriptive cell under the cell.
+\item Remove the cell.
+\item Collapse the cell. 
+\end{itemize}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Conditions} \label{sec:cond}
 
+After a short intermission in Section \ref{sec:editmenu} we are going to explore
+another fundamental programming concept -- conditional execution of code. Conditions 
+are present in all programming languages and they allow us to make decisions and 
+handle situations that arise while the program is running. In Karel's case, conditions 
+will be mostly related to his interaction with the rest of the maze via his five sensors.
+
 \subsection{Objectives} 
 
 \begin{itemize}
-\item Understand the function of Karel's five sensors.
-\item Learn to use the sensors in conjunction with {\em conditions} to help Karel 
-      check his surroundings and react accordingly. For example, we will learn to first 
-      check whether wall is ahead before making a step forward, checking whether there
-      is a gem on the ground before attempting to pick it up, etc.
+\item Understand the role of conditions in programming.
+\item Learn to use Karel's sensors in conjunction with conditions to help the robot
+      check his surroundings and react accordingly. 
 \end{itemize}
 
-\noindent
-Karel has built-in sensors to better navigate in the maze:
+\subsection{Using the {\tt wall} sensor}
 
-\subsection{Karel's five sensors}
-
-\noindent
-\underline{{\tt wall} sensor}
-
-The first one is an infrared sensor {\tt wall} that the robot uses to determine 
-whether it is safe to make one step forward, or whether there is a wall. This is 
-illustrated in Fig. \ref{fig:dede-ifelse}.
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[height=0.4\textwidth]{img/salih-ifelse.png}
-\end{center}
-\vspace{-4mm}
-\caption{This is how Karel uses the {\tt wall} sensor!}
-\label{fig:dede-ifelse}
-%\vspace{-10mm}
-\end{figure}
-
-\noindent
+The robot can use the {\tt wall} sensor to determine 
+whether it is safe to make one step forward, or whether there is a wall. 
 The usage of the {\tt wall} sensor in a program can be illustrated using a simple program "Careful step" 
 where Karel first checks whether there is a wall ahead before
 making a step. If there is wall, he turns back:\\
@@ -578,19 +885,23 @@ The {\tt else} branch does not have to be there if it is not needed. Notice the 
 of the bodies of the {\tt if} and {\tt else} branches - this is analogous 
 to how we indent the body of the {\tt repeat} command. There are four more sensors:\\
 
-\noindent
+\subsection{Using the {\tt gem} sensor}
+
 \underline{{\tt gem} sensor} returns true if the robot stands on a gem, false otherwise. \\
 
-\noindent
+\subsection{Using the {\tt empty} sensor}
+
 \underline{{\tt empty} sensor} returns true if the robot's bag with gems is empty, false otherwise. \\
 
-\noindent
+\subsection{Using the {\tt north} sensor}
+
 \underline{{\tt north} sensor} returns true if the robot is facing North, false otherwise.\\
 
-\noindent
+\subsection{Using the {\tt home} sensor}
+
 \underline{{\tt home} sensor} returns true if the robot is at home, false otherwise.
 
-\subsection*{Testing opposites}
+\subsection{Using negation}
 
 Karel can also use the reserved word {\tt not} to test the opposites.
 For illustration, the previous program can be rewritten as follows, without 
@@ -612,7 +923,7 @@ changing its function:\\
 
 \subsection{Programming hints}
 
-Good programmer is a careful programmer! Errors can be avoided by always checking the 
+Good programmer is a careful programmer. Many errors can be avoided by always checking the 
 appropriate sensor before making an action. A few examples of careful actions:\\
  
 \begin{bbox}
