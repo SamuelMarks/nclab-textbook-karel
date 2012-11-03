@@ -225,33 +225,16 @@
 }\makeatother
 
 
-% TO INPUT BACKGROUND IMAGE
-\usepackage{eso-pic}
-\newcommand\BackgroundPic{
-\put(0,0){
-\parbox[b][\paperheight]{\paperwidth}{
-\vfill
-\centering
-\includegraphics[width=\paperwidth,height=\paperheight]{img/karel-cover.png}
-\vfill
-}}}
+\usepackage{wallpaper}
 
 
 \begin{document}
 
-% INPUTTING BACKGROUND IMAGE
-\AddToShipoutPicture{\BackgroundPic}
-\vbox{}
-\pagestyle{empty}
-\newpage
-\textwidth=15.5cm
-\ClearShipoutPicture
-\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagestyle{empty}
 
-
+\ThisULCornerWallPaper{1.02}{img/karel-cover.png}
 
 
 
