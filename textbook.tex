@@ -315,14 +315,13 @@ direction. This is illustrated in Fig. \ref{fig:buttons2}.
 \item Understand that {\em debugging} is an indivisible part of computer programming.
 \end{itemize}
 
-\subsection{Typing commands}
+\subsection{Typing programs}
 
-Commands for the robot are entered into a {\em code cell} located on the left.
+Programs for the robot are entered into a {\em code cell} located on the left.
 In Level 1, we can use the commands {\tt left}, {\tt right}, {\tt go}, {\tt get}, and {\tt put}.
 Their function is the same as the function of the corresponding buttons in Manual mode.
 One or more commands form a {\em computer program (computer code)}. Often 
-we just say {\em program} or {\em code}.
-There are two simple rules to remember:\\
+we just say {\em program} or {\em code}. There are two simple rules to remember:\\
 
 \begin{gbox}
 \begin{enumerate}
@@ -471,10 +470,14 @@ execution. This includes:
 
 \section{Counting Loop} \label{sec:repeat}
 
-In Section \ref{sec:bridge} we successfully crossed a bridge that 
-connects the land of Clicking with the land of Programming. The bridge 
-collapsed, there is no way back. But do not worry, the land of Programming is much more beautiful.
-Once you understand its beauty, you will never want to go back!
+In Section 4 we learned to command the robot using written words rather than mouse 
+clicks, but it hardly could be called programming. The first programming concept -- 
+the {\em counting loop} -- awaits us in this section. Counting loops 
+are present in all procedural programming languages and they
+allow us to repeat some action a given number of times (such 
+as three times, ten times). In Karel, counting 
+loops are done via the {\tt repeat} command, other languages
+use various constructs based on the keyword {\tt for}.  
 
 \subsection{Objectives} 
 
@@ -489,10 +492,7 @@ programming functionality presented in this section.
 
 \subsection{The {\tt repeat} command}
 
-The {\em counting loop}, represented by the {\tt repeat} command in Karel,
-is part of any procedural programming language. Its purpose is to save 
-code in situations where some action needs to be repeated a given number 
-of times. Imagine that Karel needs to go get the gem as shown in 
+Imagine that Karel needs to go get the gem as shown in 
 Fig. \ref{fig:counting-11}, and then return home. 
 
 \begin{figure}[!ht]
@@ -706,7 +706,7 @@ command that is inside of the internal loop, is indented by eight empty characte
 the {\tt left} command which does not belong to the internal loop anymore is only indented 
 by four.  
 
-\subsection{Three nested {\tt repeat} loops}
+\subsection{Three nested {\tt repeat} loops} \label{subsec:3rep}
 
 Let's look at one last example in this section. Karel stands on the intersection of 
 two streets that separate four blocks, as shown in Fig. \ref{fig:repeat-15}. His 
@@ -919,6 +919,21 @@ This is done for the same reason as in the {\tt repeat} loop.
 \end{center}
 \end{gbox}
 
+\subsection{Using the keyword {\tt not}}
+
+Karel can also use the keyword {\tt not} (negation). For illustration, the last 
+program can be rewritten as follows, without changing its function:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Program "Careful step".}
+\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+    \PY{n+nf}{go}
+\PY{k}{else}
+    \PY{k}{repeat} 2
+        \PY{n+nf}{left}
+\end{Verbatim}
+\end{bbox}
 
 \subsection{Using the {\tt gem} sensor}
 
@@ -968,7 +983,8 @@ the way. This is not too difficult:\\
 
 \noindent
 Let us run the program three times again. The sequence of Karel's positions 
-after each evaluation is shown in Fig. \ref{fig:if-115}.\\[-7mm]
+after each evaluation is shown in Fig. \ref{fig:if-115}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -979,14 +995,132 @@ after each evaluation is shown in Fig. \ref{fig:if-115}.\\[-7mm]
 \caption{Left to right -- Karel's positions after executing the program "Careful step II" 
          one, two, and three times.}
 \label{fig:if-115}
+\vspace{-12mm}
+\end{center}
+\end{figure}
+
+\subsection{Using the {\tt empty} sensor}
+
+The {\tt empty} sensor allows the robot to check whether his bag is empty,
+or, in the combination with the keyword {\tt not}, whether his bag contains
+at least one gem. Imagine that Karel's block has four houses with pavements 
+running around them, as shown in Fig. \ref{fig:empty-111}. However, after
+the winter the pavements are damaged and some tiles (gems) are missing. Karel 
+has an unknown number of gems in the bag. Write a program for him to 
+repair the pavements. The program must not throw an error if Karel 
+runs out of gems!\\[-7mm]
+
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=9.4cm]{img/empty-111.png}
+\vspace{-0mm}
+\caption{Karel is repairing pavement.}
+\label{fig:empty-111}
 \vspace{-1cm}
 \end{center}
 \end{figure}
 \newpage
 \noindent
-Last let us show what happens if the robot is in the initial 
-position shown in Fig. \ref{fig:if-111} and we execute the 
-command\\
+We can use the program from Subsection \ref{subsec:3rep} as the basis 
+for our new program. First let's adjust the numbers of repetitions 
+in the loops to match the current layout of the maze. In fact just 
+the deepest one needs to be changed from five to four since the new 
+blocks are only three units long. The other two loops remain 
+unchanged since each square has still four edges and there are
+four squares as before. So the new program is:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{repeat} 4
+    \PY{k}{repeat} 4
+        \PY{k}{repeat} 4
+            \PY{n+nf}{go}
+        \PY{n+nf}{left}
+    \PY{n+nf}{right}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+This will work, but Karel will not be doing any repairs, just walk
+all pavements and return to his initial position.
+To repair the pavement, we need to insert an additional condition in front 
+of each {\tt go} command:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{repeat} 4
+    \PY{k}{repeat} 4
+        \PY{k}{repeat} 4
+            \PY{k}{if} not \PY{n+nb+bp}{gem}
+                \PY{n+nf}{put}
+            \PY{n+nf}{go}
+        \PY{n+nf}{left}
+    \PY{n+nf}{right}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Is this program OK? Almost, but not quite. If the number of
+gems in Karel's bag is less that the number of missing tiles
+in the pavement, the program will stop with an error message. 
+So, we need to check the {\tt empty} sensor before each {\tt put}
+command. The final program has the form:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{repeat} 4
+    \PY{k}{repeat} 4
+        \PY{k}{repeat} 4
+            \PY{k}{if} not \PY{n+nb+bp}{gem}
+                \PY{k}{if} not \PY{n+nb+bp}{empty}
+                    \PY{n+nf}{put}
+            \PY{n+nf}{go}
+        \PY{n+nf}{left}
+    \PY{n+nf}{right}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Nicely done! Fig. \ref{fig:empty-112} shows the pavement after the program 
+is execured. Karel started with 15 gems in the bag (gems can be added to 
+the robot's bag in Designer).
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=9.4cm]{img/empty-112.png}
+\vspace{-0mm}
+\caption{After running the program, the pavement is flawless again!}
+\label{fig:empty-112}
+%\vspace{-1cm}
+\end{center}
+\end{figure}
+%\newpage
+\noindent
+As an exercise, run this program with just 10 gems in the robot's bag!
+\newpage
+
+\subsection{Gambling}
+
+Returning for a moment to Fig. \ref{fig:if-111b},
+
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=4cm]{img/if-111.png}
+\vspace{-0mm}
+\caption{Karel's initial position.}
+\label{fig:if-111c}
+\vspace{-6mm}
+\end{center}
+\end{figure}
+\noindent
+it is not clear whether 
+the robot stands on a gem or not -- a gem under the robot is not visible.
+So let's try our luck and execute the command\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -996,78 +1130,21 @@ command\\
 \vspace{6mm}
 
 \noindent
-Since there is no gem under the robot, an error message is thrown:\\
+Nay, instead of a gem, we get an error message!\\
 
 \begin{ybox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{s+1}{Oops, there is no gem here!}
-Line 1:get
+Line 1: get
 \end{Verbatim}
 \end{ybox}
 \vspace{6mm}
 
 \noindent
-And a final recommendation:\\
+We say that the code {\em crashed}, even though Karel did not crash into a wall.
+We must not write codes that can crash. The error could have been avoided easily 
+by using the {\tt gem} sensor in conjunction with the {\tt get} command:\\
 
-\begin{gbox}
-\begin{center}
-It does not hurt to check the {\tt gem} sensor {\bf always} before using the {\tt get}
-command. Even when you, the programmer, know that a gem is certainly there. 
-Checking sensors is instantaneous, it does not make your program slower.
-\end{center}
-\end{gbox}
-
-
-
-
-\subsection{Using the {\tt empty} sensor}
-
-\underline{{\tt empty} sensor} returns true if the robot's bag with gems is empty, false otherwise. \\
-
-\subsection{Using the {\tt north} sensor}
-
-\underline{{\tt north} sensor} returns true if the robot is facing North, false otherwise.\\
-
-\subsection{Using the {\tt home} sensor}
-
-\underline{{\tt home} sensor} returns true if the robot is at home, false otherwise.
-
-\subsection{Using negation}
-
-Karel can also use the reserved word {\tt not} to test the opposites.
-For illustration, the previous program can be rewritten as follows, without 
-changing its function:\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c}{\PYZsh{} Program "Careful step".}
-\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
-    \PY{n+nf}{go}
-\PY{k}{else}
-    \PY{k}{repeat} 2
-        \PY{n+nf}{left}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-
-\subsection{Programming hints}
-
-Good programmer is a careful programmer. Many errors can be avoided by always checking the 
-appropriate sensor before making an action. A few examples of careful actions:\\
- 
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
-    \PY{n+nf}{go}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-Another example:\\
- 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{if} \PY{n+nb+bp}{gem}
@@ -1077,27 +1154,70 @@ Another example:\\
 \vspace{6mm}
 
 \noindent
-And one more:\\
- 
+Also the commands {\tt go} and {\tt put} can potentially lead to 
+an error. Unless we are really sure that this will not be the case, 
+we can always check the corresponding sensor before executing these 
+commands. For the {\tt go} command this would be\\
+
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{empty}
+\PY{k}{if} not \PY{n+nb+bp}{wall}
+    \PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+and for the {\tt put} command\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{if} not \PY{n+nb+bp}{empty}
     \PY{n+nf}{put}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
 
 \noindent
+So, keep the following in mind:\\
+
+\begin{gbox}
+\begin{center}
+Do not gamble. If you are not 100 \% sure, check a sensor prior to using 
+commands {\tt go}, {\tt get} and {\tt put}. Checking sensors is quick, 
+it does not make your program slower.
+\end{center}
+\end{gbox}
+\vspace{6mm}
+
+
+\subsection{The {\tt north} and {\tt home} sensors}
+
+By now you understand the concept of sensors very well, so there is no need to 
+spend much more time on the remaining two. Let us just mention that the {\tt north} 
+sensor can be used to make the robot face any given direction. For this,
+we always must turn him to face North first, because this is the only 
+direction he can verify. From there, one {\tt left} command will turn him 
+West, etc. The {\tt home} sensor helps the robot to make sure that he reached his home. 
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Conditional Loop} \label{sec:whilek}
 
+{\em Conditional loop} is another major concept that is used in all procedural 
+programming languages. It allows us to repeat some action without knowing 
+in advance how many repetitions will be needed. In most languages (including Karel) 
+it is represented via the keyword {\tt while}. In others, one can find 
+constructs such as {\tt do - while}, {\tt do - until},
+{\tt repeat - until} etc.
+
 \subsection{Objectives} 
  
 \begin{itemize}
 \item Learn to repeat a command or a sequence of commands when it is not known 
-      how many repetitions will be needed.
+      in advance how many repetitions will be needed.
 \end{itemize}
 
 \subsection{The {\tt while} command}
@@ -1132,7 +1252,8 @@ Beware though: {\color{red}{this program is dangerous}} since the robot will cra
 if his home is not straight ahead of him!\\
 
 \noindent
-The robot may be asked to empty his bag (he does not know how many gems are in it):\\
+The robot may be asked to empty his bag (recall that he has no way of knowing 
+how many gems are in it):\\
  
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1143,8 +1264,8 @@ The robot may be asked to empty his bag (he does not know how many gems are in i
 \vspace{6mm}
 
 \noindent
-Or, he may be asked to collect all gems from a pile (he does not know 
-how many gems there are):\\
+Or, he may be asked to collect all gems from a pile (he can't see
+how many gems are in a pile):\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1155,8 +1276,8 @@ how many gems there are):\\
 \vspace{6mm}
 
 \noindent
-Or we may ask him to turn to face North (recall that the robot does not know which direction he is
-facing - there is no such sensor):\\
+Or we may ask him to turn to face North (recall that there are no sensors for 
+East, West and South):\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1203,6 +1324,12 @@ is the only direction that he can check!
 
 \section{Custom Commands} \label{sec:newcom}
 
+When solving more complex tasks, it is always good to look for simpler ones that can be solved 
+first. Once the smaller problems are solved, the big task does not look so difficult 
+anymore. Defining custom commands is great for this -- they can represent multiple commands or 
+even a program of its own. Code enclosed into a custom command becomes extremely easy to reuse 
+in various parts of our program.
+
 \subsection{Objectives} 
  
 \begin{itemize}
@@ -1211,29 +1338,10 @@ is the only direction that he can check!
 \item Learn to bring more structure and clarity into our programs by introducing new commands.
 \end{itemize}
 
-\subsection{Programming hints}
-
-{\em Always look for small tasks that can be solved independently of the big ones.
-Solve the small tasks first, and you will see that the big ones get much simpler. The 
-importance of what we just said cannot be stressed more.}\\
-
-\noindent
-The fact that you are reading this line of text proves that you are not 
-a perfect programmer yet. A perfect programmer would be stuck forever 
-in the previous three lines which are an infinite loop!
-
-%\begin{figure}[!ht]
-%\begin{center}
-%\includegraphics[width=0.2\textwidth]{img/smiley.png}
-%\end{center}
-%\vspace{-1cm}
-%\end{figure}
-
 \subsection{Never replicate computer code}
 
 A new command should be defined whenever it becomes clear that the same 
-action is repeated in the algorithm multiple times (yes, we talk about the algorithm,
-not about the program). When we start writing a program and then realize that the same
+action is repeated in the algorithm multiple times. When we start writing a program and then realize that the same
 code repeats itself at various places, then probably we did not do a good job 
 designing the algorithm.
 
@@ -1253,12 +1361,12 @@ rewrite it from scratch.
 
 New commands are defined using the reserved word 
 {\tt def}. For example, in a program where the robot needs to turn back
-many times, it is a good idea to define a new command {\tt back}
+many times, it is a good idea to define a new command {\tt turnback}
 as follows:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{def} back
+\PY{k}{def} turnback
     \PY{k}{repeat} 2
         \PY{n+nf}{left}
 \end{Verbatim}
@@ -1395,6 +1503,7 @@ is replaced with its own body. The corresponding code would look as follows:\\
 \noindent
 Since the robot is one step away from the wall, the third {\tt if not wall} condition passes and 
 he makes a third step forward. His new position is shown in Fig. \ref{fig:rec4}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1662,7 +1771,7 @@ Karel determines his coordinates in the maze and prints them:\\
 \noindent
 The south-west corner of the maze is the origin of the coordinate system and it has 
 coordinates [0, 0]. With Karel's position shown in Fig. \ref{fig:gps-100},
-
+\newpage
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[height=0.4\textwidth]{img/gps-100.png}
@@ -1772,7 +1881,7 @@ The function can then be used as follows:\\
 Here, we create a new variable {\tt num} and initialize it using the 
 integer value that is returned by the {\tt count\_steps} function.
 The result is then printed. For the situation shown in Fig. \ref{fig:cf-1},
-\newpage
+%\newpage
 
 \begin{figure}[!ht]
 \begin{center}
@@ -1839,7 +1948,7 @@ var2 = var1
 
 \noindent
 \item Initialize them with value returned by an existing function, as it was shown 
-with the function {\tt count\_steps} in the previous paragraph:\\
+with the function {\tt count\_steps} in the previous paragraph:\\[-6mm]
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1861,9 +1970,9 @@ Karel stands as shown in Fig. \ref{fig:var1}.
 \vspace{-4mm}
 \caption{Karel's initial position.}
 \label{fig:var1}
-%\vspace{-1cm}
+\vspace{-1cm}
 \end{figure}
-
+\newpage
 \noindent
 Then the program\\
 
@@ -2439,7 +2548,7 @@ In fact, each time we are appending a list consisting of the horizontal and
 vertical GPS coordinates -- there is no other way to represent two numbers 
 in one variable unless the variable is a list. When the robot's initial position 
 is as shown in Fig. \ref{fig:list-1},
-\newpage
+
 
 \begin{figure}[!ht]
 \begin{center}
@@ -2509,6 +2618,7 @@ And here are some Karel examples:
 \item {\color{ForestGreen} \tt empty} ... {\tt True} if the robot does not have any gems on him, {\tt False} otherwise.
 \end{itemize}
 Let's consider the situation shown in Fig. \ref{fig:logic1}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
