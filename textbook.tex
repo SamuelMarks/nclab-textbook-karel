@@ -123,11 +123,11 @@ He was manufactured with only five simple commands in his memory:
 \end{itemize}
 He also has five built-in sensors that allow him to check his immediate surroundings:
 \begin{itemize}
-\item {\color{ForestGreen} \tt wall} ... true if he would crash into a wall by making one more step, false otherwise. 
-\item {\color{ForestGreen} \tt gem} ... true if he stands on a gem, false otherwise.
-\item {\color{ForestGreen} \tt north} ... true if he is facing North, false otherwise.
-\item {\color{ForestGreen} \tt home} ... true if he is at home, false otherwise.
-\item {\color{ForestGreen} \tt empty} ... true if his bag with gems is empty, false otherwise. 
+\item {\color{ForestGreen} \tt wall} ... helps the robot detect that a wall is right ahead.
+\item {\color{ForestGreen} \tt gem} ... helps the robot detect that a gem lies under him.
+\item {\color{ForestGreen} \tt north} ... helps the robot detect that he is facing North.
+\item {\color{ForestGreen} \tt home} ... helps the robot detect that he is at home.
+\item {\color{ForestGreen} \tt empty} ... helps the robot detect that his bag with gems is empty.
 \end{itemize}
 
 \subsection{What will this course teach you?}
@@ -209,7 +209,7 @@ functions. In the {\em File} menu:
 \end{itemize}
 The {\em Maze} menu facilitates operating with mazes, including creating a new random 
 one, duplicating an existing maze, restoring maze to its saved version, and save and remove 
-maze. The {\em Edit} menu enables operation with code cells and descriptive HTML cells (to be discussed in 
+maze. The {\em Edit} menu enables operation with code cells and HTML cells (to be discussed in 
 Section \ref{sec:editmenu}). In {\em Settings} one can change Karel's Level, change his 
 speed, and adjust sound preferences. 
 
@@ -742,12 +742,12 @@ Here is the program that will do it:\\
 This program features three nested {\tt repeat} loops. Take the time to 
 reconstruct this example in Karel and run the program -- it is well worth the effort!
 
-\section{Working with Code and Descriptive HTML Cells} \label{sec:editmenu}
+\section{Working with Code and HTML Cells} \label{sec:editmenu}
 
 \subsection{Objectives} 
  
 \begin{itemize}
-\item Learn how to add new code cells and descriptive HTML cells.
+\item Learn how to add and use new code cells and HTML cells.
 \item Learn how to change the order of cells.
 \item Learn how to run all code cells at once, and how to run them individually.
 \item Learn how to clear, collapse, remove and merge cells.
@@ -781,22 +781,22 @@ Left to right, the icons under the code cell have the following meaning:
 \item Duplicate the cell (new code cell with the same contents is created).
 \item Clear the cell (erase all contents).
 \item Add empty code cell under the cell.
-\item Add empty descriptive HTML cell under the cell.
+\item Add empty HTML cell under the cell.
 \item Remove the cell.
 \item Collapse the cell. 
 \end{itemize}
 
-\subsection{Descriptive HTML cells}
+\subsection{HTML cells}
 
-Descriptive HTML cells use a WYSIWYG text and HTML editor 
+HTML cells use a WYSIWYG text and HTML editor 
 to add descriptions and illustrations to the worksheet. Fig. 
-\ref{fig:menu-112} shows a sample descriptive cell.
+\ref{fig:menu-112} shows a sample HTML cell.
 
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=16cm]{img/menu-113.png}
 \vspace{-0mm}
-\caption{Sample descriptive cell.}
+\caption{Sample HTML cell.}
 \label{fig:menu-112}
 %\vspace{-1cm}
 \end{center}
@@ -827,14 +827,14 @@ Left to right, the buttons and icons have the following meaning:
 \end{itemize}
 The bottom menu, left to right:
 \begin{itemize}
-\item Save the descriptive cell.
-\item Edit the descriptive cell.
+\item Save the HTML cell.
+\item Edit the HTML cell.
 \item Move the cell under the one below it (changes the order of cells in the worksheet).
 \item Move the cell above the one above it (changes the order of cells in the worksheet).
-\item Duplicate the cell (new descriptive cell with the same contents is created).
+\item Duplicate the cell (new HTML cell with the same contents is created).
 \item Clear the cell (erase all contents).
 \item Add empty code cell under the cell.
-\item Add empty descriptive cell under the cell.
+\item Add empty HTML cell under the cell.
 \item Remove the cell.
 \item Collapse the cell. 
 \end{itemize}
@@ -846,10 +846,11 @@ the Edit menu.
 \section{Conditions} \label{sec:cond}
 
 After a short intermission in Section \ref{sec:editmenu} we are going to explore
-another fundamental programming concept -- conditional execution of code. Conditions 
-are present in all programming languages and they allow us to make decisions and 
-handle situations that arise while the program is running. In Karel's case, conditions 
-will be mostly related to his interaction with the rest of the maze via his five sensors.
+another fundamental programming concept -- {\em conditional execution of code}. Conditions 
+are present in all programming languages and they allow us to 
+handle various situations as they arise while the program is running. In Karel's case, conditions 
+will be mostly related to his interaction with his surroundings via the five sensors
+{\tt wall}, {\tt gem}, {\tt empty}, {\tt north} and {\tt home}.
 
 \subsection{Objectives} 
 
@@ -862,8 +863,9 @@ will be mostly related to his interaction with the rest of the maze via his five
 \subsection{Using the {\tt wall} sensor}
 
 The robot can use the {\tt wall} sensor to determine 
-whether it is safe to make one step forward, or whether there is a wall. 
-The usage of the {\tt wall} sensor in a program can be illustrated using a simple program "Careful step" 
+whether it is safe to make one step forward.
+The usage of this sensor can be illustrated 
+using a simple program "Careful step" 
 where Karel first checks whether there is a wall ahead before
 making a step. If there is wall, he turns back:\\
 
@@ -880,15 +882,143 @@ making a step. If there is wall, he turns back:\\
 \vspace{6mm}
 
 \noindent
-As we mentioned before, the symbol '{\tt \#}' introduces a comment, meaning that the line 
-of code behind it is ignored by the robot.
-The {\tt else} branch does not have to be there if it is not needed. Notice the indentation 
-of the bodies of the {\tt if} and {\tt else} branches - this is analogous 
-to how we indent the body of the {\tt repeat} command. There are four more sensors:\\
+Imagine that Karel stands in front of a gem as shown in Fig. \ref{fig:if-111}.
+\newpage
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=4cm]{img/if-111.png}
+\vspace{-0mm}
+\caption{Karel's initial position.}
+\label{fig:if-111}
+%\vspace{-1cm}
+\end{center}
+\end{figure}
+\noindent
+Now let us run the program three times for fun (three clicks on the green arrow button 
+will do). The sequence of Karel's positions after each evaluation is shown in 
+Fig. \ref{fig:if-112}.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=3.97cm]{img/if-112.png}\ \ 
+\includegraphics[width=4cm]{img/if-113.png}\ \ 
+\includegraphics[width=4cm]{img/if-114.png}
+\vspace{-0mm}
+\caption{Left to right -- Karel's positions after executing the program "Careful step" one, two, and three times.}
+\label{fig:if-112}
+\vspace{-4mm}
+\end{center}
+\end{figure}
+\noindent
+
+\begin{gbox}
+\begin{center}
+Note that commands forming the body of the {\tt if} and {\tt else} branches are indented.
+This is done for the same reason as in the {\tt repeat} loop. 
+\end{center}
+\end{gbox}
+
 
 \subsection{Using the {\tt gem} sensor}
 
-\underline{{\tt gem} sensor} returns true if the robot stands on a gem, false otherwise. \\
+The {\tt gem} sensor allows Karel to check whether he stands over a gem. 
+This is the only way for the robot to pick up a gem: His hands are 
+too short to reach into another square. And, he cannot "see" gems which 
+lie in other squares -- simply because he does not have "eyes". Returning to 
+the situation depicted in Fig. \ref{fig:if-111}, the robot does not have 
+a chance to know that a gem lies one step ahead. 
+
+Sometimes, we tend to make 
+a mistake of exploring the maze with our own eyes instead of using the 
+robot's sensors. Use your empathy skills and feel youself into the robot. 
+He does not hear, because he does not have a sensor for that. He does not 
+have a sense of smell either. Getting the point? Let's always view the 
+problem at hand from the robot's perspective. If you can do this, your 
+programming ability will soon be tremendous.
+Consider the situation shown in Fig. \ref{fig:if-111} again,
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=4cm]{img/if-111.png}
+\vspace{-0mm}
+\caption{Karel's initial position, same as before.}
+\label{fig:if-111b}
+\vspace{-6mm}
+\end{center}
+\end{figure}
+\noindent
+and let's extend 
+the program "Careful step" in such a way that Karel picks up the gem on
+the way. This is not too difficult:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Program "Careful step II".}
+\PY{k}{if} \PY{n+nb+bp}{gem}
+    \PY{n+nf}{get}
+\PY{k}{if} \PY{n+nb+bp}{wall}
+    \PY{k}{repeat} 2
+        \PY{n+nf}{left}
+\PY{k}{else}
+    \PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Let us run the program three times again. The sequence of Karel's positions 
+after each evaluation is shown in Fig. \ref{fig:if-115}.\\[-7mm]
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=3.97cm]{img/if-112.png}\ \ 
+\includegraphics[width=4cm]{img/if-113.png}\ \ 
+\includegraphics[width=4cm]{img/if-115.png}
+\vspace{-0mm}
+\caption{Left to right -- Karel's positions after executing the program "Careful step II" 
+         one, two, and three times.}
+\label{fig:if-115}
+\vspace{-1cm}
+\end{center}
+\end{figure}
+\newpage
+\noindent
+Last let us show what happens if the robot is in the initial 
+position shown in Fig. \ref{fig:if-111} and we execute the 
+command\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nf}{get}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Since there is no gem under the robot, an error message is thrown:\\
+
+\begin{ybox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{s+1}{Oops, there is no gem here!}
+Line 1:get
+\end{Verbatim}
+\end{ybox}
+\vspace{6mm}
+
+\noindent
+And a final recommendation:\\
+
+\begin{gbox}
+\begin{center}
+It does not hurt to check the {\tt gem} sensor {\bf always} before using the {\tt get}
+command. Even when you, the programmer, know that a gem is certainly there. 
+Checking sensors is instantaneous, it does not make your program slower.
+\end{center}
+\end{gbox}
+
+
+
 
 \subsection{Using the {\tt empty} sensor}
 
