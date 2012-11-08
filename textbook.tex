@@ -1666,15 +1666,18 @@ odd
 In this Section we are entering exciting Level 3 where Karel grows up and leaves the 
 home of his parents to experience life on his own. Therefore, his home will not be 
 present in the maze anymore. There are additional changes
-that reflect Karel's growing up -- there is a GPS device that Karel can use to 
-determine his position in the maze, he can print messages, work with variables and 
-lists, employ functions that return values, and more. Do not forget to switch to 
+that reflect Karel's growing up -- there is a GPS 
+device that he can use to determine his position in the maze, he can print messages, 
+work with variables and lists, employ functions that return values, use more complex 
+logical operations, make random 
+decisions and more. Do not forget to switch to 
 Level 3 in Settings. A compact overview of new functionality in Level 3 can be found 
 in Section \ref{sec:newfunc3}.
 
 \subsection[\ \ Objectives]{Objectives} 
  
 \begin{itemize}
+\item Learn to make a random decision.
 \item Understand the concept of variables.
 \item Learn to work with numerical and logical variables and text strings.
 \item Learn to use functions that return values. 
@@ -2589,7 +2592,7 @@ a = L[1]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Logic} \label{sec:logic} 
+\section{Logic and Randomness} \label{sec:logic} 
 
 \subsection[\ \ Objectives]{Objectives} 
  
@@ -2777,6 +2780,52 @@ And finally, truth table for logical {\tt not} is:\\
 \vspace{4mm}
 \noindent
 
+\subsection{Making random decisions}
+
+In Level 3 Karel can make random decisions via the command {\tt rand}
+that returns with equal probability either {\tt True} or {\tt False}. 
+Typical usage of this command is \\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{if} \PY{n+nf}{rand}
+    do_something
+\PY{k}{else}
+    do_something_else
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+For illustration, here is a nice short program that makes Karel walk randomly 
+through the maze and look for gems:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} This is a simple way to}
+\PY{c}{\PYZsh{} create an infinite loop:}
+\PY{k}{while} \PY{n+nb+bp}{True}
+    \PY{c}{\PYZsh{} Make a random number of steps forward:}
+    \PY{k}{while} \PY{n+nf}{rand}
+        \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall} 
+            \PY{n+nf}{go}
+        \PY{k}{if} \PY{n+nb+bp}{gem} 
+            \PY{n+nf}{get}
+    \PY{c}{\PYZsh{} Turn either right or left:}
+    \PY{k}{if} \PY{n+nf}{rand}
+        \PY{n+nf}{right}
+    \PY{k}{else}
+        \PY{n+nf}{left}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+After some time (it may take a while) 
+the robot reaches all reachable gems and collects them! The program is in fact 
+an infinite loop, so you will have to eventually stop it via the red button.
+\noindent
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Appendix - Overview of Functionality by Level}\label{sec:newfunc3}
@@ -2838,11 +2887,12 @@ New keywords:
 \item {\tt inc(a, value)} ... increases the value of variable {\tt a} by {\tt value}.
 \item {\tt dec(a)} ... decreases the value of variable {\tt a} by one.
 \item {\tt dec(a, value)} ... decreases the value of variable {\tt a} by {\tt value}.
-\item {\tt rand} ... random command (returns randomly True or False).
+\item {\tt rand} ... random command (returns randomly {\tt True} or {\tt False}).
 \item {\tt return} ... returns a value, to be used in functions.
 \item {\tt and} ... binary logical {\em and}.
 \item {\tt or} ... binary logical {\em or}.
 \item {\tt not} ... unary logical {\em not}.
+\item {\tt L[]} ... create an empty list {\tt L}.
 \item {\tt len(L)} ... length of list {\tt L}.
 \item {\tt L[i]} ... object at position {\tt i} in list {\tt L}. Note: {\tt L[0]} is the first item in the list.
 \item {\tt L.append(x)} ... appends {\tt x} to the end of list {\tt L}.
