@@ -848,8 +848,8 @@ the Edit menu.
 After a short intermission in Section \ref{sec:editmenu} we are going to explore
 another fundamental programming concept -- {\em conditional execution of code}. Conditions 
 are present in all programming languages and they allow us to 
-handle various situations as they arise while the program is running. In Karel's case, conditions 
-will be mostly related to his interaction with his surroundings via the five sensors
+handle various situations as they arise while the program is running. In Karel's case, 
+conditions will mostly be related to checking his surroundings via the five sensors
 {\tt wall}, {\tt gem}, {\tt empty}, {\tt north} and {\tt home}.
 
 \subsection{Objectives} 
@@ -937,7 +937,7 @@ program can be rewritten as follows, without changing its function:\\
 
 \subsection{Using the {\tt gem} sensor}
 
-The {\tt gem} sensor allows Karel to check whether he stands over a gem. 
+The {\tt gem} sensor allows Karel to check whether he stands at a gem. 
 This is the only way for the robot to pick up a gem: His hands are 
 too short to reach into another square. And, he cannot "see" gems which 
 lie in other squares -- simply because he does not have "eyes". Returning to 
@@ -947,10 +947,10 @@ a chance to know that a gem lies one step ahead.
 Sometimes, we tend to make 
 a mistake of exploring the maze with our own eyes instead of using the 
 robot's sensors. Use your empathy skills and feel youself into the robot. 
-He does not hear, because he does not have a sensor for that. He does not 
-have a sense of smell either. Getting the point? Let's always view the 
+He cannot hear, because he does not have a sensor for that. He does not 
+have a sense of smell either. Let's always view the 
 problem at hand from the robot's perspective. If you can do this, your 
-programming ability will soon be tremendous.
+programming ability will expand tremendously.
 Consider the situation shown in Fig. \ref{fig:if-111} again,
 
 \begin{figure}[!ht]
@@ -1004,10 +1004,10 @@ after each evaluation is shown in Fig. \ref{fig:if-115}.
 The {\tt empty} sensor allows the robot to check whether his bag is empty,
 or, in the combination with the keyword {\tt not}, whether his bag contains
 at least one gem. Imagine that Karel's block has four houses with pavements 
-running around them, as shown in Fig. \ref{fig:empty-111}. However, after
+around them, as shown in Fig. \ref{fig:empty-111}. After
 the winter the pavements are damaged and some tiles (gems) are missing. Karel 
-has an unknown number of gems in the bag. Write a program for him to 
-repair the pavements. The program must not throw an error if Karel 
+has an unknown number of tiles in his bag. Write a program for him to 
+repair the pavements. Important: Your program must not throw an error if Karel 
 runs out of gems!\\[-7mm]
 
 
@@ -1085,7 +1085,7 @@ command. The final program has the form:\\
 \vspace{6mm}
 
 \noindent
-Nicely done! Fig. \ref{fig:empty-112} shows the pavement after the program 
+Nice work! Fig. \ref{fig:empty-112} shows the pavement after the program 
 is execured. Karel started with 15 gems in the bag (gems can be added to 
 the robot's bag in Designer).
 
@@ -1119,7 +1119,7 @@ Returning for a moment to Fig. \ref{fig:if-111b},
 \end{figure}
 \noindent
 it is not clear whether 
-the robot stands on a gem or not -- a gem under the robot is not visible.
+the robot stands on a gem or not -- a gem under the robot would not be visible.
 So let's try our luck and execute the command\\
 
 \begin{bbox}
@@ -1141,9 +1141,18 @@ Line 1: get
 \vspace{6mm}
 
 \noindent
-We say that the code {\em crashed}, even though Karel did not crash into a wall.
-We must not write codes that can crash. The error could have been avoided easily 
-by using the {\tt gem} sensor in conjunction with the {\tt get} command:\\
+We say that the code {\em crashed}, even though Karel did not crash into a wall.\\
+
+\begin{gbox}
+\begin{center}
+We must not write codes that can crash. 
+\end{center}
+\end{gbox}
+\vspace{6mm}
+
+\noindent
+The error could have been avoided easily 
+by using the {\tt gem} sensor before the {\tt get} command:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
@@ -1206,10 +1215,15 @@ West, etc. The {\tt home} sensor helps the robot to make sure that he reached hi
 
 \section{Conditional Loop} \label{sec:whilek}
 
-{\em Conditional loop} is another major concept that is used in all procedural 
+The {\em conditional loop} is a major concept that is used in all procedural 
 programming languages. It allows us to repeat some action without knowing 
-in advance how many repetitions will be needed. In most languages (including Karel) 
-it is represented via the keyword {\tt while}. In others, one can find 
+in advance how many repetitions will be needed. This can be the case, for example, 
+when Karel needs to walk straight until he reaches a wall. Recall that he cannot see a wall
+that is not right in front of him. Another example is when the robot needs to turn to face 
+North. Recall that he can't know which direction he is facing -- he can only check 
+whether he faces North or not.
+In most languages (including Karel), the conditional loop is represented via the 
+keyword {\tt while}. In others, one can find 
 constructs such as {\tt do - while}, {\tt do - until},
 {\tt repeat - until} etc.
 
@@ -1219,143 +1233,172 @@ constructs such as {\tt do - while}, {\tt do - until},
 \item Learn to repeat a command or a sequence of commands when it is not known 
       in advance how many repetitions will be needed.
 \end{itemize}
+\newpage
 
 \subsection{The {\tt while} command}
 
-Often Karel needs to repeat something, {\em not knowing in advance how many repetitions
-there will be}. So, the {\tt repeat} command is not practical. This can be the case, for example, 
-when the robot is asked to walk straight ahead until he reaches the closest wall.
-Remember that he only can see walls that are right ahead of him -- walls 
-that are further away he can't see. Such a program would be:\\
+Consider for a moment the situation shown in Fig. \ref{fig:while-111}. Karel 
+stands at a random position in the maze and he knows that there is one gem 
+somewhere at the exterior wall, but he does not 
+know the exact location. Let's write a program for the robot to go get the gem!
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=14cm]{img/while-111.png}
+\vspace{-0mm}
+\caption{There is one gem in the maze, located at the exterior wall.}
+\label{fig:while-111}
+\vspace{-6mm}
+\end{center}
+\end{figure}
+\noindent
+The program would be:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{gem}
+    \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+        \PY{n+nf}{go}
+    \PY{n+nf}{left}
+\PY{n+nf}{get}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Notice that the body of the {\tt while} loop is indented, 
+same as the body of the {\tt repeat} loop. 
+The above program is written well since it can also handle the
+more difficult situation shown in Fig. \ref{fig:while-112}. There, 
+the robot runs into a corner where he needs to turn 
+twice.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=14cm]{img/while-112.png}
+\vspace{-0mm}
+\caption{Karel will react correctly even if he needs to turn twice.}
+\label{fig:while-112}
+\vspace{-6mm}
+\end{center}
+\end{figure}
+\noindent
+
+\subsection{Think like the robot}
+Next let us solve the problem shown in Fig. \ref{fig:while-114}, where
+Karel knows that his home is straight ahead of him, there are no walls on the way, 
+and there are gems that he needs to collect. 
+\newpage
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=14cm]{img/while-114.png}
+\vspace{-0mm}
+\caption{Karel needs to get home and collect all gems on the way.}
+\label{fig:while-114}
+\vspace{-6mm}
+\end{center}
+\end{figure}
+\noindent
+First let us show a bad program to do this:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{repeat} 4
+    \PY{n+nf}{go}
+\PY{k}{repeat} 3
+    \PY{n+nf}{get}
+\PY{k}{repeat} 2
+    \PY{n+nf}{go}
+\PY{k}{repeat} 4
+    \PY{n+nf}{get}
+\PY{k}{repeat} 3
+    \PY{n+nf}{go}
+\PY{k}{repeat} 5
+    \PY{n+nf}{get}
+\end{Verbatim}
+\end{bbox}
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{repeat} 3
+    \PY{n+nf}{go}
+\PY{k}{repeat} 2
+    \PY{n+nf}{get}
+\PY{k}{repeat} 2
     \PY{n+nf}{go}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
 
 \noindent
-Or, Karel may be asked to walk until he gets home:\\
+The program works, so what is the problem? The problem is that while writing the program, 
+the author was thinking like the observer and not 
+like the robot. The observer knows everything about the maze -- the exact position
+of all gems as well as how many gems are in each pile. However, the robot does not know 
+any of that. As a result, the program is very fragile -- it will crash as soon as
+the position of one of the gems is changed, or if the number in one of the piles 
+will change. That is not good. 
+
+A much better approach to writing the program is to 
+think like the robot. This means, cover the maze so that you do not see it, and 
+write the program knowing only what the robot knows -- that the
+home is straight ahead, that there are no walls on the way, and that there are 
+gems that need to be collected. Then the program is completely different:\\
 
 \begin{bbox}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{home}
-    \PY{n+nf}{go}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-Beware though: {\color{red}{this program is dangerous}} since the robot will crash into a wall
-if his home is not straight ahead of him!\\
-
-\noindent
-The robot may be asked to empty his bag (recall that he has no way of knowing 
-how many gems are in it):\\
- 
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{empty}
-    \PY{n+nf}{put}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-Or, he may be asked to collect all gems from a pile (he can't see
-how many gems are in a pile):\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{while} \PY{n+nb+bp}{gem}
-    \PY{n+nf}{get}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-Or we may ask him to turn to face North (recall that there are no sensors for 
-East, West and South):\\
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{north}
-    \PY{n+nf}{left}
-\end{Verbatim}
-\end{bbox}
-\vspace{6mm}
-
-\noindent
-At last, let us write the following program: Karel is asked to 
-turn South, walk straight ahead until he reaches the closest wall, and 
-collect all gems that he can find on the way:
-
-\begin{bbox}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c}{\PYZsh{} First turn North.}
-\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{north}
-    \PY{n+nf}{left}
-
-\PY{c}{\PYZsh{} Then turn South.}
-\PY{k}{repeat} 2
-    \PY{n+nf}{left}
-
-\PY{c}{\PYZsh{} Go straight ahead and pick all gems.}
-\PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
-    \PY{k}{if} \PY{n+nb+bp}{gem}
+    \PY{k}{while} \PY{n+nb+bp}{gem}
         \PY{n+nf}{get}
     \PY{n+nf}{go}
-
-\PY{c}{\PYZsh{} Pick gem at the wall (if any).}
-\PY{k}{if} \PY{n+nb+bp}{gem}
-    \PY{n+nf}{get}
 \end{Verbatim}
 \end{bbox}
 \vspace{6mm}
 
 \noindent
-Notice that we first need to turn the robot to face North -- this is because North 
-is the only direction that he can check!
+Notice that the second {\tt while} loop also takes care of the situation 
+when there is no gem where the robot is. No need to use an extra {\tt if}
+condition to check that. 
+
+As a bonus for thinking like the robot, our program is now universal. It will work
+for any maze where the home is straight ahead of the robot with no walls and 
+some gems on the way. One such maze is shown in Fig. \ref{fig:while-115}.
+\newpage
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=14cm]{img/while-115.png}
+\vspace{-0mm}
+\caption{The program now works for many different mazes!}
+\label{fig:while-115}
+\vspace{-6mm}
+\end{center}
+\end{figure}
+\noindent
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Custom Commands} \label{sec:newcom}
 
-When solving more complex tasks, it is always good to look for simpler ones that can be solved 
-first. Once the smaller problems are solved, the big task does not look so difficult 
-anymore. Defining custom commands is great for this -- they can represent multiple commands or 
-even a program of its own. Code enclosed into a custom command becomes extremely easy to reuse 
-in various parts of our program.
+When solving a complicated task, it is a good idea to always check whether 
+it contains simpler problems that could be solved first. Usually there are one 
+or more of them. Once these smaller problems are solved, and custom commands 
+({\em subprograms}) are created for them, then the original difficult task 
+is not that difficult anymore. Custom commands can represent multiple commands 
+or even a longer program. Computer code forming a custom command is
+easy to reuse in various parts of our program. When a change to the custom 
+command is needed, it is done only in its definition, and the change then
+propagates automatically to all occurrences of the command in our program.
 
 \subsection{Objectives} 
  
 \begin{itemize}
-\item Learn that replicating computer code is a bad habit.
-\item Learn that splitting the big task into smaller ones will simplify the solution a lot. 
-\item Learn to bring more structure and clarity into our programs by introducing new commands.
+\item Learn that splitting a big task into smaller ones will simplify its solution. 
+\item Learn that creating new commands brings more clarity into your program.
+\item Learn that repeating the same code in various parts of our program is a bad habit. 
 \end{itemize}
 
-\subsection{Never replicate computer code}
-
-A new command should be defined whenever it becomes clear that the same 
-action is repeated in the algorithm multiple times. When we start writing a program and then realize that the same
-code repeats itself at various places, then probably we did not do a good job 
-designing the algorithm.
-
-Sometimes it might be 
-tempting to just replicate the same code several times in the 
-program, because it does the same thing, but do not do it! This would be very bad programming
-and sooner or later our own code would punish us for that. 
-We would make a small change at one place but forget to do it 
-in all the other places. Then our code would start 
-acting strange, it would sometimes work and sometimes fail. 
-We would spend lots of time looking for the mistakes, find some 
-of them but not all, and our program would become unreliable
-and after some time irreparable. We would find that we need to 
-rewrite it from scratch.
 
 \subsection{Defining new commands}
 
@@ -1375,7 +1418,192 @@ as follows:\\
 
 \noindent
 Note the indent -- the body of a new command needs to be indented 
-analogously to the bodies of loops and conditions.
+analogously to the body of loops and conditions.
+
+\subsection{Arcade game}
+
+This time Karel needs to go through several levels of an arcade game
+shown in Fig. \ref{fig:newcomm-111}, collect all gems in each level, 
+and reach his home which is located at the East end of the top level. 
+There is only one opening between each two levels. Initially, 
+the robot stands somewhere in the bottom level.
+The example can be cloned from user "nclab", its name is "Arcade game".
+
+Clearly, this problem is a bit more complicated than the problems that we 
+solved before. The way to solve it is to first 
+look for tasks that the robot will be doing in each level. For sure, he will
+need to turn around from time to time, so let's start with introducing 
+the {\tt turnaround} command that we know from before:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} New command to turn around:}
+\PY{k}{def} turnback
+    \PY{k}{repeat} 2
+        \PY{n+nf}{left}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Since he does not know 
+the exact positions of gems, the robot will always need to sweep the entire 
+level. Let's introduce a new command for this. We will assume that the 
+robot stands at the West end of the level, facing East:
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=14cm]{img/newcomm-111.png}
+\vspace{-0mm}
+\caption{Karel is playing an arcade game.}
+\label{fig:newcomm-111}
+\vspace{-6mm}
+\end{center}
+\end{figure}
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Sweep one level from left to right.}
+\PY{c}{\PYZsh{} Assumes that robot stands at the}
+\PY{c}{\PYZsh{} West end, facing East:}
+\PY{k}{def} sweep
+    \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+        \PY{k}{while} \PY{n+nb+bp}{gem}
+            \PY{n+nf}{get}
+        \PY{n+nf}{go}
+        \PY{c}{\PYZsh{} Do not forget the last gem:}
+        \PY{k}{while} \PY{n+nb+bp}{gem}
+            \PY{n+nf}{get}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Next we need a new command that will make sure that the
+robot stands at the West end of the level, facing East, as required by 
+the command {\tt sweep}. Let us call this new command {\tt gowest}\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Reach West end of the current level}
+\PY{c}{\PYZsh{} and turn around to face East:}
+\PY{k}{def} gowest
+    \PY{c}{\PYZsh{} Turn West:}
+    \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{north}
+        \PY{n+nf}{left}
+    \PY{n+nf}{left}
+    \PY{c}{\PYZsh{} Go to West end:}
+    \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{wall}
+        \PY{n+nf}{go}
+    \PY{c}{\PYZsh{} Turn around:}
+    turnback
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Almost done! The last new command we need is to get to the next 
+level. Let us call it {\tt moveup}:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Find the opening and move one }
+\PY{c}{\PYZsh{} level up. Assumes that robot is}
+\PY{c}{\PYZsh{} at the East end of a level, }
+\PY{c}{\PYZsh{} facing East:}
+\PY{k}{def} moveup
+    \PY{k}{if} \PY{n+nb+bp}{not} \PY{n+nb+bp}{home}
+    \PY{c}{\PYZsh{} Face North:}
+    \PY{n+nf}{left}
+    \PY{c}{\PYZsh{} Find opening:}
+    \PY{k}{while} \PY{n+nb+bp}{wall}
+        \PY{n+nf}{left}
+        \PY{n+nf}{go}
+        \PY{n+nf}{right}
+    \PY{c}{\PYZsh{} Pass through opening:}
+    \PY{n+nf}{go}
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+In the last step we put together the previously defined 
+commands {\tt gowest}, {\tt sweep} and {\tt moveup} to
+define a new command {\tt arcade}:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Main function:}
+\PY{k}{def} arcade
+    \PY{k}{while} \PY{n+nb+bp}{not} \PY{n+nb+bp}{home}
+        gowest
+        sweep
+        moveup
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+The main function is then called as follows:\\
+
+\begin{bbox}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{} Main program:}
+arcade
+\end{Verbatim}
+\end{bbox}
+\vspace{6mm}
+
+\noindent
+Fig. \ref{fig:newcomm-112} shows the arcade after the program
+has finished:
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=14cm]{img/newcomm-112.png}
+\vspace{-0mm}
+\caption{Arcade after program has finished.}
+\label{fig:newcomm-112}
+\vspace{-6mm}
+\end{center}
+\end{figure}
+\noindent
+
+\subsection{Never replicate computer code}
+
+Your Karel programs will probably not have thousands of lines, 
+and in shorter programs copying and pasting of the same code 
+will not cause much harm. Nevertheless, even now we should 
+understand why this is an extremely bad programming practice
+that should be avoided. 
+
+A new command should be defined whenever it becomes clear that the same 
+action is repeated in the algorithm multiple times. When we start writing a program and then realize that the same
+code repeats itself at various places, then probably we did not do a good job 
+designing the algorithm.
+
+Sometimes it might be tempting to just replicate the same code several 
+times in your program, because it does the same thing. Do not do this.
+Sooner or later, you will need to adjust something in the block of 
+code that you copied, and you will forget to make the change in all
+occurences of the code. 
+
+Then your code will start acting strange and you will not know why.
+It will sometimes work and sometimes not. You will spend lots of time 
+looking for mistakes. You will find some of them but not all, and your 
+program will eventually become unreliable. Later, you will find that 
+the only solution is to throw the program away and rewrite it from scratch.\\
+
+\begin{gbox}
+\begin{center}
+Avoid code repetition as well as very long blocks of code. Define new commands whenever 
+appropriate. Keep the code well commented. This is the only way to keep your code 
+reliable, correct, and healthy.  
+\end{center}
+\end{gbox}
+\vspace{4mm}
+
+\noindent
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1777,7 +2005,7 @@ coordinates [0, 0]. With Karel's position shown in Fig. \ref{fig:gps-100},
 \newpage
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[height=0.4\textwidth]{img/gps-100.png}
+\includegraphics[width=14cm]{img/gps-100.png}
 \vspace{-0mm}
 \caption{South-west corner of the maze has GPS coordinates [0, 0].}
 \vspace{-6mm}
@@ -1798,10 +2026,10 @@ Vertical position: 0
 \noindent
 The maze's width (in west-east direction) is 15 tiles, and its height (in south-north direction) 
 is 12 tiles. If Karel stands in the north-east corner as shown in Fig. \ref{fig:gps-101},
-
+\newpage
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[height=0.4\textwidth]{img/gps-101.png}
+\includegraphics[width=14cm]{img/gps-101.png}
 \vspace{-0mm}
 \caption{North-east corner of the maze has GPS coordinates [14, 11].}
 %\vspace{-1cm}
@@ -1884,11 +2112,11 @@ The function can then be used as follows:\\
 Here, we create a new variable {\tt num} and initialize it using the 
 integer value that is returned by the {\tt count\_steps} function.
 The result is then printed. For the situation shown in Fig. \ref{fig:cf-1},
-%\newpage
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[height=0.4\textwidth]{img/maze-new-1.png}
+\includegraphics[width=14cm]{img/maze-new-1.png}
 \vspace{-0mm}
 \caption{Testing the function {\tt count\_steps}.}
 \vspace{-1cm}
@@ -1965,17 +2193,18 @@ with the function {\tt count\_steps} in the previous paragraph:\\[-6mm]
 The value of a numerical variable can be updated at any time by redefining it via 
 one of the five options described in the previous paragraph. For example, let's say that 
 Karel stands as shown in Fig. \ref{fig:var1}.
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[height=0.4\textwidth]{img/variables1.png}
+\includegraphics[width=14cm]{img/variables1.png}
 \end{center}
 \vspace{-4mm}
 \caption{Karel's initial position.}
 \label{fig:var1}
-\vspace{-1cm}
+%\vspace{-1cm}
 \end{figure}
-\newpage
+%\newpage
 \noindent
 Then the program\\
 
@@ -2551,11 +2780,11 @@ In fact, each time we are appending a list consisting of the horizontal and
 vertical GPS coordinates -- there is no other way to represent two numbers 
 in one variable unless the variable is a list. When the robot's initial position 
 is as shown in Fig. \ref{fig:list-1},
-
+\newpage
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[height=0.4\textwidth]{img/lists-1.png}
+\includegraphics[width=14cm]{img/lists-1.png}
 \vspace{-0mm}
 \caption{Robot stands at position [11, 6] facing west.}
 %\vspace{-1cm}
@@ -2625,7 +2854,7 @@ Let's consider the situation shown in Fig. \ref{fig:logic1}.
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics[width=0.7\textwidth]{img/logic-1.png}
+\includegraphics[width=14cm]{img/logic-1.png}
 \end{center}
 \vspace{-2mm}
 \caption{Karel is testing the {\tt wall} sensor.}
@@ -2915,7 +3144,9 @@ enjoyed the textbook and exercises. If you can think of any way to
 improve the application Karel the Robot or this textbook, we would like
 to hear from you. If you have an interesting new game or exercise for 
 Karel, please let us know as well. 
+\newpage
 
+\noindent
 You are now ready to dive into a next programming language! We would 
 recommend Python which is a modern high-level dynamical programming 
 language that is used in many diverse applications in business, science,
