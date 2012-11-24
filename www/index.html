@@ -1,105 +1,170 @@
-<HTML>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>First Course in Programming with Karel the Robot (Textbook, Exercises, Review Questions)</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Free Textbook for Karel the Robot Programming">
+        <meta name="keywords" content="Textbook Karel the Robot Programming Language">
 
-<head>
-<meta name="description" content="Free Textbook for Karel the Robot Programming">
-<meta name="keywords" content="Textbook Karel the Robot Programming Language">
+        <!-- Le styles -->
+        <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+        <style type="text/css">
+            body {
+                padding-top: 20px;
+                padding-bottom: 40px;
+            }
 
-<title>First Course in Programming with Karel the Robot (Textbook, Exercises, Review Questions)</title>
+                /* Custom container */
+            .container-narrow {
+                margin: 0 auto;
+                max-width: 700px;
+            }
 
-<script type="text/javascript">
+            .container-narrow > hr {
+                margin: 30px 0;
+            }
 
- var _gaq = _gaq || [];
- _gaq.push(['_setAccount', 'UA-15768242-12']);
- _gaq.push(['_trackPageview']);
+                /* Main marketing message and sign up button */
+            .jumbotron {
+                margin: 60px 0;
+                text-align: center;
+            }
 
- (function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
- })();
-</script>
+            .jumbotron h1 {
+                font-size: 72px;
+                line-height: 1;
+            }
 
-</head>
+            .jumbotron .btn {
+                font-size: 21px;
+                padding: 14px 24px;
+            }
 
-<BODY background="water.jpg", text="black">
+                /* Supporting marketing content */
+            .marketing {
+                margin: 60px 0;
+            }
 
-<table cellpadding="10" width="1000px" align="center">
-<tr>
-<td>
-<a href="http://nclab.com"><img src="NCLab.png" width=200 align="top"></a>
-<h1>First Course in Programming<br> with Karel the Robot</h1>
+            .marketing p + h4 {
+                margin-top: 28px;
+            }
 
-<b>Author:</b> Pavel Solin et al.<br>
-<b>Publisher:</b> FEMhub Inc.<br>
-<b>Download</b> Textbook,
-Exercises and Review questions: <a href="http://femhub.com/textbook-karel/karel_en.pdf">PDF, 3.2 MB.</a><br>
-<b>Exercises</b> are also available as displayed projects in NCLab.<br>
-<b>Solution Manual</b> (PDF, 1.5 MB) is also <a href="http://nclab.com">available in NCLab.</a>
+            .dl-horizontal dd {
+                margin-left: 0px;
+            }
 
-<h2>Visit NCLab</h2>
-Visit <a href="http://nclab.com">NCLab</a> for unrestricted Karel, Python and Javascript programming 
-in the web browser, computing with Octave and CUDA, CAD modeling, web design, 
-and more. Usage is completely free for public projects and it includes up to 10 MB storage.
+            dd {
+                margin-left: 0px;
+            }
 
-<h2>For Contributors</h2>
-The textbook is open to contributors. If you like to contribute with a bugfix, example, section 
-or chapter - you are very welcome. Every contributor automatically becomes 
-a co-author. If you like to contribute, please contact Pavel Solin with a brief description 
-of your idea. You should be able to use Latex and Git (Github). The following workflow 
-is generally followed:
+            .dl-horizontal dt {
+                float: none;
+                text-align: inherit;
+            }
+        </style>
+        <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
 
-<ul>
-<li>
-Create a free account at Github if you do not have one already.
-</li>
-<li>
-Fork the public repository "femhub/nclab-textbook-karel" into your account.
-</li>
-<li>
-Clone your fork into your own computer or laptop.
-</li>
-<li>
-Create a branch for your edits, do your edits, commit them, push them into 
-your Github repository, and generate a pull request.
-</li>
-<li>
-You will hear from us!
-</li>
-</ul>
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
 
-<h2>Other Free NCLab Textbooks</h2>
+    <body>
 
-<ul>
-<li>
-<a href="http://femhub.com/textbook-python">Introduction to Python Programming</a>
-</li>
-<li>
-<a href="http://femhub.com/textbook-cad">Solid Modeling with PLaSM</a>
-</li>
-</ul>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+        <div class="container-narrow">
 
-</td>
-<td>
-<a href="http://nclab.com"><img src="karel-cover.png" width=500 align="top"></a><br>
-<br>
-<br>
-<a href="http://nclab.com"><img src="karel.png" width=500 align="top"></a><br>
+            <div class="masthead">
+                <ul class="nav nav-pills pull-right">
+                    <li><a href="http://nclab.com"><img src="assets/img/NCLab.png" style="width: 120px;"></a></li>
+                </ul>
+                <h3 class="muted">First Course in Programming&nbsp;<small>with Karel the Robot</small></h3>
+            </div>
 
-</td>
-</tr>
-</table>
+            <hr>
+
+            <div class="jumbotron">
+                <h1>About the book</h1>
+
+                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac
+                    cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <a class="btn btn-large btn-success" href="http://femhub.com/textbook-karel/karel_en.pdf">Get the
+                    textbook</a>
+                <a class="btn btn-large btn-info" href="https://nclab.com/">Get the solutions</a>
+                <a class="btn btn-large" href="https://github.com/femhub/nclab-textbook-karel">Fork the repo</a>
+            </div>
 
 
+            <div class="row-fluid">
+                <ul class="thumbnails">
+                    <li class="span4">
+                        <a href="http://nclab.com" class="thumbnail"><img src="assets/img/karel-cover.png"></a>
+                    </li>
+                    <li class="span4">
+                        <dl class="dl-horizontal">
+                            <dt>Author</dt>
+                            <dd>Pavel Solin et al.</dd>
+                            <dt>Publisher</dt>
+                            <dd>FEMhub Inc.</dd>
+                        </dl>
+                    </li>
+                    <li class="span4">
+                        <a href="http://nclab.com" class="thumbnail"><img src="assets/img/karel.png"></a>
+                    </li>
+                </ul>
+            </div>
 
+            <hr>
 
+            <div class="row-fluid marketing">
+                <div class="span4">
+                    <h4>For Contributors</h4>
+                    The textbook is open to contributors. If you like to contribute with a bugfix, example, section
+                    or chapter - you are very welcome. Every contributor automatically becomes
+                    a co-author. If you like to contribute, please contact Pavel Solin with a brief description
+                    of your idea. You should be able to use Latex and Git (Github).
+                </div>
 
-</body>
-</HTML>
+                <div class="span4">
+                    <h4>Visit NCLab</h4>
+                    Visit <a href="http://nclab.com">NCLab</a> for unrestricted Python, Karel and Javascript programming
+                    in the web browser, computing with Octave and CUDA, CAD modeling, web design,
+                    and more. Usage is completely free for public projects and it includes up to 10 MB storage.
+                </div>
+
+                <div class="span4">
+                    <h4>Other Free NCLab Textbooks</h4>
+                    <ul>
+                        <li><a href="http://femhub.com/textbook-python">Introduction to Python Programming</a></li>
+                        <li><a href="http://femhub.com/textbook-cad">Solid Modeling with PLaSM</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="footer">
+                <p>&copy; Pavel Solin et al. &mdash; <a href="https://github.com/femhub/nclab-textbook-karel">Github
+                    repo</a></p>
+            </div>
+
+        </div>
+        <!-- /container -->
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-15768242-12']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </body>
+</html>
